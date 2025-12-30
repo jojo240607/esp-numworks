@@ -38,7 +38,7 @@ void IntegerHandler::removeZeroAtTheEnd(int minimalNumbersOfDigits,
   // IntegerHandler builder with int64_t is not implemented yet.
   assert(minimumValue <= UINT32_MAX);
   uint32_t minimumValue32 = static_cast<uint32_t>(minimumValue);
-  IntegerHandler base = IntegerHandler(10);
+  IntegerHandler base = IntegerHandler(native_int_t(10));
   IntegerHandler minimum =
       // !shouldCheckMinimalNumberOfDigits ? Integer::Overflow(false) :
       IntegerHandler(minimumValue32, NonStrictSign::Positive);
@@ -80,7 +80,7 @@ size_t IntegerHandler::serialize(char* buffer, size_t bufferSize,
     length += WriteCodePoint(buffer + length, bufferSize - length, '-');
   }
 
-  IntegerHandler base(10);
+  IntegerHandler base(native_int_t(10));
   IntegerHandler quotient = *this;
   while (true) {
     DivisionResult<IntegerHandler> d = Udiv(quotient, base, workingBuffer);

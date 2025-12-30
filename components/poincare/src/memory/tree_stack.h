@@ -72,22 +72,22 @@ class AbstractTreeStack : public BlockStack {
    */
 
 #define PUSHER(F, N, S)                       \
-  template <int I = N>                        \
-    requires(I >= 0 && I == N && S == 0)      \
+  template <int i = N>                        \
+    requires(i >= 0 && i == N && S == 0)      \
   Tree* push##F() {                           \
     return pushBlock(Type::F);                \
   }                                           \
                                               \
-  template <int I = N>                        \
-    requires(I == NARY && I == N && S == 0)   \
+  template <int i = N>                        \
+    requires(i == NARY && i == N && S == 0)   \
   Tree* push##F(int nbChildren) {             \
     Tree* result = pushBlock(Type::F);        \
     pushValueBlock(nbChildren);               \
     return result;                            \
   }                                           \
                                               \
-  template <int I = N>                        \
-    requires(I == NARY2D && I == N && S == 0) \
+  template <int i = N>                        \
+    requires(i == NARY2D && i == N && S == 0) \
   Tree* push##F(int nbRows, int nbCols) {     \
     Tree* result = pushBlock(Type::F);        \
     pushValueBlock(nbRows);                   \

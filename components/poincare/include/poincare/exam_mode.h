@@ -41,7 +41,7 @@ class __attribute__((packed)) ExamMode : public Ion::ExamMode::Configuration {
     bool getFlag(Flags flag) const {
       assert(static_cast<size_t>(flag) <
              static_cast<size_t>(Flags::NumberOfFlags));
-      return OMG::BitHelper::bitAtIndex(m_bits, flag);
+      return OMG::BitHelper::bitAtIndex(m_bits, static_cast<size_t>(flag));
     }
     PressToTestFlags& setFlag(Flags flag, bool value = true) {
       assert(static_cast<size_t>(flag) <

@@ -422,7 +422,7 @@ bool AdvancedOperation::ExpandPower(Tree* e) {
     } else {
       exp.setSign(NonStrictSign::Positive);
       /* Do not expand power strictly greater than 9,  */
-      matched = IntegerHandler::Compare(exp, IntegerHandler(9)) <= 0;
+      matched = IntegerHandler::Compare(exp, IntegerHandler(static_cast<native_uint_t>(9))) <= 0;
     }
   }
   if (matched) {

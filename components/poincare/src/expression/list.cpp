@@ -27,7 +27,7 @@ Tree* List::GetElement(const Tree* e, int k, Tree::Operation reduction) {
         return nullptr;
       }
       Tree* result = e->child(2)->cloneTree();
-      TreeRef value = Integer::Push(k + 1);
+      TreeRef value = Integer::Push(native_int_t(k + 1));
       Variables::Replace(result, 0, value, true);
       value->removeTree();
       return result;
@@ -149,7 +149,7 @@ Tree* List::Variance(const Tree* list, const Tree* coefficients,
   ctx.setInvolvesList(true);
   if (type.isSampleStdDev()) {
     Tree* n = coefficients->isOne()
-                  ? Integer::Push(Dimension::ListLength(list))
+                  ? Integer::Push(native_int_t(Dimension::ListLength(list)))
                   : FoldSumOrProduct(coefficients, Type::ListSum);
     if (n == nullptr) {
       return nullptr;
@@ -177,7 +177,7 @@ Tree* List::Mean(const Tree* list, const Tree* coefficients) {
       SharedTreeStack->flushFromBlock(result);
       return nullptr;
     }
-    Rational::Push(1, Dimension::ListLength(list));
+    Rational::Push(native_int_t(1), native_int_t(Dimension::ListLength(list)));
     SystematicReduction::ShallowReduce(result);
     return result;
   }
@@ -349,17 +349,17 @@ bool List::ShallowApplyListOperators(Tree* e) {
              Integer::Is<uint8_t>(endIndex));
       bool changed = false;
       if (Integer::Handler(startIndex).to<uint8_t>() < minIndex) {
-        startIndex->moveTreeOverTree(Integer::Push(minIndex));
+        startIndex->moveTreeOverTree(Integer::Push(native_int_t(minIndex)));
         changed = true;
       }
       if (Integer::Handler(endIndex).to<uint8_t>() > maxIndex) {
-        endIndex->moveTreeOverTree(Integer::Push(maxIndex));
+        endIndex->moveTreeOverTree(Integer::Push(native_int_t(maxIndex)));
         changed = true;
       }
       return changed;
     }
     case Type::Dim:
-      e->moveTreeOverTree(Integer::Push(Dimension::ListLength(e->child(0))));
+      e->moveTreeOverTree(Integer::Push(native_int_t(Dimension::ListLength(e->child(0)))));
       return true;
     default:
       return false;

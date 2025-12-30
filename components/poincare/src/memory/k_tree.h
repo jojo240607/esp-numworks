@@ -1,6 +1,6 @@
 #ifndef POINCARE_MEMORY_K_TREE_H
 #define POINCARE_MEMORY_K_TREE_H
-
+#undef I
 #include <omg/concept.h>
 #include <omg/print.h>
 

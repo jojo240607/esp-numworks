@@ -397,7 +397,7 @@ bool Parametric::Explicit(Tree* e) {
     // Create k value at this step
     Tree* value = SharedTreeStack->pushAdd(2);
     lowerBound->cloneTree();
-    Integer::Push(step);
+    Integer::Push(native_uint_t(step));
     SystematicReduction::ShallowReduce(value);
     // Clone the child and replace k with its value
     Tree* clone = child->cloneTree();

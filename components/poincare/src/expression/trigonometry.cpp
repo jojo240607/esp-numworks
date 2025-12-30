@@ -45,7 +45,7 @@ const Tree* getExactFormula(uint8_t n, bool isSin, bool* isOpposed) {
   /* Only 7 exact formulas are left to handle. */
   assert(n >= 0 && n <= 30);
   Tree* reducedAngle = SharedTreeStack->pushMult(2);
-  Rational::Push(n, 120);
+  Rational::Push(native_int_t(n), native_int_t(120));
   SharedTreeStack->pushPi();
   SystematicReduction::DeepReduce(reducedAngle);
   const Tree* result =
@@ -62,7 +62,7 @@ const Tree* getExactFormula(const Tree* piFactor, bool isSin, bool* isOpposed) {
   if (multipleTree->isInteger()) {
     // Trig is 2pi periodic, n can be retrieved as a uint8_t.
     multipleTree->moveTreeOverTree(IntegerHandler::Remainder(
-        Integer::Handler(multipleTree), IntegerHandler(240)));
+        Integer::Handler(multipleTree), IntegerHandler(native_int_t(240))));
     assert(Integer::Is<uint8_t>(multipleTree));
     uint8_t n = Integer::Handler(multipleTree).to<uint8_t>();
     multipleTree->removeTree();
@@ -295,12 +295,12 @@ bool Trigonometry::ReduceTrigSecondElement(Tree* e, bool* isOpposed) {
   assert(e->isInteger() && !SystematicReduction::DeepReduce(e));
   bool changed = false;
   IntegerHandler i = Integer::Handler(e);
-  Tree* remainder = IntegerHandler::Remainder(i, IntegerHandler(4));
+  Tree* remainder = IntegerHandler::Remainder(i, IntegerHandler(native_int_t(4)));
   if (Order::CompareSystem(remainder, 2_e) >= 0) {
     changed = true;
     *isOpposed = !*isOpposed;
     remainder->moveTreeOverTree(
-        IntegerHandler::Remainder(i, IntegerHandler(2)));
+        IntegerHandler::Remainder(i, IntegerHandler(native_int_t(2))));
     assert(!remainder->treeIsIdenticalTo(e));
   }
   changed |= !remainder->treeIsIdenticalTo(e);

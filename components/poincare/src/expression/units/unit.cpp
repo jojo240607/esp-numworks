@@ -547,8 +547,8 @@ void Unit::RemoveUnit(Tree* unit) {
   Tree* result = SharedTreeStack->pushMult(2);
   representative->pushReducedRatioExpression();
   SharedTreeStack->pushPow();
-  Integer::Push(10);
-  Integer::Push(GetPrefix(unit)->exponent());
+  Integer::Push(native_int_t(10));
+  Integer::Push(native_int_t(GetPrefix(unit)->exponent()));
   unit->moveTreeOverTree(result);
 }
 
@@ -704,7 +704,7 @@ Tree* Unit::GetBaseUnits(SIVector vector) {
     }
     Push(representative);
     if (exponent != 1) {
-      Integer::Push(exponent);
+      Integer::Push(native_int_t(exponent));
     }
     NAry::SetNumberOfChildren(result, ++numberOfChildren);
   }
@@ -863,7 +863,7 @@ void Unit::ApplyMainOutputDisplay(Tree* e, TreeRef& inputUnits,
     // Replace inputUnits to target angle unit.
     Tree* newExtractedUnits = KPow->cloneNode();
     Unit::Push(angleUnit);
-    Integer::Push(dimension.unit.vector.angle);
+    Integer::Push(native_int_t(dimension.unit.vector.angle));
     assert(Dimension::Get(newExtractedUnits) == Dimension::Get(inputUnits));
     MoveTreeOverTree(inputUnits, newExtractedUnits);
     e->moveTreeOverTree(ExactConvertToUnit(e, inputUnits));
@@ -1179,7 +1179,7 @@ bool Unit::ApplyEquivalentDisplay(Tree* e, TreeRef& inputUnits,
     Push(targetRepresentative, distancePrefix);
     KPow->cloneNode();
     Push(&Time::representatives.hour, Prefix::EmptyPrefix());
-    Integer::Push(-1);
+    Integer::Push(native_int_t(-1));
     optimizePrefix = false;
   } else if (isSurface || isVolume) {
     // TODO: Maybe handle intermediary cases where multiple units are involved.
@@ -1200,7 +1200,7 @@ bool Unit::ApplyEquivalentDisplay(Tree* e, TreeRef& inputUnits,
       optimizePrefix = isVolume || !isImperial;
       units = KPow->cloneNode();
       Push(targetRepresentative, Prefix::EmptyPrefix());
-      Integer::Push(isVolume ? 3 : 2);
+      Integer::Push(native_int_t(isVolume ? 3 : 2));
     }
   } else {
     OMG::unreachable();

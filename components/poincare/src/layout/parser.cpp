@@ -153,7 +153,7 @@ Tree* Parser::Parse(const Tree* l, Poincare::Context* context,
       }
 
       // First rank
-      SharedTreeStack->pushInteger(SequenceLayout::FirstRank(l));
+      SharedTreeStack->pushInteger(uint32_t(SequenceLayout::FirstRank(l)));
 
       expr->cloneNodeAtNode(KSequenceExplicit);
       // Initial conditions

@@ -29,7 +29,7 @@ void Undefined::ReplaceTreeWithDimensionedType(Tree* e, Type type) {
     // Push ListSequence instead of a list to delay its expansion.
     SharedTreeStack->pushListSequence();
     "k"_e->cloneTree();
-    Integer::Push(length);
+    Integer::Push(native_int_t(length));
   }
   Dimension dim = Dimension::Get(e);
   if (dim.isBoolean()) {

@@ -285,7 +285,7 @@ void Layouter::layoutIntegerHandler(TreeRef& layoutParent,
   TreeRef value = handler.pushOnTreeStack();
   do {
     DivisionResult result = IntegerHandler::Division(
-        Integer::Handler(value), IntegerHandler(static_cast<uint8_t>(m_base)));
+        Integer::Handler(value), IntegerHandler(native_uint_t(static_cast<uint8_t>(m_base))));
     uint8_t digit = Integer::Handler(result.remainder);
     assert(result.remainder > result.quotient);
     result.remainder->removeTree();
@@ -957,11 +957,11 @@ bool Layouter::requireSeparators(const Tree* expression) {
   if (expression->isRational()) {
     IntegerHandler num = Rational::Numerator(expression);
     num.setSign(NonStrictSign::Positive);
-    if (IntegerHandler::Compare(num, k_minValueForThousandsSeparator) >= 0) {
+    if (IntegerHandler::Compare(num, IntegerHandler(native_int_t(k_minValueForThousandsSeparator))) >= 0) {
       return true;
     }
     IntegerHandler den = Rational::Denominator(expression);
-    if (IntegerHandler::Compare(den, k_minValueForThousandsSeparator) >= 0) {
+    if (IntegerHandler::Compare(den, IntegerHandler(native_int_t(k_minValueForThousandsSeparator))) >= 0) {
       return true;
     }
     return false;

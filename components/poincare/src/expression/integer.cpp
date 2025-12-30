@@ -100,8 +100,8 @@ IntegerHandler IntegerHandler::Parse(ForwardUnicodeDecoder& decoder,
     sign = NonStrictSign::Negative;
     decoder.nextCodePoint();
   }
-  IntegerHandler baseInteger(static_cast<uint8_t>(base));
-  IntegerHandler result(0);
+  IntegerHandler baseInteger(native_int_t(static_cast<uint8_t>(base)));
+  IntegerHandler result(native_int_t(0));
   uint8_t* const localStart = workingBuffer->localStart();
   while (CodePoint codePoint = decoder.nextCodePoint()) {
     if (maxNumberOfDigits == 0) {
@@ -111,7 +111,7 @@ IntegerHandler IntegerHandler::Parse(ForwardUnicodeDecoder& decoder,
     IntegerHandler multiplication = Mult(result, baseInteger, workingBuffer);
     workingBuffer->garbageCollect({&baseInteger, &multiplication}, localStart);
     IntegerHandler digit =
-        IntegerHandler(OMG::Print::DigitForCharacter(codePoint));
+        IntegerHandler(native_int_t(OMG::Print::DigitForCharacter(codePoint)));
     digit.setSign(sign);
     result = Sum(multiplication, digit, false, workingBuffer);
     workingBuffer->garbageCollect({&baseInteger, &result}, localStart);
@@ -279,7 +279,7 @@ IntegerHandler::DigitCounts IntegerHandler::numberOfBase10DigitsWithoutSign(
   // assert(!isOverflow());
   uint8_t* const localStart = workingBuffer->localStart();
   int numberOfDigits = 1;
-  IntegerHandler base(10);
+  IntegerHandler base(native_int_t(10));
   bool countingZeros = true;
   int numberOfZeroes = 0;
   IntegerHandler quotient = *this;
@@ -548,7 +548,7 @@ DivisionResult<Tree*> IntegerHandler::Division(
   WorkingBuffer workingBuffer;
   auto [quotient, remainder] = Udiv(numerator, denominator, &workingBuffer);
   if (!remainder.isZero() && numerator.sign() == NonStrictSign::Negative) {
-    quotient = Usum(quotient, IntegerHandler(1), false, &workingBuffer);
+    quotient = Usum(quotient, IntegerHandler(native_int_t(1)), false, &workingBuffer);
     remainder = Usum(denominator, remainder, true,
                      &workingBuffer);  // |denominator|-remainder
   }
@@ -572,7 +572,7 @@ Tree* IntegerHandler::Quotient(const IntegerHandler& numerator,
   WorkingBuffer workingBuffer;
   auto [quotient, remainder] = Udiv(numerator, denominator, &workingBuffer);
   if (!remainder.isZero() && numerator.sign() == NonStrictSign::Negative) {
-    quotient = Usum(quotient, IntegerHandler(1), false, &workingBuffer);
+    quotient = Usum(quotient, IntegerHandler(native_int_t(1)), false, &workingBuffer);
   }
   quotient.setSign(numerator.sign() == denominator.sign()
                        ? NonStrictSign::Positive
@@ -601,7 +601,7 @@ DivisionResult<IntegerHandler> IntegerHandler::Udiv(
   // TODO: implement Svoboda algorithm or divide and conquer methods
   assert(!denominator.isZero());
   if (Ucmp(numerator, denominator) < 0) {
-    return {.quotient = static_cast<int8_t>(0), .remainder = numerator};
+    return {.quotient = native_int_t(static_cast<int8_t>(0)), .remainder = numerator};
   }
   /* Let's call beta = 1 << 16 */
   /* Normalize numerator & denominator:
@@ -652,7 +652,7 @@ DivisionResult<IntegerHandler> IntegerHandler::Udiv(
         j);  // Q[j] = std::min(qj2, beta -1)
     IntegerHandler betaJM =
         B.multiplyByPowerOfBase(j, workingBuffer);  // betaJM = B*beta^j
-    IntegerHandler qBj = Mult(IntegerHandler(Q.digit<half_native_uint_t>(j)),
+    IntegerHandler qBj = Mult(IntegerHandler(native_int_t(Q.digit<half_native_uint_t>(j))),
                               betaJM, workingBuffer, true);
     IntegerHandler newA = IntegerHandler::Sum(A, qBj, true, workingBuffer,
                                               true);  // A-q[j]*beta^j*B
@@ -815,16 +815,16 @@ Tree* IntegerHandler::Power(const IntegerHandler& i, const IntegerHandler& j) {
   if (j.isZero()) {
     // TODO: handle 0^0.
     assert(!i.isZero());
-    return Integer::Push(1);
+    return Integer::Push(native_int_t(1));
   }
   // Exponentiate by squaring : i^j = (i*i)^(j/2) * i^(j%2)
-  IntegerHandler i1(1);
+  IntegerHandler i1(native_int_t(1));
   IntegerHandler i2(i);
   IntegerHandler exp(j);
   WorkingBuffer workingBuffer;
   uint8_t* const localStart = workingBuffer.localStart();
   while (!exp.isOne()) {
-    auto [quotient, remainder] = Udiv(exp, IntegerHandler(2), &workingBuffer);
+    auto [quotient, remainder] = Udiv(exp, IntegerHandler(native_int_t(2)), &workingBuffer);
     exp = quotient;
     /* The integers given to garbageCollect have to be sorted. We keep trace of
      * the order of exp and i1 in order to respect this assertion. */
@@ -847,13 +847,13 @@ Tree* IntegerHandler::Power(const IntegerHandler& i, const IntegerHandler& j) {
 
 Tree* IntegerHandler::Factorial(const IntegerHandler& i) {
   assert(i.sign() == NonStrictSign::Positive);
-  IntegerHandler j(2);
-  IntegerHandler result(1);
+  IntegerHandler j(native_int_t(2));
+  IntegerHandler result(native_int_t(1));
   WorkingBuffer workingBuffer;
   uint8_t* const localStart = workingBuffer.localStart();
   while (Ucmp(i, j) >= 0) {
     result = Mult(j, result, &workingBuffer);
-    j = Usum(j, IntegerHandler(1), false, &workingBuffer);
+    j = Usum(j, IntegerHandler(native_int_t(1)), false, &workingBuffer);
     workingBuffer.garbageCollect({&result, &j}, localStart);
   }
   return result.pushOnTreeStack();

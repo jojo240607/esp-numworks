@@ -211,7 +211,7 @@ bool SystematicOperation::ReducePower(Tree* e) {
   if (base->isComplexI()) {
     // i^n -> ±1 or ±i
     Tree* remainder =
-        IntegerHandler::Remainder(Integer::Handler(n), IntegerHandler(4));
+        IntegerHandler::Remainder(Integer::Handler(n), IntegerHandler(native_int_t(4)));
     int rem = Integer::Handler(remainder).to<uint8_t>();
     remainder->removeTree();
     e->cloneTreeOverTree(
@@ -564,8 +564,8 @@ bool SystematicOperation::ReduceDim(Tree* e) {
   if (dim.isMatrix()) {
 #if POINCARE_MATRIX
     Tree* result = SharedTreeStack->pushMatrix(1, 2);
-    Integer::Push(dim.matrix.rows);
-    Integer::Push(dim.matrix.cols);
+    Integer::Push(native_int_t(dim.matrix.rows));
+    Integer::Push(native_int_t(dim.matrix.cols));
     e->moveTreeOverTree(result);
     return true;
 #endif
@@ -677,7 +677,7 @@ static bool ReduceSquareRoot(Tree* e) {
   for (int i = 0; i < factorization.numberOfFactors; i++) {
     // √(factor^(2*q+r) * n) = (factor^q) * √(factor^r * n)
     DivisionResult<Tree*> div = IntegerHandler::Division(
-        factorization.coefficients[i], IntegerHandler(2));
+            native_int_t(factorization.coefficients[i]), IntegerHandler(native_int_t(2)));
     Tree* factor = Integer::Push(factorization.factors[i]);
     TreeRef powerIn = Rational::IntegerPower(factor, div.remainder).tree;
     TreeRef powerOut = Rational::IntegerPower(factor, div.quotient).tree;

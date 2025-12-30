@@ -31,20 +31,20 @@ constexpr bool bitAtIndex(T mask, size_t i) {
   assert(i >= 0 && i < numberOfBitsIn<T>());
   return (mask >> i) & 1U;
 }
-template <typename T, typename I>
-constexpr bool bitAtIndex(T mask, I i) {
-  return bitAtIndex(mask, static_cast<size_t>(i));
-}
+//template <typename T, typename I>
+//constexpr bool bitAtIndex(T mask, I i) {
+//  return bitAtIndex(mask, static_cast<size_t>(i));
+//}
 
 template <typename T>
 constexpr T bitsBetweenIndexes(T bits, size_t high, size_t low) {
   return (bits >> low) & ((static_cast<T>(1) << (high - low + 1)) - 1);
 }
-template <typename T, typename I>
-constexpr T bitsBetweenIndexes(T bits, I high, I low) {
-  return bitsBetweenIndexes<T>(bits, static_cast<size_t>(high),
-                               static_cast<size_t>(low));
-}
+//template <typename T, typename I>
+//constexpr T bitsBetweenIndexes(T bits, I high, I low) {
+//  return bitsBetweenIndexes<T>(bits, static_cast<size_t>(high),
+//                               static_cast<size_t>(low));
+//}
 
 template <typename T>
 constexpr T withBitsBetweenIndexes(T bits, size_t high, size_t low, T value) {
@@ -57,20 +57,20 @@ constexpr void setBitsBetweenIndexes(T& bits, size_t high, size_t low,
                                      T value) {
   bits = withBitsBetweenIndexes(bits, high, low, value);
 }
-template <typename T, typename I>
-constexpr void setBitsBetweenIndexes(T& bits, I high, I low, T value) {
-  setBitsBetweenIndexes<T>(bits, static_cast<size_t>(high),
-                           static_cast<size_t>(low), value);
-}
+//template <typename T, typename I>
+//constexpr void setBitsBetweenIndexes(T& bits, I high, I low, T value) {
+//  setBitsBetweenIndexes<T>(bits, static_cast<size_t>(high),
+//                           static_cast<size_t>(low), value);
+//}
 
 template <typename T>
 constexpr void setBitAtIndex(T& mask, size_t i, bool b) {
   mask = withBitsBetweenIndexes(mask, i, i, static_cast<T>(b));
 }
-template <typename T, typename I>
-constexpr void setBitAtIndex(T& mask, I i, bool b) {
-  setBitAtIndex(mask, static_cast<size_t>(i), b);
-}
+//template <typename T, typename I>
+//constexpr void setBitAtIndex(T& mask, I i, bool b) {
+//  setBitAtIndex(mask, static_cast<size_t>(i), b);
+//}
 
 constexpr inline size_t countLeadingZeros(uint32_t i) {
   return std::countl_zero(i);

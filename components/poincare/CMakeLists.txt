@@ -225,7 +225,11 @@ set(ALL_SOURCES
         ${_sources_group4}
         ${_sources_group5}
         )
+# 降低警告级别
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error")
 
+# 或关闭特定警告
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-expansion-to-defined")
 # 注册为IDF组件
 idf_component_register(
         SRCS ${ALL_SOURCES}
@@ -244,7 +248,9 @@ idf_component_register(
         #COMPILE_DEFINITIONS ${COMPILE_DEFINITIONS}
         REQUIRES kandinsky  # 字体依赖
 )
-
+target_sources(${COMPONENT_TARGET} PRIVATE
+        "config.epsilon.h"
+        )
 # 然后设置编译选项（如果 ${COMPONENT_NAME} 已定义）
 if(TARGET ${COMPONENT_NAME})
     target_compile_options(${COMPONENT_NAME} PRIVATE

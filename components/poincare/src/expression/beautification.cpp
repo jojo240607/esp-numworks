@@ -266,8 +266,8 @@ Tree* PushScientificNotation(const Tree* e, int nbOf0sAtTheEnd,
   Tree* significantDigits = SharedTreeStack->pushMult(2);
   e->cloneTree();
   SharedTreeStack->pushPow();
-  Integer::Push(10);
-  Integer::Push(-nbOf0sAtTheEnd);
+  Integer::Push(native_int_t(10));
+  Integer::Push(native_int_t(-nbOf0sAtTheEnd));
   SystematicReduction::DeepReduce(significantDigits);
   assert(significantDigits->isPositiveInteger() &&
          !significantDigits->isZero());
@@ -277,12 +277,12 @@ Tree* PushScientificNotation(const Tree* e, int nbOf0sAtTheEnd,
     result = SharedTreeStack->pushPow();
   } else {
     if (nbOfSignificantDigits > 1) {
-      Integer::Push(nbOfSignificantDigits - 1);
+      Integer::Push(native_int_t(nbOfSignificantDigits - 1));
     }
     SharedTreeStack->pushPow();
   }
-  Integer::Push(10);
-  Integer::Push(nbOf0sAtTheEnd + nbOfSignificantDigits - 1);
+  Integer::Push(native_int_t(10));
+  Integer::Push(native_int_t(nbOf0sAtTheEnd + nbOfSignificantDigits - 1));
   return result;
 }
 

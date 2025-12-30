@@ -420,7 +420,7 @@ void RackParser::parseNumber(TreeRef& leftHandSide, Token::Type stoppingType) {
       if (expValue != 0) {
         assert(smallE != end);
         leftHandSide->moveNodeAtNode(SharedTreeStack->pushDecimal());
-        Integer::Push(-expValue);
+        Integer::Push(native_int_t(-expValue));
       }
       // Integer(integerPart) || Decimal(integerPart, -expValue)
     } else {
@@ -433,15 +433,15 @@ void RackParser::parseNumber(TreeRef& leftHandSide, Token::Type stoppingType) {
       Tree* fractionalPart =
           Integer::Push(fractionalDigits, OMG::Base::Decimal, numberOfDigits);
       leftHandSide = SharedTreeStack->pushDecimal();
-      Tree* result = IntegerHandler::Power(IntegerHandler(10),
-                                           IntegerHandler(numberOfDigits));
+      Tree* result = IntegerHandler::Power(IntegerHandler(native_int_t(10)),
+                                           IntegerHandler(native_int_t(numberOfDigits)));
       result->moveTreeOverTree(IntegerHandler::Multiplication(
           Integer::Handler(result), Integer::Handler(integerPart)));
       result->moveTreeOverTree(IntegerHandler::Addition(
           Integer::Handler(result), Integer::Handler(fractionalPart)));
       fractionalPart->removeTree();
       integerPart->removeTree();
-      Integer::Push(numberOfDigits - expValue);
+      Integer::Push(native_int_t(numberOfDigits - expValue));
       /* Decimal(integerDigits*10^numberOfDigits + fractionalDigits,
        * numberOfDigits - expValue) */
     }
@@ -1056,7 +1056,7 @@ void RackParser::privateParseReservedFunction(TreeRef& leftHandSide,
 
   if (powerFunction) {
     CloneNodeAtNode(leftHandSide, KPow);
-    Integer::Push(powerValue);
+    Integer::Push(native_int_t(powerValue));
   }
 }
 
@@ -1268,7 +1268,7 @@ bool RackParser::privateParseCustomIdentifierWithParameters(
     // SymbolValue
     parameter->detachTree();
     // Order
-    Integer::Push(derivationOrder);
+    Integer::Push(native_int_t(derivationOrder));
     // Derivand
     SharedTreeStack->pushUserFunction(name);
     Derivation::k_functionDerivativeVariable->cloneTree();

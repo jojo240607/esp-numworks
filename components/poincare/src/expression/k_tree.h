@@ -1,6 +1,6 @@
 #ifndef POINCARE_EXPRESSION_K_TREE_H
 #define POINCARE_EXPRESSION_K_TREE_H
-
+#undef I
 #include <omg/arithmetic.h>
 #include <poincare/sign.h>
 #include <poincare/src/memory/k_tree.h>

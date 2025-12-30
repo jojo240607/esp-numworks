@@ -488,7 +488,7 @@ Arithmetic::FactorizedInteger Arithmetic::PrimeFactorization(IntegerHandler m) {
   WorkingBuffer workingBuffer;
   uint8_t* const localStart = workingBuffer.localStart();
   FactorizedInteger result;
-  if (IntegerHandler::Ucmp(m, IntegerHandler(1)) <= 0) {
+  if (IntegerHandler::Ucmp(m, IntegerHandler(static_cast<native_uint_t>(1))) <= 0) {
     return result;
   }
 
@@ -502,10 +502,10 @@ Arithmetic::FactorizedInteger Arithmetic::PrimeFactorization(IntegerHandler m) {
   do {
     stopCondition =
         IntegerHandler::Ucmp(
-            m, IntegerHandler::Mult(testedPrimeFactor, testedPrimeFactor,
+            m, IntegerHandler::Mult(IntegerHandler(native_int_t(testedPrimeFactor)), IntegerHandler(native_int_t(testedPrimeFactor)),
                                     &workingBuffer)) > 0;
     DivisionResult<IntegerHandler> div =
-        IntegerHandler::Udiv(m, testedPrimeFactor, &workingBuffer);
+        IntegerHandler::Udiv(m, IntegerHandler(native_int_t(testedPrimeFactor)), &workingBuffer);
     if (div.remainder.isZero()) {
       if (result.coefficients[t] == UINT8_MAX) {
         /* Failed factorization because number as a factor with coef > UINT8_MAX
@@ -538,8 +538,8 @@ Arithmetic::FactorizedInteger Arithmetic::PrimeFactorization(IntegerHandler m) {
            t < FactorizedInteger::k_maxNumberOfFactors);
   if (t == FactorizedInteger::k_maxNumberOfFactors ||
       IntegerHandler::Ucmp(
-          m, IntegerHandler::Mult(IntegerHandler(k_biggestPrimeFactor),
-                                  IntegerHandler(k_biggestPrimeFactor),
+          m, IntegerHandler::Mult(IntegerHandler(native_int_t(k_biggestPrimeFactor)),
+                                  IntegerHandler(native_int_t(k_biggestPrimeFactor)),
                                   &workingBuffer)) > 0) {
     /* tooManyFactors or factorTooLarge. In the later case, we do not want to
      * break i in prime factor because it takes too much time: the prime factor
@@ -593,7 +593,7 @@ Tree* Arithmetic::PushPrimeFactorization(IntegerHandler m) {
     }
     Integer::Push(result.factors[i]);
     if (result.coefficients[i] > 1) {
-      Integer::Push(result.coefficients[i]);
+      Integer::Push(native_int_t(result.coefficients[i]));
     }
   }
   NAry::SetNumberOfChildren(mult, result.numberOfFactors);

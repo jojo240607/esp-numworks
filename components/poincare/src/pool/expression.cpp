@@ -522,7 +522,7 @@ SystemExpression SystemExpression::getReducedDerivative(
   const Tree* symbol = SharedTreeStack->pushUserSymbol(symbolName);
   // Symbol value (so that the derivative is evaluated at symbolName's value)
   SharedTreeStack->pushUserSymbol(symbolName);
-  Integer::Push(derivationOrder);
+  Integer::Push(native_int_t(derivationOrder));
   Tree* derivand = tree()->cloneTree();
   Variables::ReplaceSymbol(derivand, symbol, 0,
                            Parametric::VariableSign(result));

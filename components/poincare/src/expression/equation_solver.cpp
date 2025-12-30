@@ -741,7 +741,7 @@ uint32_t EquationSolver::TagParametersUsedAsVariables(const Context* context) {
       continue;
     }
     if (variable[1] == '\0') {
-      OMG::BitHelper::setBitAtIndex(tags, 0, true);
+      OMG::BitHelper::setBitAtIndex(tags, static_cast<size_t>(0), true);
       continue;
     }
     size_t index =

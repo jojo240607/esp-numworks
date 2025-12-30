@@ -233,7 +233,7 @@ Tree* PushIK2Pi(int k) {
   Tree* result = (KMult.node<4>)->cloneNode();
   (i_e)->cloneTree();
   (2_e)->cloneTree();
-  Integer::Push(k);
+  Integer::Push(native_int_t(k));
   (π_e)->cloneTree();
   SystematicReduction::DeepReduce(result);
   return result;
@@ -397,7 +397,7 @@ Tree* Logarithm::ExpandLnOnInteger(IntegerHandler m, bool escapeIfPrime) {
   for (int i = 0; i < factorization.numberOfFactors; i++) {
     if (factorization.coefficients[i] > 1) {
       KMult.node<2>->cloneNode();
-      Integer::Push(factorization.coefficients[i]);
+      Integer::Push(native_int_t(factorization.coefficients[i]));
     }
     KLn->cloneNode();
     Integer::Push(factorization.factors[i]);

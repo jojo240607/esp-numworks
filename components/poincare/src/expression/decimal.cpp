@@ -18,7 +18,7 @@ void Decimal::Project(Tree* e) {
   // dec(x, n) -> 10^(-n)*x
   TreeRef mult = SharedTreeStack->pushMult(1);
   SharedTreeStack->pushPow();
-  Integer::Push(10);
+  Integer::Push(native_int_t(10));
   SharedTreeStack->pushMult(2);
   (-1_e)->cloneTree();
   e->child(1)->detachTree();
@@ -66,23 +66,23 @@ int Decimal::Serialize(const Tree* decimal, char* buffer, int bufferSize,
   exponent = numberOfDigitsInMantissa - 1 - exponent;
   if (numberOfDigitsInMantissa > numberOfSignificantDigits) {
     int exp = numberOfDigitsInMantissa - numberOfSignificantDigits;
-    IntegerHandler value = 1;
+    IntegerHandler value = IntegerHandler(native_int_t(1));
     for (int i = 0; i < exp; i++) {
-      value = IntegerHandler::Mult(10, value, &workingBuffer);
+      value = IntegerHandler::Mult(IntegerHandler(native_uint_t(10)), value, &workingBuffer);
       workingBuffer.garbageCollect({&m, &value}, localStart);
     }
     DivisionResult<IntegerHandler> d =
         IntegerHandler::Udiv(m, value, &workingBuffer);
     m = d.quotient;
     IntegerHandler boundary =
-        IntegerHandler::Udiv(value, 2, &workingBuffer).quotient;
+        IntegerHandler::Udiv(value, IntegerHandler(native_uint_t(2)), &workingBuffer).quotient;
     if (IntegerHandler::Compare(d.remainder, boundary) >= 0) {
-      m = IntegerHandler::Sum(m, IntegerHandler(1), false, &workingBuffer);
+      m = IntegerHandler::Sum(m, IntegerHandler(native_uint_t(1)), false, &workingBuffer);
       // if 9999 was rounded to 10000, we need to update exponent and mantissa
       if (m.numberOfBase10DigitsWithoutSign(&workingBuffer).numberOfDigits >
           numberOfSignificantDigits) {
         exponent++;
-        m = IntegerHandler::Udiv(m, IntegerHandler(10), &workingBuffer)
+        m = IntegerHandler::Udiv(m, IntegerHandler(native_int_t(10)), &workingBuffer)
                 .quotient;
       }
     }
@@ -102,7 +102,7 @@ int Decimal::Serialize(const Tree* decimal, char* buffer, int bufferSize,
             m.numberOfBase10DigitsWithoutSign(&workingBuffer).numberOfDigits);
     if (numberOfZeroesToAddForEngineering > 0) {
       for (int i = 0; i < numberOfZeroesToAddForEngineering; i++) {
-        m = IntegerHandler::Mult(m, IntegerHandler(10), &workingBuffer);
+        m = IntegerHandler::Mult(m, IntegerHandler(native_int_t(10)), &workingBuffer);
         workingBuffer.garbageCollect({&m}, localStart);
       }
       removeZeroes = false;
@@ -227,11 +227,11 @@ int Decimal::Serialize(const Tree* decimal, char* buffer, int bufferSize,
       return bufferSize - 1;
     }
     if (mode == Preferences::PrintFloatMode::Engineering) {
-      currentChar += IntegerHandler(exponentForEngineeringNotation)
+      currentChar += IntegerHandler(native_int_t(exponentForEngineeringNotation))
                          .serialize(buffer + currentChar,
                                     bufferSize - currentChar, &workingBuffer);
     } else {
-      currentChar += IntegerHandler(exponent).serialize(
+      currentChar += IntegerHandler(native_int_t(exponent)).serialize(
           buffer + currentChar, bufferSize - currentChar, &workingBuffer);
     }
     return currentChar;
