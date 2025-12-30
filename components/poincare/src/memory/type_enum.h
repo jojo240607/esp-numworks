@@ -1,6 +1,6 @@
 #ifndef POINCARE_MEMORY_TYPE_ENUM_H
 #define POINCARE_MEMORY_TYPE_ENUM_H
-#include "config.epsilon.h"
+#include <poincare/config.epsilon.h>
 namespace Poincare::Internal {
 
 enum class TypeEnum : uint8_t {
