@@ -1,0 +1,146 @@
+#include <ion/display.h>
+#include <omg/unicode_helper.h>
+#include <poincare/src/expression/k_tree.h>
+#include <poincare/src/layout/grid.h>
+#include <poincare/src/layout/k_tree.h>
+#include <poincare/src/layout/layout_serializer.h>
+#include <poincare/src/layout/layout_span_decoder.h>
+#include <poincare/src/layout/layouter.h>
+#include <poincare/src/layout/multiplication_symbol.h>
+#include <poincare/src/layout/rack_layout_decoder.h>
+#include <poincare/src/layout/render.h>
+
+#include "helper.h"
+
+using namespace Poincare::Internal;
+
+void assert_expression_layouts_as(const Tree* expression, const Tree* layout,
+                                  bool linearMode = false,
+                                  bool compactMode = false,
+                                  int numberOfSignificantDigits = -1,
+                                  Preferences::PrintFloatMode floatMode =
+                                      Preferences::PrintFloatMode::Decimal,
+                                  OMG::Base base = OMG::Base::Decimal) {
+  Tree* l = Layouter::LayoutExpression(expression->cloneTree(), linearMode,
+                                       compactMode, numberOfSignificantDigits,
+                                       floatMode, base);
+  assert_trees_are_equal(l, layout);
+  l->removeTree();
+}
+
+QUIZ_CASE(pcj_expression_to_layout) {
+  assert_expression_layouts_as(KAdd(1_e, 2_e, 3_e), "1+2+3"_l);
+  assert_expression_layouts_as(KSub(KAdd(1_e, 2_e), 3_e), "1+2-3"_l);
+  assert_expression_layouts_as(KSub(1_e, KAdd(2_e, 3_e)),
+                               "1-"_l ^ KParenthesesL("2+3"_l));
+  assert_expression_layouts_as(
+      KPow(KAdd("x"_e, "y"_e), 2_e),
+      KRackL(KParenthesesL("x+y"_l), KSuperscriptL("2"_l)));
+  assert_expression_layouts_as(
+      KPow(KMult("x"_e, "y"_e), 2_e),
+      KRackL(KParenthesesL("x·y"_l), KSuperscriptL("2"_l)));
+  assert_expression_layouts_as(KAdd(KMixedFraction(2_e, KDiv(1_e, 3_e)), 4_e),
+                               "2 1/3+4"_l, true);
+  // 12 345 - 54 321
+  const Tree* expected = "12"_l ^ KThousandsSeparatorL ^ "345"_l ^
+                         KOperatorSeparatorL ^ "-"_l ^ KOperatorSeparatorL ^
+                         "54"_l ^ KThousandsSeparatorL ^ "321"_l;
+  assert_expression_layouts_as(KAdd(12345_e, KOpposite(54321_e)), expected,
+                               false);
+  assert_expression_layouts_as(KAdd(12345_de, -54321_de), expected, false);
+
+  assert_expression_layouts_as(9_e, "0b1001"_l, false, false, -1,
+                               Preferences::PrintFloatMode::Decimal,
+                               OMG::Base::Binary);
+  assert_expression_layouts_as(54321_e, "0b1101010000110001"_l, false, false,
+                               -1, Preferences::PrintFloatMode::Decimal,
+                               OMG::Base::Binary);
+  assert_expression_layouts_as(54321_e, "0xD431"_l, false, false, -1,
+                               Preferences::PrintFloatMode::Decimal,
+                               OMG::Base::Hexadecimal);
+  assert_expression_layouts_as(-123_e, "-123"_l, false, false, -1,
+                               Preferences::PrintFloatMode::Decimal,
+                               OMG::Base::Decimal);
+  assert_expression_layouts_as(KAdd("x"_e, KOpposite(KAdd("y"_e, "z"_e))),
+                               "x-"_l ^ KParenthesesL("y+z"_l));
+  assert_expression_layouts_as(KListSlice("L"_e, 2_e, 3_e),
+                               "L"_l ^ KParenthesesL("2,3"_l));
+
+  assert_expression_layouts_as(KMult(KAdd(π_e, 1_e), KLogBase(7_e, 3_e)),
+                               KParenthesesL("π+1"_l) ^ "log"_l ^
+                                   KSubscriptL("3"_l) ^ KParenthesesL("7"_l));
+
+  Poincare::Preferences::SharedPreferences()->setLogarithmBasePosition(
+      Poincare::Preferences::LogarithmBasePosition::TopLeft);
+  assert_expression_layouts_as(KMult(KAdd(π_e, 1_e), KLogBase(7_e, 3_e)),
+                               KParenthesesL("π+1"_l) ^ "·"_l ^
+                                   KPrefixSuperscriptL("3"_l) ^ "log"_l ^
+                                   KParenthesesL("7"_l));
+  Poincare::Preferences::SharedPreferences()->setLogarithmBasePosition(
+      Poincare::Preferences::LogarithmBasePosition::BottomRight);
+}
+
+QUIZ_CASE(pcj_layout_decoder) {
+  const Tree* l = "123"_l;
+  CPLayoutDecoder d(l->child(0), 0, 3);
+  quiz_assert(d.nextCodePoint() == '1');
+  quiz_assert(d.nextCodePoint() == '2');
+  quiz_assert(d.nextCodePoint() == '3');
+  quiz_assert(d.nextCodePoint() == 0);
+}
+
+QUIZ_CASE(pcj_omg_code_point) {
+  LayoutSpan l(MakeSpan(Rack::From("123"_l)));
+  quiz_assert(CodePointSearch(l, '2') == 1);
+  quiz_assert(CodePointSearch(l, '4') == l.size());
+}
+
+#if 0
+QUIZ _CASE(pcj_layout_render) {
+  KDContext* ctx = Ion::Display::Context::SharedContext;
+  // TODO layoutCursor is nullptr and expected
+  Layout l = Layout(
+      KRackL("1+"_l,
+             KParenthesesL(KRackL(
+                 "2×"_l, KParenthesesL(KRackL("1+"_l, KFracL("1"_l, "2"_l))))),
+             /*KSuperscriptL("2"_l),*/ "-2"_l));
+  l.draw(ctx, KDPoint(10, 100), KDFont::Size::Large);
+}
+#endif
+
+QUIZ_CASE(pcj_layout_multiplication_symbol) {
+  quiz_assert(MultiplicationSymbol(KMult(2_e, 3_e), false) == u'×');
+  quiz_assert(MultiplicationSymbol(KMult(2_e, "a"_e), false) == UCodePointNull);
+  quiz_assert(MultiplicationSymbol(KMult(2_e, KCos(π_e), KSqrt(2_e)), false) ==
+              u'·');
+}
+
+QUIZ_CASE(pcj_k_matrix_l) {
+  const Grid* mat = Grid::From(KMatrix1x1L("a"_l));
+  quiz_assert(mat->numberOfColumns() == 2);
+  quiz_assert(mat->numberOfRows() == 2);
+  quiz_assert(mat->childAt(0, 0)->treeIsIdenticalTo("a"_l));
+
+  mat = Grid::From(KMatrix2x2L("a"_l, "b"_l, "c"_l, "d"_l));
+  quiz_assert(mat->numberOfColumns() == 3);
+  quiz_assert(mat->numberOfRows() == 3);
+  quiz_assert(mat->childAt(1, 1)->treeIsIdenticalTo("d"_l));
+}
+
+void assert_layout_serializes_as(const Tree* layout,
+                                 const char* serialization) {
+  constexpr size_t bufferSize = 256;
+  char buffer[bufferSize];
+  LayoutSerializer::Serialize(layout, buffer);
+  remove_system_codepoints(buffer);
+  quiz_assert(strcmp(buffer, serialization) == 0);
+}
+
+QUIZ_CASE(pcj_layout_serialization) {
+  assert_layout_serializes_as(KRackL(KAbsL("42log"_l ^ KSubscriptL("123"_l) ^
+                                           KParenthesesLeftTempL("x"_l))),
+                              "abs(42log(x,123))");
+  assert_layout_serializes_as("1+"_l ^ KPrefixSuperscriptL("abc"_l) ^ "log"_l ^
+                                  KParenthesesLeftTempL("x"_l),
+                              "1+log(x,abc)");
+}

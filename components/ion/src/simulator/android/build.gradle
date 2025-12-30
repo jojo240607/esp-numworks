@@ -1,0 +1,84 @@
+def EPSILON_BUILD_DIR = '../../../../'+project.getProperty("outputDirectory")
+def BUILD_DIR = EPSILON_BUILD_DIR+'/app'
+
+def projectVariable(name) {
+  /* This function retrieves a variable from the environment and falls back
+   * to the Gradle projects's properties (e.g. ~/.gradle/gradle.properties) */
+  return System.getenv('ANDROID_'+name) ?: project.findProperty('EPSILON_'+name)
+}
+
+def fileIfPath(path) {
+  return path ? new File(path) : null
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+    google()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:8.12.0'
+  }
+}
+allprojects {
+  repositories {
+    mavenCentral()
+    google()
+  }
+  buildDir = BUILD_DIR
+}
+
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion = 35
+  defaultConfig {
+    applicationId = "com.numworks.calculator"
+    namespace = "com.numworks.calculator"
+    minSdkVersion = 21
+    targetSdkVersion = 35
+    def appVersion = project.getProperty("appVersion")
+    def (major, minor, patch) = appVersion.toLowerCase().tokenize('.').collect{it.toInteger()}
+    versionCode major*1000000 + minor*10000 + patch * 100
+    versionName appVersion
+  }
+  signingConfigs {
+    environment {
+      storeFile fileIfPath(projectVariable('SIGNING_STORE_FILE'))
+      storePassword projectVariable('SIGNING_STORE_PASSWORD')
+      keyAlias projectVariable('SIGNING_KEY_ALIAS')
+      keyPassword projectVariable('SIGNING_KEY_PASSWORD')
+    }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt')
+      if (projectVariable('SIGNING_STORE_FILE')) {
+        signingConfig signingConfigs.environment
+      }
+      ndk {
+        debugSymbolLevel = 'FULL'
+      }
+    }
+  }
+  sourceSets{
+    main {
+      manifest.srcFile 'src/AndroidManifest.xml'
+      res.srcDir BUILD_DIR + '/res'
+      java.srcDir 'src'
+      jniLibs.srcDir BUILD_DIR + '/libs/epsilon'
+      assets.srcDirs = ['../assets', EPSILON_BUILD_DIR + '/ion/src/simulator/assets']
+    }
+  }
+  lintOptions {
+    abortOnError = false
+    checkReleaseBuilds = false
+  }
+  ndkVersion = project.getProperty("ndkBundleVersion")
+}
+
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation "androidx.appcompat:appcompat:1.0.2"
+}

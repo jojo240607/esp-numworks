@@ -1,0 +1,30 @@
+#ifndef OSTREAM
+#define OSTREAM
+
+namespace std {
+
+class ostream {
+ public:
+  template <typename T>
+  ostream& operator<<(const T& any) {
+    return *this;
+  }
+
+  /* Users of libaxx should provide implementations for operator<<. */
+
+  ostream& operator<<(const char* str);
+  ostream& operator<<(int i);
+
+  ostream& operator<<(unsigned int i) { return *this << static_cast<int>(i); }
+  ostream& operator<<(unsigned short i) { return *this << static_cast<int>(i); }
+  ostream& operator<<(short i) { return *this << static_cast<int>(i); }
+  ostream& operator<<(unsigned char i) { return *this << static_cast<int>(i); }
+  ostream& operator<<(char i) { return *this << static_cast<int>(i); }
+};
+
+static ostream cout;
+static char endl = '\n';
+
+}  // namespace std
+
+#endif

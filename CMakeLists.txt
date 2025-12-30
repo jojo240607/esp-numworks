@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-# "Trim" the build. Include the minimal set of components, main, and anything it depends on.
-idf_build_set_property(MINIMAL_BUILD ON)
-project(i80_controller)
+project(i80_controller VERSION 1.0.0 LANGUAGES C CXX)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
+add_compile_definitions(ASSERTIONS=1)

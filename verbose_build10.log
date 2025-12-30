@@ -1,0 +1,735 @@
+Executing action: all (aliases: build)
+Running ninja in directory D:\projects\mcu\ESP\i80_controller\build
+Executing "ninja all"...
+[0/1] Re-running CMake...
+-- Minimal build - OFF
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32s3
+-- Project sdkconfig file D:/projects/mcu/ESP/i80_controller/sdkconfig
+Loading defaults file D:/projects/mcu/ESP/i80_controller/sdkconfig.defaults...
+Loading defaults file D:/projects/mcu/ESP/i80_controller/sdkconfig.defaults.esp32s3...
+-- Compiler supported targets: xtensa-esp-elf
+-- USING O3
+-- App "i80_controller" version: 1.0.0
+-- Adding linker script D:/projects/mcu/ESP/i80_controller/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script D:/projects/mcu/ESP/i80_controller/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.wdt.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_master.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_50.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_smp.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_dtm.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_test.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_scan.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.libc.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_bitscrambler esp_driver_cam esp_driver_dac esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_isp esp_driver_jpeg esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_ppa esp_driver_rmt esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_touch_sens esp_driver_tsens esp_driver_twai esp_driver_uart esp_driver_usb_serial_jtag esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_security esp_system esp_timer esp_vfs_console esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 ion json kandinsky log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider omg openthread partition_table perfmon poincare protobuf-c protocomm pthread rt sdmmc soc spi_flash spiffs tcp_transport touch_element ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/app_trace D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/app_update D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader_support D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/bt D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/cmock D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/console D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/cxx D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/driver D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/efuse D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp-tls D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_adc D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_app_format D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_bootloader_format D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_coex D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_common D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_ana_cmpr D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_bitscrambler D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_cam D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_dac D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_gpio D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_gptimer D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2s D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_isp D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_jpeg D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_ledc D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_mcpwm D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_parlio D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_pcnt D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_ppa D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_rmt D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_sdio D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_sdm D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_sdmmc D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_sdspi D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_spi D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_touch_sens D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_tsens D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_twai D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_uart D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_usb_serial_jtag D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_eth D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_event D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_gdbstub D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hid D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_http_client D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_http_server D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_https_ota D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_https_server D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_lcd D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_local_ctrl D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_mm D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_netif D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_netif_stack D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_partition D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_phy D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_pm D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_psram D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_ringbuf D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_security D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_timer D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_vfs_console D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_wifi D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/espcoredump D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esptool_py D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/fatfs D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/http_parser D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/idf_test D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/ieee802154 D:/projects/mcu/ESP/i80_controller/components/ion D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/json D:/projects/mcu/ESP/i80_controller/components/kandinsky D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/log D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip D:/projects/mcu/ESP/i80_controller/main D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/mbedtls D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/mqtt D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/nvs_flash D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/nvs_sec_provider D:/projects/mcu/ESP/i80_controller/components/omg D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/openthread D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/perfmon D:/projects/mcu/ESP/i80_controller/components/poincare D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/protobuf-c D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/protocomm D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/pthread D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/rt D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/sdmmc D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/spi_flash D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/tcp_transport D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/touch_element D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/ulp D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/unity D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/usb D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/vfs D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/wear_levelling D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/wifi_provisioning D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/wpa_supplicant D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa
+-- Configuring done (33.6s)
+-- Generating done (9.0s)
+-- Build files have been written to: D:/projects/mcu/ESP/i80_controller/build
+[1/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/print_float.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:6:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/ieee754.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp: In instantiation of 'static Poincare::PrintFloat::TextLengths Poincare::PrintFloat::ConvertFloatToTextPrivate(T, char*, size_t, size_t, size_t, Poincare::Preferences::PrintFloatMode) [with T = float; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:154:48:   required from 'static Poincare::PrintFloat::TextLengths Poincare::PrintFloat::ConvertFloatToText(T, char*, size_t, size_t, size_t, Poincare::Preferences::PrintFloatMode) [with T = float; size_t = unsigned int]'
+  154 |     requiredLengths = ConvertFloatToTextPrivate(
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~^
+  155 |         f, buffer, bufferSize, glyphLength, numberOfSignificantDigits, mode);
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:459:45:   required from here
+  459 |     Preferences::Preferences::PrintFloatMode);
+      |                                             ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:387:46: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  387 |   assert(numberOfCharsForMantissaWithoutSign >= 0);
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp: In instantiation of 'static Poincare::PrintFloat::TextLengths Poincare::PrintFloat::ConvertFloatToTextPrivate(T, char*, size_t, size_t, size_t, Poincare::Preferences::PrintFloatMode) [with T = double; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:154:48:   required from 'static Poincare::PrintFloat::TextLengths Poincare::PrintFloat::ConvertFloatToText(T, char*, size_t, size_t, size_t, Poincare::Preferences::PrintFloatMode) [with T = double; size_t = unsigned int]'
+  154 |     requiredLengths = ConvertFloatToTextPrivate(
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~^
+  155 |         f, buffer, bufferSize, glyphLength, numberOfSignificantDigits, mode);
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:462:45:   required from here
+  462 |     Preferences::Preferences::PrintFloatMode);
+      |                                             ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/print_float.cpp:387:46: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  387 |   assert(numberOfCharsForMantissaWithoutSign >= 0);
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[2/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/init.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/init.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_object.h:13,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:8:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/init.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[3/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/preferences.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/preferences.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/preferences.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[4/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/trigonometry.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/unreachable.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/angle.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/trigonometry.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/trigonometry.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/trigonometry.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[5/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/pool_handle.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool_handle.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_object.h:13,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_handle.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool_handle.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[6/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/preferences_in_storage.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/preferences_in_storage.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/preferences_in_storage.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[7/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/exception_checkpoint.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/exception_checkpoint.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/exception_checkpoint.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/exception_checkpoint.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[8/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/pool_object.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool_object.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_object.h:13,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:8:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[9/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/sign.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/unreachable.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/sign.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.h:9,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/sign.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/sign.cpp:12:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:80:5: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   80 |     const uint8_t getNumberOfTrees(KPlaceholder<T>) const {
+      |     ^~~~~
+[10/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/circuit_breaker_checkpoint.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/circuit_breaker_checkpoint.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/circuit_breaker_checkpoint.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/circuit_breaker_checkpoint.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[11/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/pool.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/exception_checkpoint.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[12/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/aliases.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/aliases.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/aliases.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[13/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/advanced_operation.cpp.obj
+FAILED: esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/advanced_operation.cpp.obj 
+ccache D:\soft\espidf\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-g++.exe -DASSERTIONS=1 -DESP_PLATFORM -DIDF_VER=\"v5.5.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/projects/mcu/ESP/i80_controller/build/config -ID:/projects/mcu/ESP/i80_controller/components/poincare/include -ID:/projects/mcu/ESP/i80_controller/components/poincare -ID:/projects/mcu/ESP/i80_controller/components -ID:/projects/mcu/ESP/i80_controller/components/omg/include -ID:/projects/mcu/ESP/i80_controller/components/kandinsky/include -ID:/projects/mcu/ESP/i80_controller/components/ion/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/esp_additions/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/dma/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/ldo/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/debug_probe/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/power_supply/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/tlsf -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/log/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/register -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/platform_port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_common/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/include/private -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/deprecated_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps/sntp -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/lwip/src/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/freertos/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/arch -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/sys -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -g -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=D:/projects/mcu/ESP/i80_controller=. -fmacro-prefix-map=D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu++2b -fno-exceptions -fno-rtti -fuse-cxa-atexit -MD -MT esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/advanced_operation.cpp.obj -MF esp-idf\poincare\CMakeFiles\__idf_poincare.dir\src\expression\advanced_operation.cpp.obj.d -o esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/advanced_operation.cpp.obj -c D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp:4:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:80:5: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   80 |     const uint8_t getNumberOfTrees(KPlaceholder<T>) const {
+      |     ^~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp:6:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp: In static member function 'static bool Poincare::Internal::AdvancedOperation::ExpandPower(Poincare::Internal::Tree*)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_operation.cpp:425:62: error: call of overloaded 'IntegerHandler(int)' is ambiguous
+  425 |       matched = IntegerHandler::Compare(exp, IntegerHandler(9)) <= 0;
+      |                                                              ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(const Poincare::Internal::IntegerHandler&)'
+  106 | class IntegerHandler final {
+      |       ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::IntegerHandler&&)'
+[14/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/memory/tree_stack_checkpoint.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree_stack_checkpoint.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree_stack_checkpoint.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/exception_checkpoint.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree_stack_checkpoint.cpp:4:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[15/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/algebraic.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/print.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/k_tree.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree_ref.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/algebraic.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/algebraic.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/rational.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/algebraic.cpp:8:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+[16/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/pool_checkpoint.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool_checkpoint.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_object.h:13,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/pool_checkpoint.cpp:2:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/pool_checkpoint.h:50:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   50 |   const PoolObject* const endOfPoolBeforeCheckpoint() { return m_endOfPool; }
+      |   ^~~~~
+[17/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/advanced_reduction.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/metric.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.h:9:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:80:5: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   80 |     const uint8_t getNumberOfTrees(KPlaceholder<T>) const {
+      |     ^~~~~
+[18/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/arithmetic.cpp.obj
+FAILED: esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/arithmetic.cpp.obj 
+ccache D:\soft\espidf\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-g++.exe -DASSERTIONS=1 -DESP_PLATFORM -DIDF_VER=\"v5.5.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/projects/mcu/ESP/i80_controller/build/config -ID:/projects/mcu/ESP/i80_controller/components/poincare/include -ID:/projects/mcu/ESP/i80_controller/components/poincare -ID:/projects/mcu/ESP/i80_controller/components -ID:/projects/mcu/ESP/i80_controller/components/omg/include -ID:/projects/mcu/ESP/i80_controller/components/kandinsky/include -ID:/projects/mcu/ESP/i80_controller/components/ion/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/esp_additions/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/dma/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/ldo/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/debug_probe/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/power_supply/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/tlsf -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/log/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/register -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/platform_port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_common/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/include/private -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/deprecated_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps/sntp -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/lwip/src/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/freertos/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/arch -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/sys -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -g -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=D:/projects/mcu/ESP/i80_controller=. -fmacro-prefix-map=D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu++2b -fno-exceptions -fno-rtti -fuse-cxa-atexit -MD -MT esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/arithmetic.cpp.obj -MF esp-idf\poincare\CMakeFiles\__idf_poincare.dir\src\expression\arithmetic.cpp.obj.d -o esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/arithmetic.cpp.obj -c D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/memory.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:6:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:9:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:80:5: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   80 |     const uint8_t getNumberOfTrees(KPlaceholder<T>) const {
+      |     ^~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp: In static member function 'static Poincare::Internal::Arithmetic::FactorizedInteger Poincare::Internal::Arithmetic::PrimeFactorization(Poincare::Internal::IntegerHandler)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:491:47: error: call of overloaded 'IntegerHandler(int)' is ambiguous
+  491 |   if (IntegerHandler::Ucmp(m, IntegerHandler(1)) <= 0) {
+      |                                               ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(const Poincare::Internal::IntegerHandler&)'
+  106 | class IntegerHandler final {
+      |       ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::IntegerHandler&&)'
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:505:37: error: conversion from 'uint16_t' {aka 'short unsigned int'} to 'const Poincare::Internal::IntegerHandler' is ambiguous
+  505 |             m, IntegerHandler::Mult(testedPrimeFactor, testedPrimeFactor,
+      |                                     ^~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:251:52: note:   initializing argument 1 of 'static Poincare::Internal::IntegerHandler Poincare::Internal::IntegerHandler::Mult(const Poincare::Internal::IntegerHandler&, const Poincare::Internal::IntegerHandler&, Poincare::Internal::WorkingBuffer*, bool)'
+  251 |   static IntegerHandler Mult(const IntegerHandler& a, const IntegerHandler& b,
+      |                              ~~~~~~~~~~~~~~~~~~~~~~^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:508:33: error: conversion from 'uint16_t' {aka 'short unsigned int'} to 'const Poincare::Internal::IntegerHandler' is ambiguous
+  508 |         IntegerHandler::Udiv(m, testedPrimeFactor, &workingBuffer);
+      |                                 ^~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:255:68: note:   initializing argument 2 of 'static Poincare::Internal::DivisionResult<Poincare::Internal::IntegerHandler> Poincare::Internal::IntegerHandler::Udiv(const Poincare::Internal::IntegerHandler&, const Poincare::Internal::IntegerHandler&, Poincare::Internal::WorkingBuffer*)'
+  255 |                                              const IntegerHandler& b,
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:541:70: error: call of overloaded 'IntegerHandler(const uint16_t&)' is ambiguous
+  541 |           m, IntegerHandler::Mult(IntegerHandler(k_biggestPrimeFactor),
+      |                                                                      ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(const Poincare::Internal::IntegerHandler&)'
+  106 | class IntegerHandler final {
+      |       ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::IntegerHandler&&)'
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:542:70: error: call of overloaded 'IntegerHandler(const uint16_t&)' is ambiguous
+  542 |                                   IntegerHandler(k_biggestPrimeFactor),
+      |                                                                      ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:127:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_uint_t, Poincare::Internal::NonStrictSign)'
+  127 |   IntegerHandler(native_uint_t value,
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:123:3: note: candidate: 'Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::native_int_t)'
+  123 |   IntegerHandler(native_int_t value)
+      |   ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(const Poincare::Internal::IntegerHandler&)'
+  106 | class IntegerHandler final {
+      |       ^~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:106:7: note: candidate: 'constexpr Poincare::Internal::IntegerHandler::IntegerHandler(Poincare::Internal::IntegerHandler&&)'
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp: In static member function 'static Poincare::Internal::Tree* Poincare::Internal::Arithmetic::PushPrimeFactorization(Poincare::Internal::IntegerHandler)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:596:20: error: call of overloaded 'Push(uint8_t&)' is ambiguous
+  596 |       Integer::Push(result.coefficients[i]);
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:325:16: note: candidate: 'static Poincare::Internal::Tree* Poincare::Internal::Integer::Push(Poincare::Internal::native_int_t)'
+  325 |   static Tree* Push(native_int_t value) {
+      |                ^~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:328:16: note: candidate: 'static Poincare::Internal::Tree* Poincare::Internal::Integer::Push(Poincare::Internal::native_uint_t)'
+  328 |   static Tree* Push(native_uint_t value) {
+      |                ^~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp: In static member function 'static uint32_t Poincare::Internal::Arithmetic::GCD(uint32_t, uint32_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:605:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  605 |   assert(a >= 0 && b >= 0);
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:605:22: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  605 |   assert(a >= 0 && b >= 0);
+      |                    ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp: In static member function 'static uint32_t Poincare::Internal::Arithmetic::LCM(uint32_t, uint32_t, bool*)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:621:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  621 |   assert(a >= 0 && b >= 0);
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.cpp:621:22: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+  621 |   assert(a >= 0 && b >= 0);
+      |                    ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[19/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation.cpp.obj
+FAILED: esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation.cpp.obj 
+ccache D:\soft\espidf\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-g++.exe -DASSERTIONS=1 -DESP_PLATFORM -DIDF_VER=\"v5.5.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/projects/mcu/ESP/i80_controller/build/config -ID:/projects/mcu/ESP/i80_controller/components/poincare/include -ID:/projects/mcu/ESP/i80_controller/components/poincare -ID:/projects/mcu/ESP/i80_controller/components -ID:/projects/mcu/ESP/i80_controller/components/omg/include -ID:/projects/mcu/ESP/i80_controller/components/kandinsky/include -ID:/projects/mcu/ESP/i80_controller/components/ion/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/config/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/esp_additions/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/include/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/dma/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/ldo/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/debug_probe/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/power_supply/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/heap/tlsf -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/log/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/soc/esp32s3/register -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/platform_port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/hal/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3/include/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_rom/esp32s3 -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_common/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/soc -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/include/private -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/esp32s3/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/deprecated_include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/include/apps/sntp -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/lwip/src/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/freertos/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/arch -ID:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/lwip/port/esp32xx/include/sys -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -g -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=D:/projects/mcu/ESP/i80_controller=. -fmacro-prefix-map=D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu++2b -fno-exceptions -fno-rtti -fuse-cxa-atexit -MD -MT esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation.cpp.obj -MF esp-idf\poincare\CMakeFiles\__idf_poincare.dir\src\expression\approximation.cpp.obj.d -o esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation.cpp.obj -c D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/context.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/trigonometry.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:9:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/preferences.h:98:63: warning: missing initializer for member 'Poincare::Preferences::CalculationPreferences::padding' [-Wmissing-field-initializers]
+   98 |           Preferences::DefaultNumberOfPrintedSignificantDigits};
+      |                                                               ^
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:15:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+In file included from D:/soft/espidf/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/xtensa-esp-elf/include/c++/14.2.0/complex.h:38,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/trigonometry.h:4:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:506:36: error: expected '>' before numeric constant
+  506 | template <String S, std::size_t... I>
+      |                                    ^
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/symbol.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:25:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:507:44: error: expansion pattern '(__complex__ float){0.0f, 1.0e+0f}' contains no parameter packs
+  507 | struct KUserSymbol<S, std::index_sequence<I...>>
+      |                                            ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:507:44: error: template argument 1 is invalid
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:507:47: error: template argument 2 is invalid
+  507 | struct KUserSymbol<S, std::index_sequence<I...>>
+      |                                               ^~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:508:41: error: template argument 2 is invalid
+  508 |     : KTree<Type::UserSymbol, sizeof...(I), S[I]...> {
+      |                                         ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:524:45: error: expected '>' before numeric constant
+  524 | template <Block B, String S, std::size_t... I>
+      |                                             ^
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:525:47: error: expansion pattern '(__complex__ float){0.0f, 1.0e+0f}' contains no parameter packs
+  525 | struct _KFunHelper<B, S, std::index_sequence<I...>>
+      |                                               ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:525:47: error: template argument 1 is invalid
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:525:50: error: template argument 3 is invalid
+  525 | struct _KFunHelper<B, S, std::index_sequence<I...>>
+      |                                                  ^~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/k_tree.h:526:26: error: template argument 2 is invalid
+  526 |     : KTree<B, sizeof...(I), S[I]...> {
+      |                          ^
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h: In instantiation of 'constexpr bool OMG::BitHelper::bitAtIndex(T, size_t) [with T = short unsigned int; size_t = unsigned int]':
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:36:20:   required from 'constexpr bool OMG::BitHelper::bitAtIndex(T, I) [with T = short unsigned int; I = Ion::ExamMode::Configuration::Bits]'
+   36 |   return bitAtIndex(mask, static_cast<size_t>(i));
+      |          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/ion/include/ion/exam_mode.h:86:38:   required from here
+   86 |     return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/bit_helper.h:31:12: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   31 |   assert(i >= 0 && i < numberOfBitsIn<T>());
+      |          ~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp: In instantiation of 'std::complex<_Tp> Poincare::Internal::Approximation::ToComplexSwitchOnlyReal(const Poincare::Internal::Tree*, const Context*) [with T = float]':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1245:36:   required from 'std::complex<_Tp> Poincare::Internal::Approximation::Private::ToComplexSwitch(const Poincare::Internal::Tree*, const Poincare::Internal::Approximation::Context*) [with T = float]'
+ 1245 |   return ToComplexSwitchOnlyReal<T>(e, ctx);
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:383:45:   required from 'std::complex<_Tp> Poincare::Internal::Approximation::Private::PrivateToComplex(const Poincare::Internal::Tree*, const Poincare::Internal::Approximation::Context*) [with T = float]'
+  383 |   std::complex<T> value = ToComplexSwitch<T>(e, ctx);
+      |                           ~~~~~~~~~~~~~~~~~~^~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:349:54:   required from here
+  349 |       std::complex<float> c = PrivateToComplex<float>(child, ctx);
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1036:5: warning: case label value exceeds maximum value for type [-Wswitch-outside-range]
+ 1036 |     case Type::EuclideanDivision:
+      |     ^~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1037:5: warning: case label value exceeds maximum value for type [-Wswitch-outside-range]
+ 1037 |     case Type::EuclideanDivisionResult:
+      |     ^~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp: In instantiation of 'std::complex<_Tp> Poincare::Internal::Approximation::ToComplexSwitchOnlyReal(const Poincare::Internal::Tree*, const Context*) [with T = double]':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1245:36:   required from 'std::complex<_Tp> Poincare::Internal::Approximation::Private::ToComplexSwitch(const Poincare::Internal::Tree*, const Poincare::Internal::Approximation::Context*) [with T = double]'
+ 1245 |   return ToComplexSwitchOnlyReal<T>(e, ctx);
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:383:45:   required from 'std::complex<_Tp> Poincare::Internal::Approximation::Private::PrivateToComplex(const Poincare::Internal::Tree*, const Poincare::Internal::Approximation::Context*) [with T = double]'
+  383 |   std::complex<T> value = ToComplexSwitch<T>(e, ctx);
+      |                           ~~~~~~~~~~~~~~~~~~^~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1806:56:   required from here
+ 1806 |   std::complex<double> value = PrivateToComplex<double>(e, nullptr);
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1036:5: warning: case label value exceeds maximum value for type [-Wswitch-outside-range]
+ 1036 |     case Type::EuclideanDivision:
+      |     ^~~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.cpp:1037:5: warning: case label value exceeds maximum value for type [-Wswitch-outside-range]
+ 1037 |     case Type::EuclideanDivisionResult:
+      |     ^~~~
+[20/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_derivative.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/float.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_derivative.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[21/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_helpers.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/float.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_helpers.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[22/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_matrix.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/context.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_matrix.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[23/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_integral.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/float.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_integral.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+[24/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_prepare.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/omg/include/omg/unreachable.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_prepare.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/pattern_matching.h:80:5: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   80 |     const uint8_t getNumberOfTrees(KPlaceholder<T>) const {
+      |     ^~~~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/arithmetic.h:6,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/advanced_reduction.h:9,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_prepare.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+[25/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_power.cpp.obj
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/include/poincare/context.h:4,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation.h:5,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_power.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/assert.h:45:42: note: in definition of macro 'assert'
+   45 | #define assert(__e) (__builtin_expect(!!(__e), 1) ? (void)0 : __assert_func (__FILENAME__, __LINE__, \
+      |                                          ^~~
+In file included from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/rational.h:8,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_power.cpp:3:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h: At global scope:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/integer.h:65:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   65 |   uint8_t* const localStart();
+      |   ^~~~~~~
+[26/200] Building CXX object esp-idf/poincare/CMakeFiles/__idf_poincare.dir/src/expression/approximation_logarithm.cpp.obj
+In file included from D:/soft/espidf/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/xtensa-esp-elf/include/sys/reent.h:458,
+                 from D:/soft/espidf/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/platform_include/sys/reent.h:15,
+                 from D:/soft/espidf/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/xtensa-esp-elf/include/math.h:5,
+                 from D:/soft/espidf/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/xtensa-esp-elf/include/c++/14.2.0/math.h:30,
+                 from D:/soft/espidf/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/xtensa-esp-elf/include/c++/14.2.0/cmath:47,
+                 from D:/projects/mcu/ESP/i80_controller/components/poincare/src/expression/approximation_logarithm.cpp:1:
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h: In member function 'void Poincare::Internal::Tree::setNodeValue(size_t, size_t)':
+D:/projects/mcu/ESP/i80_controller/components/poincare/src/memory/tree.h:89:18: warning: comparison of unsigned expression in '>= 0' is always true [-Wtype-limits]
+   89 |     assert(value >= 0 && value <= UINT8_MAX);
+      |            ~~~~~~^~~~
+ninja: build stopped: subcommand failed.
