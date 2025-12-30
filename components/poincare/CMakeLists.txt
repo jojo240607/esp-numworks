@@ -240,6 +240,7 @@ idf_component_register(
             ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
             ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
             ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include
+            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
 
         # COMPILE_OPTIONS
         #     "-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"  # 注意：整个选项用引号包裹
