@@ -1,0 +1,35 @@
+#include "store_app.h"
+
+using namespace Poincare;
+
+namespace Shared {
+
+StoreApp::Snapshot::Snapshot() {
+  for (int i = 0; i < k_numberOfMemoizedFormulas; i++) {
+    m_memoizedFormulasBuffer[i][0] = 0;
+  }
+}
+
+bool StoreApp::Snapshot::memoizeFormula(Poincare::Layout formula, int index) {
+  assert(index >= 0 && index < k_numberOfMemoizedFormulas);
+  if (formula.isUninitialized()) {
+    m_memoizedFormulasBuffer[index][0] = 0;
+    return false;
+  }
+  size_t size = formula.tree()->treeSize();
+  if (size > k_bufferSize - 1) {
+    // Formula is too long
+    m_memoizedFormulasBuffer[index][0] = 0;
+    return false;
+  }
+  memcpy(m_memoizedFormulasBuffer, formula.tree(), size);
+  return true;
+}
+
+Layout StoreApp::Snapshot::memoizedFormula(int index) const {
+  return Expression::Parse(m_memoizedFormulasBuffer[index], nullptr)
+      .createLayout(Preferences::PrintFloatMode::Decimal,
+                    PrintFloat::k_maxNumberOfSignificantDigits, nullptr);
+}
+
+}  // namespace Shared

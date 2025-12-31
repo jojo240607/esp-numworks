@@ -28,7 +28,7 @@
 // Values defined here can be overridden by your own config file as
 // make -DULAB_CONFIG_FILE="my_ulab_config.h"
 #if defined(ULAB_CONFIG_FILE)
-#include ULAB_CONFIG_FILE
+#include "numworks_ulab_config.h"//ULAB_CONFIG_FILE
 #endif
 
 // Adds support for complex ndarrays

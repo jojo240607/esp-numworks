@@ -1,0 +1,40 @@
+#ifndef SHARED_TAB_TABLE_CONTROLLER_H
+#define SHARED_TAB_TABLE_CONTROLLER_H
+
+#include <escher/container.h>
+#include <escher/selectable_table_view.h>
+#include <escher/selectable_table_view_data_source.h>
+#include <escher/view_controller.h>
+
+namespace Shared {
+
+/* Tab table controller is a controller whose view is a selectable table view
+ * and whose one ancestor is a tab */
+
+class TabTableController : public Escher::ViewController,
+                           public Escher::SelectableTableViewDataSource {
+ public:
+  TabTableController(Responder* parentResponder);
+  Escher::View* view() override { return selectableTableView(); }
+  void viewWillAppear() override;
+  ViewController::TitlesDisplay titlesDisplay() const override {
+    return TitlesDisplay::NeverDisplayOwnTitle;
+  }
+
+ protected:
+  // Margins
+  constexpr static KDCoordinate k_scrollBarMargin =
+      Escher::Metric::CommonMargins.right();
+  constexpr static KDMargins k_margins = {
+      Escher::Metric::TableSeparatorThickness, k_scrollBarMargin,
+      Escher::Metric::TableSeparatorThickness, k_scrollBarMargin};
+
+  virtual Escher::SelectableTableView* selectableTableView() = 0;
+  virtual Escher::Responder* tabController() const = 0;
+
+  void handleResponderChainEvent(Responder::ResponderChainEvent event) override;
+};
+
+}  // namespace Shared
+
+#endif

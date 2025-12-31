@@ -1,0 +1,29 @@
+#ifndef DISTRIBUTION_STUDENT_DISTRIBUTION_H
+#define DISTRIBUTION_STUDENT_DISTRIBUTION_H
+
+#include <poincare/layout.h>
+
+#include "one_parameter_distribution.h"
+
+namespace Distributions {
+
+class StudentDistribution : public OneParameterDistribution {
+ public:
+  StudentDistribution()
+      : OneParameterDistribution(Poincare::Distribution::Type::Student) {
+    computeCurveViewRange();
+  }
+  I18n::Message title() const override {
+    return I18n::Message::StudentDistribution;
+  }
+  bool authorizedParameterAtIndex(double x, int index) const override;
+
+ private:
+  I18n::Message messageForParameterAtIndex(int index) const override {
+    return I18n::Message::DegreesOfFreedomDefinition;
+  }
+};
+
+}  // namespace Distributions
+
+#endif

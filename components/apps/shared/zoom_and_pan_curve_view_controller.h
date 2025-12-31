@@ -1,0 +1,32 @@
+#ifndef SHARED_ZOOM_AND_PAN_CURVE_VIEW_CONTROLLER_H
+#define SHARED_ZOOM_AND_PAN_CURVE_VIEW_CONTROLLER_H
+
+#include "poincare_helpers.h"
+#include "zoom_curve_view_controller.h"
+
+namespace Shared {
+
+/* ZoomAndPanCurveViewController is a View controller with a cursor that can
+ * handles zoom in/out and directional pan events. */
+
+class ZoomAndPanCurveViewController : public ZoomCurveViewController {
+ public:
+  ZoomAndPanCurveViewController(Responder* parentResponder)
+      : ZoomCurveViewController(parentResponder) {}
+  bool handleEvent(Ion::Events::Event event) override;
+
+ protected:
+  bool handlePan(Ion::Events::Event event);
+  virtual float xMove() {
+    return PoincareHelpers::ToFloat(interactiveCurveViewRange()->xGridUnit());
+  }
+  virtual float yMove() {
+    return PoincareHelpers::ToFloat(interactiveCurveViewRange()->yGridUnit());
+  }
+  float xFocus() override { return interactiveCurveViewRange()->xCenter(); }
+  float yFocus() override { return interactiveCurveViewRange()->yCenter(); }
+};
+
+}  // namespace Shared
+
+#endif

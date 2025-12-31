@@ -1,4 +1,4 @@
-set(COMPONENT_NAME escher)
+set(escher)
 
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES

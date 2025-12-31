@@ -1,0 +1,52 @@
+#ifndef GRAPH_GRAPH_CONTROLLER_HELPER_H
+#define GRAPH_GRAPH_CONTROLLER_HELPER_H
+
+#include <apps/shared/curve_view_cursor.h>
+#include <apps/shared/function_banner_delegate.h>
+#include <apps/shared/interactive_curve_view_range.h>
+#include <poincare/point_or_scalar.h>
+
+#include "banner_view.h"
+#include "graph_view.h"
+
+namespace Graph {
+
+class GraphControllerHelper {
+ protected:
+  bool privateMoveCursorHorizontally(Shared::CurveViewCursor* cursor,
+                                     OMG::HorizontalDirection direction,
+                                     Shared::InteractiveCurveViewRange* range,
+                                     int numberOfStepsInGradUnit,
+                                     Ion::Storage::Record record,
+                                     float pixelWidth, int scrollSpeed = 1,
+                                     int* subCurveIndex = nullptr);
+  bool snapToInterestAndUpdateCursor(Shared::CurveViewCursor* cursor,
+                                     double start, double end,
+                                     int subCurveIndex, bool forceRing = false);
+  // Returns the derivative displayed in banner
+  Poincare::PointOrRealScalar<double>
+  reloadDerivativeInBannerViewForCursorOnFunction(
+      Shared::CurveViewCursor* cursor, Ion::Storage::Record record,
+      int derivationOrder);
+  // Returns the slope displayed in banner
+  double reloadSlopeInBannerViewForCursorOnFunction(
+      Shared::CurveViewCursor* cursor, Ion::Storage::Record record);
+  virtual BannerView* bannerView() = 0;
+  virtual GraphView* graphView() = 0;
+  virtual Shared::FunctionBannerDelegate* functionBannerDelegate() = 0;
+
+ private:
+  constexpr static float k_snapFactor = 1.5f;
+  constexpr static double k_definitionDomainDivisor = 96.0;
+
+  virtual void jumpToLeftRightCurve(double t,
+                                    OMG::HorizontalDirection direction,
+                                    int functionsCount,
+                                    Ion::Storage::Record record) {}
+
+  virtual void setCursorIsRing(bool isRing) {}
+};
+
+}  // namespace Graph
+
+#endif
