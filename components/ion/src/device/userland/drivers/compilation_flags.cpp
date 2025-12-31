@@ -1,5 +1,5 @@
 #include <ion.h>
-#include "omg/print.h>
+#include <omg/print.h>
 #include <shared/drivers/board_shared.h>
 
 #include "svcall.h"

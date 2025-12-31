@@ -3,8 +3,8 @@
 
 #include <ion/exam_bytes.h>
 #include <kandinsky/color.h>
-#include "omg/bit_helper.h"
-#include "omg/code_guard.h"
+#include <omg/bit_helper.h>
+#include <omg/code_guard.h>
 #include <stdio.h>
 namespace Ion {
 namespace ExamMode {
@@ -83,14 +83,14 @@ class Configuration {
                 OMG::BitHelper::numberOfBitsIn<Int>());
 
   bool configurable() const {
-    return OMG::BitHelper::bitAtIndex(m_bits, static_cast<size_t>(Bits::Configurable));
+    return OMG::BitHelper::bitAtIndex(m_bits, Bits::Configurable);
   }
   bool cleared() const {
-    return OMG::BitHelper::bitAtIndex(m_bits, static_cast<size_t>(Bits::Cleared));
+    return OMG::BitHelper::bitAtIndex(m_bits, Bits::Cleared);
   }
   Int data() const {
-    return OMG::BitHelper::bitsBetweenIndexes(m_bits, static_cast<size_t>(Bits::DataLast),
-                                              static_cast<size_t>(Bits::DataFirst));
+    return OMG::BitHelper::bitsBetweenIndexes(m_bits, Bits::DataLast,
+                                              Bits::DataFirst);
   }
 
   Int m_bits;

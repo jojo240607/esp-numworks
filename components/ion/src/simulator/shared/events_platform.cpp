@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <assert.h>
 #include <ion/events.h>
-#include "omg/utf8_helper.h>
+#include <omg/utf8_helper.h>
 #include <string.h>
 
 #include <array>

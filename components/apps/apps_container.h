@@ -18,6 +18,75 @@
 #include "suspend_timer.h"
 #include "usb/app.h"
 
+#include "apps/calculation/app.h"
+#include "apps/graph/app.h"
+#include "apps/code/app.h"
+#include "apps/statistics/app.h"
+#include "apps/distributions/app.h"
+#include "apps/inference/app.h"
+#include "apps/solver/app.h"
+#include "apps/sequence/app.h"
+#include "apps/regression/app.h"
+#include "apps/elements/app.h"
+#include "apps/finance/app.h"
+#include "apps/settings/app.h"
+
+#define APPS_CONTAINER_SNAPSHOT_COUNT 12
+
+#define APPS_CONTAINER_SNAPSHOT_LIST &m_snapshotCalculationAppSnapshot, \
+                            &m_snapshotGraphAppSnapshot, \
+                            &m_snapshotCodeAppSnapshot, \
+                            &m_snapshotStatisticsAppSnapshot, \
+                            &m_snapshotDistributionsAppSnapshot, \
+                            &m_snapshotInferenceAppSnapshot, \
+                            &m_snapshotSolverAppSnapshot, \
+                            &m_snapshotSequenceAppSnapshot, \
+                            &m_snapshotRegressionAppSnapshot, \
+                            &m_snapshotElementsAppSnapshot, \
+                            &m_snapshotFinanceAppSnapshot, \
+                            &m_snapshotSettingsAppSnapshot
+
+#define APPS_CONTAINER_SNAPSHOT_CONSTRUCTORS m_snapshotCalculationAppSnapshot(), \
+                            m_snapshotGraphAppSnapshot(), \
+                            m_snapshotCodeAppSnapshot(), \
+                            m_snapshotStatisticsAppSnapshot(), \
+                            m_snapshotDistributionsAppSnapshot(), \
+                            m_snapshotInferenceAppSnapshot(), \
+                            m_snapshotSolverAppSnapshot(), \
+                            m_snapshotSequenceAppSnapshot(), \
+                            m_snapshotRegressionAppSnapshot(), \
+                            m_snapshotElementsAppSnapshot(), \
+                            m_snapshotFinanceAppSnapshot(), \
+                            m_snapshotSettingsAppSnapshot()
+
+#define APPS_CONTAINER_SNAPSHOT_DECLARATIONS \
+                            Calculation::App::Snapshot m_snapshotCalculationAppSnapshot; \
+                            Graph::App::Snapshot m_snapshotGraphAppSnapshot; \
+                            Code::App::Snapshot m_snapshotCodeAppSnapshot; \
+                            Statistics::App::Snapshot m_snapshotStatisticsAppSnapshot; \
+                            Distributions::App::Snapshot m_snapshotDistributionsAppSnapshot; \
+                            Inference::App::Snapshot m_snapshotInferenceAppSnapshot; \
+                            Solver::App::Snapshot m_snapshotSolverAppSnapshot; \
+                            Sequence::App::Snapshot m_snapshotSequenceAppSnapshot; \
+                            Regression::App::Snapshot m_snapshotRegressionAppSnapshot; \
+                            Elements::App::Snapshot m_snapshotElementsAppSnapshot; \
+                            Finance::App::Snapshot m_snapshotFinanceAppSnapshot; \
+                            Settings::App::Snapshot m_snapshotSettingsAppSnapshot;
+
+#define APPS_CONTAINER_APPS_DECLARATION \
+                            Calculation::App m_CalculationApp; \
+                            Graph::App m_GraphApp; \
+                            Code::App m_CodeApp; \
+                            Statistics::App m_StatisticsApp; \
+                            Distributions::App m_DistributionsApp; \
+                            Inference::App m_InferenceApp; \
+                            Solver::App m_SolverApp; \
+                            Sequence::App m_SequenceApp; \
+                            Regression::App m_RegressionApp; \
+                            Elements::App m_ElementsApp; \
+                            Finance::App m_FinanceApp; \
+                            Settings::App m_SettingsApp;
+
 class AppsContainer : public Escher::Container, Ion::Storage::StorageDelegate {
  public:
   static AppsContainer* sharedAppsContainer();

@@ -15,7 +15,7 @@
 #include <kandinsky/color.h>
 #include <kandinsky/context.h>
 #include <kandinsky/rect.h>
-#include "omg/global_box.h"
+#include <omg/global_box.h>
 
 namespace Ion {
 namespace Display {

@@ -1,7 +1,7 @@
 #ifndef ION_EXAM_BYTES_H
 #define ION_EXAM_BYTES_H
 
-#include "omg/unaligned.h"
+#include <omg/unaligned.h>
 #include <stdint.h>
 
 namespace Ion {

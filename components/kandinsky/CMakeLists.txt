@@ -3,8 +3,8 @@ set(COMPONENT_NAME kandinsky)
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES
         fonts/codepoint_to_glyph_index.cpp
-        #fonts/epsilon/LargeFont.cpp
-        fonts/epsilon/SmallFont.cpp
+        fonts/epsilon/LargeFont.cpp
+        #fonts/epsilon/SmallFont.cpp
         src/color.cpp
         src/context_circle.cpp
         src/context_line.cpp

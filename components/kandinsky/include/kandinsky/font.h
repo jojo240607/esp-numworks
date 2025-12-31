@@ -3,6 +3,8 @@
 
 #include "kandinsky/coordinate.h"
 #include "kandinsky/fonts/SmallFont.h"
+
+#define KANDINSKY_FONT_LARGE_FONT 1
 #if KANDINSKY_FONT_LARGE_FONT
 #include "kandinsky/fonts/LargeFont.h"
 #else

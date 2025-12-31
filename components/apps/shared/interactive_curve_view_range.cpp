@@ -373,7 +373,7 @@ void InteractiveCurveViewRange::privateComputeRanges(bool computeX,
       CircuitBreakerCheckpoint checkpoint(
           Ion::CircuitBreaker::CheckpointType::Back);
       if (CircuitBreakerRun(checkpoint)) {
-        uint64_t checksum;
+        uint64_t checksum = 0;
         if (useMemoizedAutoRange &&
             (checksum = m_delegate->autoZoomChecksum()) ==
                 m_checksumOfMemoizedAutoRange) {

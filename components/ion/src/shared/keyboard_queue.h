@@ -2,7 +2,7 @@
 #define ION_SHARED_KEYBOARD_QUEUE_H
 
 #include <ion/keyboard.h>
-#include "omg/ring_buffer.h>
+#include <omg/ring_buffer.h>
 
 namespace Ion {
 namespace Keyboard {

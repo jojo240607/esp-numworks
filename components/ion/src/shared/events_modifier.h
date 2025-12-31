@@ -2,7 +2,7 @@
 #define ION_SHARED_EVENTS_MODIFIER_H
 
 #include <ion/events.h>
-#include "omg/global_box.h>
+#include <omg/global_box.h>
 
 namespace Ion {
 namespace Events {

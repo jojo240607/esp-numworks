@@ -3,7 +3,7 @@
 
 #include <ion/events.h>
 #include <ion/keyboard.h>
-#include "omg/global_box.h>
+#include <omg/global_box.h>
 
 namespace Ion {
 namespace Events {

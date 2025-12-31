@@ -1,7 +1,7 @@
 #ifndef ION_CRC_H
 #define ION_CRC_H
 
-#include "omg/memory.h"
+#include <omg/memory.h>
 #include <stddef.h>
 #include <stdint.h>
 

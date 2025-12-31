@@ -2,7 +2,7 @@
 #define ION_EVENTS_H
 
 #include <ion/keyboard.h>
-#include "omg/directions.h"
+#include <omg/directions.h>
 
 #if ION_EVENTS_JOURNAL
 #include <string.h>

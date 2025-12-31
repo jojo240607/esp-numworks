@@ -152,11 +152,11 @@ template <String S,
               decltype(std::make_index_sequence<S.codePointSize() - 1>())>
 struct _RackSimpleLayoutHelper;
 
-template <String S, std::size_t... I>
-struct _RackSimpleLayoutHelper<S, std::index_sequence<I...>>
+template <String S, std::size_t... IN>
+struct _RackSimpleLayoutHelper<S, std::index_sequence<IN...>>
     : Concat<
-          KTree<Type::RackSimpleLayout, sizeof...(I) % 256, sizeof...(I) / 256>,
-          KCodePointL<S.codePointAt(I)>...> {};
+          KTree<Type::RackSimpleLayout, sizeof...(IN) % 256, sizeof...(IN) / 256>,
+          KCodePointL<S.codePointAt(IN)>...> {};
 
 template <String S>
 consteval auto operator""_l() {
