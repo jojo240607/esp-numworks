@@ -9,11 +9,11 @@ void jump(uint32_t jumpIsrVectorAddress) {
       reinterpret_cast<uint32_t*>(jumpIsrVectorAddress);
   uint32_t* resetHandlerAddress = stackPointerAddress + 1;
 
-  asm volatile(
-      "msr PSP, %[stackPointer] ; bx %[resetHandler]"
-      :
-      : [stackPointer] "r"(*stackPointerAddress), [resetHandler] "r"(
-                                                      *resetHandlerAddress));
+ //asm volatile(
+ //    "msr PSP, %[stackPointer] ; bx %[resetHandler]"
+ //    :
+ //    : [stackPointer] "r"(*stackPointerAddress), [resetHandler] "r"(
+ //                                                     *resetHandlerAddress));
 }
 
 }  // namespace Reset

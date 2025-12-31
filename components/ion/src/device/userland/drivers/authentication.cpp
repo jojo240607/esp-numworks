@@ -6,7 +6,9 @@ namespace Ion {
 namespace Authentication {
 
 ClearanceLevel SVC_ATTRIBUTES clearanceLevel() {
-  SVC_RETURNING_R0(SVC_AUTHENTICATION_CLEARANCE_LEVEL, ClearanceLevel)
+    ClearanceLevel clearanceLevel1 = ClearanceLevel();
+    return clearanceLevel1;
+  //SVC_RETURNING_R0(SVC_AUTHENTICATION_CLEARANCE_LEVEL, ClearanceLevel)
 }
 
 }  // namespace Authentication

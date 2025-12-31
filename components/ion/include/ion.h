@@ -28,6 +28,10 @@
 #include <stdint.h>
 #include <string.h>
 
+#define EXTERNAL_APPS_API_LEVEL 0
+#define ASSERTIONS 1
+#define DEBUG 1
+
 /* ION is not your regular library. It is a library you link against, but it
  * will take care of configuring the whole environment for you. In POSIX terms,
  * ION will implement the "main" function.

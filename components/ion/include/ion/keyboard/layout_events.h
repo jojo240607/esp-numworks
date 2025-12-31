@@ -4,6 +4,7 @@
 #include <ion/events.h>
 #include <omg/code_point.h>
 #include <string.h>
+#include "ion.h"
 
 #include "event_data.h"
 

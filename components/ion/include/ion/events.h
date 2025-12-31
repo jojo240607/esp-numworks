@@ -3,6 +3,7 @@
 
 #include <ion/keyboard.h>
 #include <omg/directions.h>
+#include "ion.h"
 
 #if ION_EVENTS_JOURNAL
 #include <string.h>

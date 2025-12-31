@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+
+#define EPSILON_VERSION "1.0"
+
 namespace Ion {
 namespace Device {
 namespace Board {

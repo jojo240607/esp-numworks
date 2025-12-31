@@ -11,7 +11,10 @@
 namespace Ion {
 namespace USB {
 
-bool SVC_ATTRIBUTES isPlugged() { SVC_RETURNING_R0(SVC_USB_IS_PLUGGED, bool) }
+bool SVC_ATTRIBUTES isPlugged() {
+    //SVC_RETURNING_R0(SVC_USB_IS_PLUGGED, bool)
+    return false;
+}
 
 }  // namespace USB
 }  // namespace Ion
@@ -22,7 +25,8 @@ namespace USB {
 
 bool SVC_ATTRIBUTES shouldInterruptDFU(Keyboard::State exitKeys,
                                        bool bubbleUpEvents) {
-  SVC_RETURNING_R0(SVC_USB_SHOULD_INTERRUPT, bool)
+  //SVC_RETURNING_R0(SVC_USB_SHOULD_INTERRUPT, bool)
+    return false;
 }
 
 constexpr static StringDescriptor k_flashDescriptorAuthenticatedSlotA(

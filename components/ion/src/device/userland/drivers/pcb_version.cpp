@@ -5,7 +5,8 @@
 namespace Ion {
 
 uint32_t SVC_ATTRIBUTES devicePcbVersion() {
-  SVC_RETURNING_R0(SVC_PCB_VERSION, uint32_t)
+  //SVC_RETURNING_R0(SVC_PCB_VERSION, uint32_t)
+    return 0;
 }
 
 const char* pcbVersion() {

@@ -31,10 +31,14 @@ namespace Ion {
  * */
 
 uint16_t SVC_ATTRIBUTES kernelCompilationFlags(){
-    SVC_RETURNING_R0(SVC_COMPILATION_FLAGS, uint16_t)}
+        return 0;
+    //SVC_RETURNING_R0(SVC_COMPILATION_FLAGS, uint16_t)
+}
 
-uint32_t SVC_ATTRIBUTES
-    bootloaderCRC32(){SVC_RETURNING_R0(SVC_BOOTLOADER_CRC32, uint32_t)}
+uint32_t SVC_ATTRIBUTES bootloaderCRC32(){
+    return 0;
+    //SVC_RETURNING_R0(SVC_BOOTLOADER_CRC32, uint32_t)
+}
 
 uint16_t userlandCompilationFlags() {
   assert(EXTERNAL_APPS_API_LEVEL <

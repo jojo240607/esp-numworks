@@ -1,0 +1,1200 @@
+# 0 "ion/src/device/include/n0110/config/board.h"
+# 1 "D:\\projects\\mcu\\clion\\makefile\\github\\epsilon//"
+# 0 "<built-in>"
+#define __STDC__ 1
+# 0 "<built-in>"
+#define __cplusplus 201703L
+# 0 "<built-in>"
+#define __STDC_UTF_16__ 1
+# 0 "<built-in>"
+#define __STDC_UTF_32__ 1
+# 0 "<built-in>"
+#define __STDC_HOSTED__ 0
+# 0 "<built-in>"
+#define __GNUC__ 13
+# 0 "<built-in>"
+#define __GNUC_MINOR__ 3
+# 0 "<built-in>"
+#define __GNUC_PATCHLEVEL__ 0
+# 0 "<built-in>"
+#define __VERSION__ "13.3.0"
+# 0 "<built-in>"
+#define __ATOMIC_RELAXED 0
+# 0 "<built-in>"
+#define __ATOMIC_SEQ_CST 5
+# 0 "<built-in>"
+#define __ATOMIC_ACQUIRE 2
+# 0 "<built-in>"
+#define __ATOMIC_RELEASE 3
+# 0 "<built-in>"
+#define __ATOMIC_ACQ_REL 4
+# 0 "<built-in>"
+#define __ATOMIC_CONSUME 1
+# 0 "<built-in>"
+#define __FINITE_MATH_ONLY__ 0
+# 0 "<built-in>"
+#define __SIZEOF_INT__ 4
+# 0 "<built-in>"
+#define __SIZEOF_LONG__ 4
+# 0 "<built-in>"
+#define __SIZEOF_LONG_LONG__ 8
+# 0 "<built-in>"
+#define __SIZEOF_SHORT__ 2
+# 0 "<built-in>"
+#define __SIZEOF_FLOAT__ 4
+# 0 "<built-in>"
+#define __SIZEOF_DOUBLE__ 8
+# 0 "<built-in>"
+#define __SIZEOF_LONG_DOUBLE__ 8
+# 0 "<built-in>"
+#define __SIZEOF_SIZE_T__ 4
+# 0 "<built-in>"
+#define __CHAR_BIT__ 8
+# 0 "<built-in>"
+#define __BIGGEST_ALIGNMENT__ 8
+# 0 "<built-in>"
+#define __ORDER_LITTLE_ENDIAN__ 1234
+# 0 "<built-in>"
+#define __ORDER_BIG_ENDIAN__ 4321
+# 0 "<built-in>"
+#define __ORDER_PDP_ENDIAN__ 3412
+# 0 "<built-in>"
+#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+# 0 "<built-in>"
+#define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
+# 0 "<built-in>"
+#define __SIZEOF_POINTER__ 4
+# 0 "<built-in>"
+#define __GNUC_EXECUTION_CHARSET_NAME "UTF-8"
+# 0 "<built-in>"
+#define __GNUC_WIDE_EXECUTION_CHARSET_NAME "UTF-32LE"
+# 0 "<built-in>"
+#define __GNUG__ 13
+# 0 "<built-in>"
+#define __SIZE_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __PTRDIFF_TYPE__ int
+# 0 "<built-in>"
+#define __WCHAR_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __WINT_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __INTMAX_TYPE__ long long int
+# 0 "<built-in>"
+#define __UINTMAX_TYPE__ long long unsigned int
+# 0 "<built-in>"
+#define __CHAR16_TYPE__ short unsigned int
+# 0 "<built-in>"
+#define __CHAR32_TYPE__ long unsigned int
+# 0 "<built-in>"
+#define __SIG_ATOMIC_TYPE__ int
+# 0 "<built-in>"
+#define __INT8_TYPE__ signed char
+# 0 "<built-in>"
+#define __INT16_TYPE__ short int
+# 0 "<built-in>"
+#define __INT32_TYPE__ long int
+# 0 "<built-in>"
+#define __INT64_TYPE__ long long int
+# 0 "<built-in>"
+#define __UINT8_TYPE__ unsigned char
+# 0 "<built-in>"
+#define __UINT16_TYPE__ short unsigned int
+# 0 "<built-in>"
+#define __UINT32_TYPE__ long unsigned int
+# 0 "<built-in>"
+#define __UINT64_TYPE__ long long unsigned int
+# 0 "<built-in>"
+#define __INT_LEAST8_TYPE__ signed char
+# 0 "<built-in>"
+#define __INT_LEAST16_TYPE__ short int
+# 0 "<built-in>"
+#define __INT_LEAST32_TYPE__ long int
+# 0 "<built-in>"
+#define __INT_LEAST64_TYPE__ long long int
+# 0 "<built-in>"
+#define __UINT_LEAST8_TYPE__ unsigned char
+# 0 "<built-in>"
+#define __UINT_LEAST16_TYPE__ short unsigned int
+# 0 "<built-in>"
+#define __UINT_LEAST32_TYPE__ long unsigned int
+# 0 "<built-in>"
+#define __UINT_LEAST64_TYPE__ long long unsigned int
+# 0 "<built-in>"
+#define __INT_FAST8_TYPE__ int
+# 0 "<built-in>"
+#define __INT_FAST16_TYPE__ int
+# 0 "<built-in>"
+#define __INT_FAST32_TYPE__ int
+# 0 "<built-in>"
+#define __INT_FAST64_TYPE__ long long int
+# 0 "<built-in>"
+#define __UINT_FAST8_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __UINT_FAST16_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __UINT_FAST32_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __UINT_FAST64_TYPE__ long long unsigned int
+# 0 "<built-in>"
+#define __INTPTR_TYPE__ int
+# 0 "<built-in>"
+#define __UINTPTR_TYPE__ unsigned int
+# 0 "<built-in>"
+#define __GXX_WEAK__ 1
+# 0 "<built-in>"
+#define __DEPRECATED 1
+# 0 "<built-in>"
+#define __GXX_RTTI 1
+# 0 "<built-in>"
+#define __cpp_rtti 199711L
+# 0 "<built-in>"
+#define __GXX_EXPERIMENTAL_CXX0X__ 1
+# 0 "<built-in>"
+#define __cpp_binary_literals 201304L
+# 0 "<built-in>"
+#define __cpp_hex_float 201603L
+# 0 "<built-in>"
+#define __cpp_runtime_arrays 198712L
+# 0 "<built-in>"
+#define __cpp_raw_strings 200710L
+# 0 "<built-in>"
+#define __cpp_unicode_literals 200710L
+# 0 "<built-in>"
+#define __cpp_user_defined_literals 200809L
+# 0 "<built-in>"
+#define __cpp_lambdas 200907L
+# 0 "<built-in>"
+#define __cpp_decltype 200707L
+# 0 "<built-in>"
+#define __cpp_attributes 200809L
+# 0 "<built-in>"
+#define __cpp_rvalue_reference 200610L
+# 0 "<built-in>"
+#define __cpp_rvalue_references 200610L
+# 0 "<built-in>"
+#define __cpp_variadic_templates 200704L
+# 0 "<built-in>"
+#define __cpp_initializer_lists 200806L
+# 0 "<built-in>"
+#define __cpp_delegating_constructors 200604L
+# 0 "<built-in>"
+#define __cpp_nsdmi 200809L
+# 0 "<built-in>"
+#define __cpp_inheriting_constructors 201511L
+# 0 "<built-in>"
+#define __cpp_ref_qualifiers 200710L
+# 0 "<built-in>"
+#define __cpp_alias_templates 200704L
+# 0 "<built-in>"
+#define __cpp_return_type_deduction 201304L
+# 0 "<built-in>"
+#define __cpp_init_captures 201304L
+# 0 "<built-in>"
+#define __cpp_generic_lambdas 201304L
+# 0 "<built-in>"
+#define __cpp_decltype_auto 201304L
+# 0 "<built-in>"
+#define __cpp_aggregate_nsdmi 201304L
+# 0 "<built-in>"
+#define __cpp_variable_templates 201304L
+# 0 "<built-in>"
+#define __cpp_digit_separators 201309L
+# 0 "<built-in>"
+#define __cpp_unicode_characters 201411L
+# 0 "<built-in>"
+#define __cpp_static_assert 201411L
+# 0 "<built-in>"
+#define __cpp_namespace_attributes 201411L
+# 0 "<built-in>"
+#define __cpp_enumerator_attributes 201411L
+# 0 "<built-in>"
+#define __cpp_nested_namespace_definitions 201411L
+# 0 "<built-in>"
+#define __cpp_fold_expressions 201603L
+# 0 "<built-in>"
+#define __cpp_nontype_template_args 201411L
+# 0 "<built-in>"
+#define __cpp_range_based_for 201603L
+# 0 "<built-in>"
+#define __cpp_constexpr 201603L
+# 0 "<built-in>"
+#define __cpp_if_constexpr 201606L
+# 0 "<built-in>"
+#define __cpp_capture_star_this 201603L
+# 0 "<built-in>"
+#define __cpp_inline_variables 201606L
+# 0 "<built-in>"
+#define __cpp_aggregate_bases 201603L
+# 0 "<built-in>"
+#define __cpp_deduction_guides 201703L
+# 0 "<built-in>"
+#define __cpp_noexcept_function_type 201510L
+# 0 "<built-in>"
+#define __cpp_template_auto 201606L
+# 0 "<built-in>"
+#define __cpp_structured_bindings 201606L
+# 0 "<built-in>"
+#define __cpp_variadic_using 201611L
+# 0 "<built-in>"
+#define __cpp_guaranteed_copy_elision 201606L
+# 0 "<built-in>"
+#define __cpp_nontype_template_parameter_auto 201606L
+# 0 "<built-in>"
+#define __cpp_sized_deallocation 201309L
+# 0 "<built-in>"
+#define __cpp_aligned_new 201606L
+# 0 "<built-in>"
+#define __STDCPP_DEFAULT_NEW_ALIGNMENT__ 8
+# 0 "<built-in>"
+#define __cpp_template_template_args 201611L
+# 0 "<built-in>"
+#define __cpp_threadsafe_static_init 200806L
+# 0 "<built-in>"
+#define __EXCEPTIONS 1
+# 0 "<built-in>"
+#define __cpp_exceptions 199711L
+# 0 "<built-in>"
+#define __GXX_ABI_VERSION 1018
+# 0 "<built-in>"
+#define __SCHAR_MAX__ 0x7f
+# 0 "<built-in>"
+#define __SHRT_MAX__ 0x7fff
+# 0 "<built-in>"
+#define __INT_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __LONG_MAX__ 0x7fffffffL
+# 0 "<built-in>"
+#define __LONG_LONG_MAX__ 0x7fffffffffffffffLL
+# 0 "<built-in>"
+#define __WCHAR_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __WCHAR_MIN__ 0U
+# 0 "<built-in>"
+#define __WINT_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __WINT_MIN__ 0U
+# 0 "<built-in>"
+#define __PTRDIFF_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __SIZE_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __SCHAR_WIDTH__ 8
+# 0 "<built-in>"
+#define __SHRT_WIDTH__ 16
+# 0 "<built-in>"
+#define __INT_WIDTH__ 32
+# 0 "<built-in>"
+#define __LONG_WIDTH__ 32
+# 0 "<built-in>"
+#define __LONG_LONG_WIDTH__ 64
+# 0 "<built-in>"
+#define __WCHAR_WIDTH__ 32
+# 0 "<built-in>"
+#define __WINT_WIDTH__ 32
+# 0 "<built-in>"
+#define __PTRDIFF_WIDTH__ 32
+# 0 "<built-in>"
+#define __SIZE_WIDTH__ 32
+# 0 "<built-in>"
+#define __INTMAX_MAX__ 0x7fffffffffffffffLL
+# 0 "<built-in>"
+#define __INTMAX_C(c) c ## LL
+# 0 "<built-in>"
+#define __UINTMAX_MAX__ 0xffffffffffffffffULL
+# 0 "<built-in>"
+#define __UINTMAX_C(c) c ## ULL
+# 0 "<built-in>"
+#define __INTMAX_WIDTH__ 64
+# 0 "<built-in>"
+#define __SIG_ATOMIC_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)
+# 0 "<built-in>"
+#define __SIG_ATOMIC_WIDTH__ 32
+# 0 "<built-in>"
+#define __INT8_MAX__ 0x7f
+# 0 "<built-in>"
+#define __INT16_MAX__ 0x7fff
+# 0 "<built-in>"
+#define __INT32_MAX__ 0x7fffffffL
+# 0 "<built-in>"
+#define __INT64_MAX__ 0x7fffffffffffffffLL
+# 0 "<built-in>"
+#define __UINT8_MAX__ 0xff
+# 0 "<built-in>"
+#define __UINT16_MAX__ 0xffff
+# 0 "<built-in>"
+#define __UINT32_MAX__ 0xffffffffUL
+# 0 "<built-in>"
+#define __UINT64_MAX__ 0xffffffffffffffffULL
+# 0 "<built-in>"
+#define __INT_LEAST8_MAX__ 0x7f
+# 0 "<built-in>"
+#define __INT8_C(c) c
+# 0 "<built-in>"
+#define __INT_LEAST8_WIDTH__ 8
+# 0 "<built-in>"
+#define __INT_LEAST16_MAX__ 0x7fff
+# 0 "<built-in>"
+#define __INT16_C(c) c
+# 0 "<built-in>"
+#define __INT_LEAST16_WIDTH__ 16
+# 0 "<built-in>"
+#define __INT_LEAST32_MAX__ 0x7fffffffL
+# 0 "<built-in>"
+#define __INT32_C(c) c ## L
+# 0 "<built-in>"
+#define __INT_LEAST32_WIDTH__ 32
+# 0 "<built-in>"
+#define __INT_LEAST64_MAX__ 0x7fffffffffffffffLL
+# 0 "<built-in>"
+#define __INT64_C(c) c ## LL
+# 0 "<built-in>"
+#define __INT_LEAST64_WIDTH__ 64
+# 0 "<built-in>"
+#define __UINT_LEAST8_MAX__ 0xff
+# 0 "<built-in>"
+#define __UINT8_C(c) c
+# 0 "<built-in>"
+#define __UINT_LEAST16_MAX__ 0xffff
+# 0 "<built-in>"
+#define __UINT16_C(c) c
+# 0 "<built-in>"
+#define __UINT_LEAST32_MAX__ 0xffffffffUL
+# 0 "<built-in>"
+#define __UINT32_C(c) c ## UL
+# 0 "<built-in>"
+#define __UINT_LEAST64_MAX__ 0xffffffffffffffffULL
+# 0 "<built-in>"
+#define __UINT64_C(c) c ## ULL
+# 0 "<built-in>"
+#define __INT_FAST8_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __INT_FAST8_WIDTH__ 32
+# 0 "<built-in>"
+#define __INT_FAST16_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __INT_FAST16_WIDTH__ 32
+# 0 "<built-in>"
+#define __INT_FAST32_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __INT_FAST32_WIDTH__ 32
+# 0 "<built-in>"
+#define __INT_FAST64_MAX__ 0x7fffffffffffffffLL
+# 0 "<built-in>"
+#define __INT_FAST64_WIDTH__ 64
+# 0 "<built-in>"
+#define __UINT_FAST8_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __UINT_FAST16_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __UINT_FAST32_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __UINT_FAST64_MAX__ 0xffffffffffffffffULL
+# 0 "<built-in>"
+#define __INTPTR_MAX__ 0x7fffffff
+# 0 "<built-in>"
+#define __INTPTR_WIDTH__ 32
+# 0 "<built-in>"
+#define __UINTPTR_MAX__ 0xffffffffU
+# 0 "<built-in>"
+#define __GCC_IEC_559 0
+# 0 "<built-in>"
+#define __GCC_IEC_559_COMPLEX 0
+# 0 "<built-in>"
+#define __FLT_EVAL_METHOD__ 0
+# 0 "<built-in>"
+#define __FLT_EVAL_METHOD_TS_18661_3__ 0
+# 0 "<built-in>"
+#define __DEC_EVAL_METHOD__ 2
+# 0 "<built-in>"
+#define __FLT_RADIX__ 2
+# 0 "<built-in>"
+#define __FLT_MANT_DIG__ 24
+# 0 "<built-in>"
+#define __FLT_DIG__ 6
+# 0 "<built-in>"
+#define __FLT_MIN_EXP__ (-125)
+# 0 "<built-in>"
+#define __FLT_MIN_10_EXP__ (-37)
+# 0 "<built-in>"
+#define __FLT_MAX_EXP__ 128
+# 0 "<built-in>"
+#define __FLT_MAX_10_EXP__ 38
+# 0 "<built-in>"
+#define __FLT_DECIMAL_DIG__ 9
+# 0 "<built-in>"
+#define __FLT_MAX__ 3.4028234663852886e+38F
+# 0 "<built-in>"
+#define __FLT_NORM_MAX__ 3.4028234663852886e+38F
+# 0 "<built-in>"
+#define __FLT_MIN__ 1.1754943508222875e-38F
+# 0 "<built-in>"
+#define __FLT_EPSILON__ 1.1920928955078125e-7F
+# 0 "<built-in>"
+#define __FLT_DENORM_MIN__ 1.4012984643248171e-45F
+# 0 "<built-in>"
+#define __FLT_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __FLT_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __FLT_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __FP_FAST_FMAF 1
+# 0 "<built-in>"
+#define __FLT_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __DBL_MANT_DIG__ 53
+# 0 "<built-in>"
+#define __DBL_DIG__ 15
+# 0 "<built-in>"
+#define __DBL_MIN_EXP__ (-1021)
+# 0 "<built-in>"
+#define __DBL_MIN_10_EXP__ (-307)
+# 0 "<built-in>"
+#define __DBL_MAX_EXP__ 1024
+# 0 "<built-in>"
+#define __DBL_MAX_10_EXP__ 308
+# 0 "<built-in>"
+#define __DBL_DECIMAL_DIG__ 17
+# 0 "<built-in>"
+#define __DBL_MAX__ double(1.7976931348623157e+308L)
+# 0 "<built-in>"
+#define __DBL_NORM_MAX__ double(1.7976931348623157e+308L)
+# 0 "<built-in>"
+#define __DBL_MIN__ double(2.2250738585072014e-308L)
+# 0 "<built-in>"
+#define __DBL_EPSILON__ double(2.2204460492503131e-16L)
+# 0 "<built-in>"
+#define __DBL_DENORM_MIN__ double(4.9406564584124654e-324L)
+# 0 "<built-in>"
+#define __DBL_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __DBL_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __DBL_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __DBL_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __LDBL_MANT_DIG__ 53
+# 0 "<built-in>"
+#define __LDBL_DIG__ 15
+# 0 "<built-in>"
+#define __LDBL_MIN_EXP__ (-1021)
+# 0 "<built-in>"
+#define __LDBL_MIN_10_EXP__ (-307)
+# 0 "<built-in>"
+#define __LDBL_MAX_EXP__ 1024
+# 0 "<built-in>"
+#define __LDBL_MAX_10_EXP__ 308
+# 0 "<built-in>"
+#define __DECIMAL_DIG__ 17
+# 0 "<built-in>"
+#define __LDBL_DECIMAL_DIG__ 17
+# 0 "<built-in>"
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+# 0 "<built-in>"
+#define __LDBL_NORM_MAX__ 1.7976931348623157e+308L
+# 0 "<built-in>"
+#define __LDBL_MIN__ 2.2250738585072014e-308L
+# 0 "<built-in>"
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
+# 0 "<built-in>"
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+# 0 "<built-in>"
+#define __LDBL_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __LDBL_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __LDBL_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __LDBL_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __FLT32_MANT_DIG__ 24
+# 0 "<built-in>"
+#define __FLT32_DIG__ 6
+# 0 "<built-in>"
+#define __FLT32_MIN_EXP__ (-125)
+# 0 "<built-in>"
+#define __FLT32_MIN_10_EXP__ (-37)
+# 0 "<built-in>"
+#define __FLT32_MAX_EXP__ 128
+# 0 "<built-in>"
+#define __FLT32_MAX_10_EXP__ 38
+# 0 "<built-in>"
+#define __FLT32_DECIMAL_DIG__ 9
+# 0 "<built-in>"
+#define __FLT32_MAX__ 3.4028234663852886e+38F32
+# 0 "<built-in>"
+#define __FLT32_NORM_MAX__ 3.4028234663852886e+38F32
+# 0 "<built-in>"
+#define __FLT32_MIN__ 1.1754943508222875e-38F32
+# 0 "<built-in>"
+#define __FLT32_EPSILON__ 1.1920928955078125e-7F32
+# 0 "<built-in>"
+#define __FLT32_DENORM_MIN__ 1.4012984643248171e-45F32
+# 0 "<built-in>"
+#define __FLT32_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __FLT32_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __FLT32_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __FP_FAST_FMAF32 1
+# 0 "<built-in>"
+#define __FLT32_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __FLT64_MANT_DIG__ 53
+# 0 "<built-in>"
+#define __FLT64_DIG__ 15
+# 0 "<built-in>"
+#define __FLT64_MIN_EXP__ (-1021)
+# 0 "<built-in>"
+#define __FLT64_MIN_10_EXP__ (-307)
+# 0 "<built-in>"
+#define __FLT64_MAX_EXP__ 1024
+# 0 "<built-in>"
+#define __FLT64_MAX_10_EXP__ 308
+# 0 "<built-in>"
+#define __FLT64_DECIMAL_DIG__ 17
+# 0 "<built-in>"
+#define __FLT64_MAX__ 1.7976931348623157e+308F64
+# 0 "<built-in>"
+#define __FLT64_NORM_MAX__ 1.7976931348623157e+308F64
+# 0 "<built-in>"
+#define __FLT64_MIN__ 2.2250738585072014e-308F64
+# 0 "<built-in>"
+#define __FLT64_EPSILON__ 2.2204460492503131e-16F64
+# 0 "<built-in>"
+#define __FLT64_DENORM_MIN__ 4.9406564584124654e-324F64
+# 0 "<built-in>"
+#define __FLT64_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __FLT64_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __FLT64_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __FLT64_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __FLT32X_MANT_DIG__ 53
+# 0 "<built-in>"
+#define __FLT32X_DIG__ 15
+# 0 "<built-in>"
+#define __FLT32X_MIN_EXP__ (-1021)
+# 0 "<built-in>"
+#define __FLT32X_MIN_10_EXP__ (-307)
+# 0 "<built-in>"
+#define __FLT32X_MAX_EXP__ 1024
+# 0 "<built-in>"
+#define __FLT32X_MAX_10_EXP__ 308
+# 0 "<built-in>"
+#define __FLT32X_DECIMAL_DIG__ 17
+# 0 "<built-in>"
+#define __FLT32X_MAX__ 1.7976931348623157e+308F32x
+# 0 "<built-in>"
+#define __FLT32X_NORM_MAX__ 1.7976931348623157e+308F32x
+# 0 "<built-in>"
+#define __FLT32X_MIN__ 2.2250738585072014e-308F32x
+# 0 "<built-in>"
+#define __FLT32X_EPSILON__ 2.2204460492503131e-16F32x
+# 0 "<built-in>"
+#define __FLT32X_DENORM_MIN__ 4.9406564584124654e-324F32x
+# 0 "<built-in>"
+#define __FLT32X_HAS_DENORM__ 1
+# 0 "<built-in>"
+#define __FLT32X_HAS_INFINITY__ 1
+# 0 "<built-in>"
+#define __FLT32X_HAS_QUIET_NAN__ 1
+# 0 "<built-in>"
+#define __FLT32X_IS_IEC_60559__ 1
+# 0 "<built-in>"
+#define __SFRACT_FBIT__ 7
+# 0 "<built-in>"
+#define __SFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __SFRACT_MIN__ (-0.5HR-0.5HR)
+# 0 "<built-in>"
+#define __SFRACT_MAX__ 0X7FP-7HR
+# 0 "<built-in>"
+#define __SFRACT_EPSILON__ 0x1P-7HR
+# 0 "<built-in>"
+#define __USFRACT_FBIT__ 8
+# 0 "<built-in>"
+#define __USFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __USFRACT_MIN__ 0.0UHR
+# 0 "<built-in>"
+#define __USFRACT_MAX__ 0XFFP-8UHR
+# 0 "<built-in>"
+#define __USFRACT_EPSILON__ 0x1P-8UHR
+# 0 "<built-in>"
+#define __FRACT_FBIT__ 15
+# 0 "<built-in>"
+#define __FRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __FRACT_MIN__ (-0.5R-0.5R)
+# 0 "<built-in>"
+#define __FRACT_MAX__ 0X7FFFP-15R
+# 0 "<built-in>"
+#define __FRACT_EPSILON__ 0x1P-15R
+# 0 "<built-in>"
+#define __UFRACT_FBIT__ 16
+# 0 "<built-in>"
+#define __UFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __UFRACT_MIN__ 0.0UR
+# 0 "<built-in>"
+#define __UFRACT_MAX__ 0XFFFFP-16UR
+# 0 "<built-in>"
+#define __UFRACT_EPSILON__ 0x1P-16UR
+# 0 "<built-in>"
+#define __LFRACT_FBIT__ 31
+# 0 "<built-in>"
+#define __LFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __LFRACT_MIN__ (-0.5LR-0.5LR)
+# 0 "<built-in>"
+#define __LFRACT_MAX__ 0X7FFFFFFFP-31LR
+# 0 "<built-in>"
+#define __LFRACT_EPSILON__ 0x1P-31LR
+# 0 "<built-in>"
+#define __ULFRACT_FBIT__ 32
+# 0 "<built-in>"
+#define __ULFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __ULFRACT_MIN__ 0.0ULR
+# 0 "<built-in>"
+#define __ULFRACT_MAX__ 0XFFFFFFFFP-32ULR
+# 0 "<built-in>"
+#define __ULFRACT_EPSILON__ 0x1P-32ULR
+# 0 "<built-in>"
+#define __LLFRACT_FBIT__ 63
+# 0 "<built-in>"
+#define __LLFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __LLFRACT_MIN__ (-0.5LLR-0.5LLR)
+# 0 "<built-in>"
+#define __LLFRACT_MAX__ 0X7FFFFFFFFFFFFFFFP-63LLR
+# 0 "<built-in>"
+#define __LLFRACT_EPSILON__ 0x1P-63LLR
+# 0 "<built-in>"
+#define __ULLFRACT_FBIT__ 64
+# 0 "<built-in>"
+#define __ULLFRACT_IBIT__ 0
+# 0 "<built-in>"
+#define __ULLFRACT_MIN__ 0.0ULLR
+# 0 "<built-in>"
+#define __ULLFRACT_MAX__ 0XFFFFFFFFFFFFFFFFP-64ULLR
+# 0 "<built-in>"
+#define __ULLFRACT_EPSILON__ 0x1P-64ULLR
+# 0 "<built-in>"
+#define __SACCUM_FBIT__ 7
+# 0 "<built-in>"
+#define __SACCUM_IBIT__ 8
+# 0 "<built-in>"
+#define __SACCUM_MIN__ (-0X1P7HK-0X1P7HK)
+# 0 "<built-in>"
+#define __SACCUM_MAX__ 0X7FFFP-7HK
+# 0 "<built-in>"
+#define __SACCUM_EPSILON__ 0x1P-7HK
+# 0 "<built-in>"
+#define __USACCUM_FBIT__ 8
+# 0 "<built-in>"
+#define __USACCUM_IBIT__ 8
+# 0 "<built-in>"
+#define __USACCUM_MIN__ 0.0UHK
+# 0 "<built-in>"
+#define __USACCUM_MAX__ 0XFFFFP-8UHK
+# 0 "<built-in>"
+#define __USACCUM_EPSILON__ 0x1P-8UHK
+# 0 "<built-in>"
+#define __ACCUM_FBIT__ 15
+# 0 "<built-in>"
+#define __ACCUM_IBIT__ 16
+# 0 "<built-in>"
+#define __ACCUM_MIN__ (-0X1P15K-0X1P15K)
+# 0 "<built-in>"
+#define __ACCUM_MAX__ 0X7FFFFFFFP-15K
+# 0 "<built-in>"
+#define __ACCUM_EPSILON__ 0x1P-15K
+# 0 "<built-in>"
+#define __UACCUM_FBIT__ 16
+# 0 "<built-in>"
+#define __UACCUM_IBIT__ 16
+# 0 "<built-in>"
+#define __UACCUM_MIN__ 0.0UK
+# 0 "<built-in>"
+#define __UACCUM_MAX__ 0XFFFFFFFFP-16UK
+# 0 "<built-in>"
+#define __UACCUM_EPSILON__ 0x1P-16UK
+# 0 "<built-in>"
+#define __LACCUM_FBIT__ 31
+# 0 "<built-in>"
+#define __LACCUM_IBIT__ 32
+# 0 "<built-in>"
+#define __LACCUM_MIN__ (-0X1P31LK-0X1P31LK)
+# 0 "<built-in>"
+#define __LACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LK
+# 0 "<built-in>"
+#define __LACCUM_EPSILON__ 0x1P-31LK
+# 0 "<built-in>"
+#define __ULACCUM_FBIT__ 32
+# 0 "<built-in>"
+#define __ULACCUM_IBIT__ 32
+# 0 "<built-in>"
+#define __ULACCUM_MIN__ 0.0ULK
+# 0 "<built-in>"
+#define __ULACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULK
+# 0 "<built-in>"
+#define __ULACCUM_EPSILON__ 0x1P-32ULK
+# 0 "<built-in>"
+#define __LLACCUM_FBIT__ 31
+# 0 "<built-in>"
+#define __LLACCUM_IBIT__ 32
+# 0 "<built-in>"
+#define __LLACCUM_MIN__ (-0X1P31LLK-0X1P31LLK)
+# 0 "<built-in>"
+#define __LLACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LLK
+# 0 "<built-in>"
+#define __LLACCUM_EPSILON__ 0x1P-31LLK
+# 0 "<built-in>"
+#define __ULLACCUM_FBIT__ 32
+# 0 "<built-in>"
+#define __ULLACCUM_IBIT__ 32
+# 0 "<built-in>"
+#define __ULLACCUM_MIN__ 0.0ULLK
+# 0 "<built-in>"
+#define __ULLACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULLK
+# 0 "<built-in>"
+#define __ULLACCUM_EPSILON__ 0x1P-32ULLK
+# 0 "<built-in>"
+#define __QQ_FBIT__ 7
+# 0 "<built-in>"
+#define __QQ_IBIT__ 0
+# 0 "<built-in>"
+#define __HQ_FBIT__ 15
+# 0 "<built-in>"
+#define __HQ_IBIT__ 0
+# 0 "<built-in>"
+#define __SQ_FBIT__ 31
+# 0 "<built-in>"
+#define __SQ_IBIT__ 0
+# 0 "<built-in>"
+#define __DQ_FBIT__ 63
+# 0 "<built-in>"
+#define __DQ_IBIT__ 0
+# 0 "<built-in>"
+#define __TQ_FBIT__ 127
+# 0 "<built-in>"
+#define __TQ_IBIT__ 0
+# 0 "<built-in>"
+#define __UQQ_FBIT__ 8
+# 0 "<built-in>"
+#define __UQQ_IBIT__ 0
+# 0 "<built-in>"
+#define __UHQ_FBIT__ 16
+# 0 "<built-in>"
+#define __UHQ_IBIT__ 0
+# 0 "<built-in>"
+#define __USQ_FBIT__ 32
+# 0 "<built-in>"
+#define __USQ_IBIT__ 0
+# 0 "<built-in>"
+#define __UDQ_FBIT__ 64
+# 0 "<built-in>"
+#define __UDQ_IBIT__ 0
+# 0 "<built-in>"
+#define __UTQ_FBIT__ 128
+# 0 "<built-in>"
+#define __UTQ_IBIT__ 0
+# 0 "<built-in>"
+#define __HA_FBIT__ 7
+# 0 "<built-in>"
+#define __HA_IBIT__ 8
+# 0 "<built-in>"
+#define __SA_FBIT__ 15
+# 0 "<built-in>"
+#define __SA_IBIT__ 16
+# 0 "<built-in>"
+#define __DA_FBIT__ 31
+# 0 "<built-in>"
+#define __DA_IBIT__ 32
+# 0 "<built-in>"
+#define __TA_FBIT__ 63
+# 0 "<built-in>"
+#define __TA_IBIT__ 64
+# 0 "<built-in>"
+#define __UHA_FBIT__ 8
+# 0 "<built-in>"
+#define __UHA_IBIT__ 8
+# 0 "<built-in>"
+#define __USA_FBIT__ 16
+# 0 "<built-in>"
+#define __USA_IBIT__ 16
+# 0 "<built-in>"
+#define __UDA_FBIT__ 32
+# 0 "<built-in>"
+#define __UDA_IBIT__ 32
+# 0 "<built-in>"
+#define __UTA_FBIT__ 64
+# 0 "<built-in>"
+#define __UTA_IBIT__ 64
+# 0 "<built-in>"
+#define __REGISTER_PREFIX__ 
+# 0 "<built-in>"
+#define __USER_LABEL_PREFIX__ 
+# 0 "<built-in>"
+#define __GNUC_STDC_INLINE__ 1
+# 0 "<built-in>"
+#define __NO_INLINE__ 1
+# 0 "<built-in>"
+#define __CHAR_UNSIGNED__ 1
+# 0 "<built-in>"
+#define __WCHAR_UNSIGNED__ 1
+# 0 "<built-in>"
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+# 0 "<built-in>"
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
+# 0 "<built-in>"
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
+# 0 "<built-in>"
+#define __GCC_ATOMIC_BOOL_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_INT_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_LONG_LOCK_FREE 2
+# 0 "<built-in>"
+#define __GCC_ATOMIC_LLONG_LOCK_FREE 1
+# 0 "<built-in>"
+#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
+# 0 "<built-in>"
+#define __GCC_DESTRUCTIVE_SIZE 64
+# 0 "<built-in>"
+#define __GCC_CONSTRUCTIVE_SIZE 64
+# 0 "<built-in>"
+#define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+# 0 "<built-in>"
+#define __HAVE_SPECULATION_SAFE_VALUE 1
+# 0 "<built-in>"
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
+# 0 "<built-in>"
+#define __PRAGMA_REDEFINE_EXTNAME 1
+# 0 "<built-in>"
+#define __SIZEOF_WCHAR_T__ 4
+# 0 "<built-in>"
+#define __SIZEOF_WINT_T__ 4
+# 0 "<built-in>"
+#define __SIZEOF_PTRDIFF_T__ 4
+# 0 "<built-in>"
+#define __ARM_FEATURE_DSP 1
+# 0 "<built-in>"
+#define __ARM_FEATURE_QBIT 1
+# 0 "<built-in>"
+#define __ARM_FEATURE_SAT 1
+# 0 "<built-in>"
+#undef __ARM_FEATURE_CRYPTO
+# 0 "<built-in>"
+#undef __ARM_FEATURE_AES
+# 0 "<built-in>"
+#undef __ARM_FEATURE_SHA2
+# 0 "<built-in>"
+#define __ARM_FEATURE_UNALIGNED 1
+# 0 "<built-in>"
+#undef __ARM_FEATURE_QRDMX
+# 0 "<built-in>"
+#undef __ARM_FEATURE_CRC32
+# 0 "<built-in>"
+#undef __ARM_FEATURE_DOTPROD
+# 0 "<built-in>"
+#undef __ARM_FEATURE_COMPLEX
+# 0 "<built-in>"
+#define __ARM_32BIT_STATE 1
+# 0 "<built-in>"
+#undef __ARM_FEATURE_PAUTH
+# 0 "<built-in>"
+#undef __ARM_FEATURE_BTI
+# 0 "<built-in>"
+#undef __ARM_FEATURE_BTI_DEFAULT
+# 0 "<built-in>"
+#undef __ARM_FEATURE_PAC_DEFAULT
+# 0 "<built-in>"
+#undef __ARM_FEATURE_MVE
+# 0 "<built-in>"
+#undef __ARM_FEATURE_CMSE
+# 0 "<built-in>"
+#undef __ARM_FEATURE_LDREX
+# 0 "<built-in>"
+#define __ARM_FEATURE_LDREX 7
+# 0 "<built-in>"
+#define __ARM_FEATURE_CLZ 1
+# 0 "<built-in>"
+#undef __ARM_FEATURE_NUMERIC_MAXMIN
+# 0 "<built-in>"
+#define __ARM_FEATURE_SIMD32 1
+# 0 "<built-in>"
+#define __ARM_SIZEOF_MINIMAL_ENUM 1
+# 0 "<built-in>"
+#define __ARM_SIZEOF_WCHAR_T 4
+# 0 "<built-in>"
+#undef __ARM_ARCH_PROFILE
+# 0 "<built-in>"
+#define __ARM_ARCH_PROFILE 77
+# 0 "<built-in>"
+#define __arm__ 1
+# 0 "<built-in>"
+#undef __ARM_ARCH
+# 0 "<built-in>"
+#define __ARM_ARCH 7
+# 0 "<built-in>"
+#define __APCS_32__ 1
+# 0 "<built-in>"
+#define __GCC_ASM_FLAG_OUTPUTS__ 1
+# 0 "<built-in>"
+#define __thumb__ 1
+# 0 "<built-in>"
+#define __thumb2__ 1
+# 0 "<built-in>"
+#define __THUMBEL__ 1
+# 0 "<built-in>"
+#undef __ARM_ARCH_ISA_THUMB
+# 0 "<built-in>"
+#define __ARM_ARCH_ISA_THUMB 2
+# 0 "<built-in>"
+#define __ARMEL__ 1
+# 0 "<built-in>"
+#define __VFP_FP__ 1
+# 0 "<built-in>"
+#undef __ARM_FP
+# 0 "<built-in>"
+#define __ARM_FP 4
+# 0 "<built-in>"
+#undef __ARM_FP16_FORMAT_IEEE
+# 0 "<built-in>"
+#undef __ARM_FP16_FORMAT_ALTERNATIVE
+# 0 "<built-in>"
+#undef __ARM_FP16_ARGS
+# 0 "<built-in>"
+#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC
+# 0 "<built-in>"
+#undef __ARM_FEATURE_FP16_VECTOR_ARITHMETIC
+# 0 "<built-in>"
+#undef __ARM_FEATURE_FP16_FML
+# 0 "<built-in>"
+#define __ARM_FEATURE_FMA 1
+# 0 "<built-in>"
+#undef __ARM_NEON__
+# 0 "<built-in>"
+#undef __ARM_NEON
+# 0 "<built-in>"
+#undef __ARM_NEON_FP
+# 0 "<built-in>"
+#define __THUMB_INTERWORK__ 1
+# 0 "<built-in>"
+#define __ARM_ARCH_7EM__ 1
+# 0 "<built-in>"
+#define __ARM_PCS_VFP 1
+# 0 "<built-in>"
+#define __ARM_EABI__ 1
+# 0 "<built-in>"
+#undef __FDPIC__
+# 0 "<built-in>"
+#define __ARM_ARCH_EXT_IDIV__ 1
+# 0 "<built-in>"
+#define __ARM_FEATURE_IDIV 1
+# 0 "<built-in>"
+#define __ARM_ASM_SYNTAX_UNIFIED__ 1
+# 0 "<built-in>"
+#undef __ARM_FEATURE_COPROC
+# 0 "<built-in>"
+#define __ARM_FEATURE_COPROC 15
+# 0 "<built-in>"
+#undef __ARM_FEATURE_CDE
+# 0 "<built-in>"
+#undef __ARM_FEATURE_CDE_COPROC
+# 0 "<built-in>"
+#undef __ARM_FEATURE_MATMUL_INT8
+# 0 "<built-in>"
+#undef __ARM_FEATURE_BF16_SCALAR_ARITHMETIC
+# 0 "<built-in>"
+#undef __ARM_FEATURE_BF16_VECTOR_ARITHMETIC
+# 0 "<built-in>"
+#undef __ARM_BF16_FORMAT_ALTERNATIVE
+# 0 "<built-in>"
+#define __GXX_TYPEINFO_EQUALITY_INLINE 0
+# 0 "<built-in>"
+#define __ELF__ 1
+# 0 "<command-line>"
+#define __USES_INITFINI__ 1
+# 0 "<command-line>"
+#define DEBUG 1
+# 0 "<command-line>"
+#define ASSERTIONS 1
+# 0 "<command-line>"
+#define EXTERNAL_APPS_API_LEVEL 0
+# 0 "<command-line>"
+#define PLATFORM_DEVICE 1
+# 0 "<command-line>"
+#define ION_DISPLAY_WIDTH 320
+# 0 "<command-line>"
+#define ION_DISPLAY_HEIGHT 240
+# 0 "<command-line>"
+#define ION_DISPLAY_BORDER 0
+# 0 "<command-line>"
+#define ION_DISPLAY_BORDER_COLOR KDColor::RGB888(0, 0, 0)
+# 0 "<command-line>"
+#define ION_KEYBOARD_COLUMNS 6
+# 0 "<command-line>"
+#define ION_KEYBOARD_ROWS 9
+# 0 "<command-line>"
+#define EMBED_EXTRA_DATA 0
+# 0 "<command-line>"
+#define KANDINSKY_FONT_LARGE_FONT 1
+# 0 "<command-line>"
+#define ULAB_CONFIG_FILE "numworks_ulab_config.h"
+# 1 "ion/src/device/include/n0110/config/board.h"
+
+#define ION_DEVICE_N0110_SHARED_DRIVERS_CONFIG_BOARD_H 
+
+# 1 "liba/include/stdint.h" 1
+
+#define LIBA_STDINT_H 
+
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+typedef unsigned long long uint64_t;
+
+typedef signed char int8_t;
+typedef signed short int16_t;
+typedef signed int int32_t;
+typedef signed long long int64_t;
+
+typedef unsigned int uintptr_t;
+typedef signed int intptr_t;
+
+typedef uint32_t uint_fast8_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+typedef uint64_t uint_fast64_t;
+
+typedef int32_t int_fast8_t;
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef int64_t int_fast64_t;
+
+typedef uint8_t uint_least8_t;
+
+#define INT8_MAX 0x7f
+#define INT8_MIN (-INT8_MAX - 1)
+#define INT32_MAX 0x7fffffff
+
+#define UINT8_MAX 0xff
+#define UINT16_MAX 0xffff
+#define UINT32_MAX 0xffffffff
+#define UINT64_MAX 0xffffffffffffffff
+
+#define INT16_MAX 0x7fff
+#define INT16_MIN (-INT16_MAX - 1)
+
+#define UINT64_C(c) c ##ULL
+#define INT64_C(c) c ##LL
+
+#define UINT32_C(c) c ##U
+# 5 "ion/src/device/include/n0110/config/board.h" 2
+# 15 "ion/src/device/include/n0110/config/board.h"
+namespace Ion {
+namespace Device {
+namespace Board {
+namespace Config {
+# 30 "ion/src/device/include/n0110/config/board.h"
+constexpr uint32_t ITCMInterface = 0x00200000;
+constexpr uint32_t AXIMInterface = 0x08000000;
+
+constexpr uint32_t STBootloaderAddress = 0x00100000;
+
+constexpr uint32_t InternalFlashOrigin = AXIMInterface;
+constexpr uint32_t InternalFlashLength = 0x10000;
+
+constexpr uint32_t TrampolineLength = 0x2000;
+constexpr uint32_t BootloaderLength = InternalFlashLength - TrampolineLength;
+constexpr uint32_t BootloaderOrigin = ITCMInterface;
+constexpr uint32_t TrampolineOrigin = BootloaderOrigin + BootloaderLength;
+# 65 "ion/src/device/include/n0110/config/board.h"
+constexpr uint32_t ExternalFlashOrigin = 0x90000000;
+constexpr uint32_t ExternalFlashLength = 0x800000;
+constexpr uint32_t StandardExternalFlashSectorLength = 0x10000;
+
+constexpr uint32_t SlotAOffset = 0;
+constexpr uint32_t SlotAOrigin = ExternalFlashOrigin + SlotAOffset;
+constexpr uint32_t SlotBOffset = ExternalFlashLength / 2;
+constexpr uint32_t SlotBOrigin = ExternalFlashOrigin + SlotBOffset;
+
+constexpr uint32_t PersistingBytesLength = StandardExternalFlashSectorLength;
+constexpr uint32_t PersistingBytesVirtualOrigin = ExternalFlashOrigin + ExternalFlashLength / 2 - PersistingBytesLength;
+constexpr uint32_t DeviceNameSectorLength = 1024;
+
+constexpr uint32_t KernelLength = StandardExternalFlashSectorLength;
+constexpr uint32_t KernelVirtualOrigin = ExternalFlashOrigin;
+
+
+
+
+constexpr uint32_t ExtraDataLength = 0;
+
+constexpr uint32_t ExtraDataVirtualOrigin = KernelVirtualOrigin + KernelLength;
+
+constexpr uint32_t UserlandLength = ExternalFlashLength / 2 - KernelLength - ExtraDataLength - PersistingBytesLength;
+constexpr uint32_t UserlandVirtualOrigin = ExtraDataVirtualOrigin + ExtraDataLength;
+
+constexpr uint32_t ExternalAppsSectorUnit = 0x10000;
+# 115 "ion/src/device/include/n0110/config/board.h"
+constexpr uint32_t SRAMOrigin = 0x20000000;
+constexpr uint32_t SRAMLength = 0x40000;
+
+constexpr uint32_t KernelStackLength = 0x400;
+constexpr uint32_t KernelDataBSSLength = 0xC00;
+constexpr uint32_t KernelSRAMLength = KernelStackLength + KernelDataBSSLength;
+constexpr uint32_t KernelSRAMOrigin = SRAMOrigin + SRAMLength - KernelSRAMLength;
+
+constexpr uint32_t UserlandStackLength = 0x8000;
+constexpr uint32_t UserlandSRAMOrigin = SRAMOrigin;
+constexpr uint32_t UserlandSRAMLength = SRAMLength - KernelSRAMLength;
+
+constexpr uint32_t STBootloaderStack = 0x8000;
+
+constexpr uint32_t FlasherLength = 0x10000;
+constexpr uint32_t FlasherOffset = SRAMLength - FlasherLength;
+static_assert(STBootloaderStack < FlasherOffset, "The flasher overlaps ST bootloader stack.");
+
+constexpr uint32_t SignedBinaryOffset = 0;
+
+constexpr uint32_t BenchLength = 0x20000;
+
+
+constexpr uint32_t SignedPayloadLength = 8;
+constexpr uint32_t CanaryLength = 4;
+
+constexpr uint32_t SingleSignatureLength = 64;
+constexpr uint32_t NumberOfSignatures = 16;
+constexpr uint32_t SignatureLength = SingleSignatureLength * NumberOfSignatures;
+
+
+constexpr int NumberOfMPUSectors = 8;
+
+
+
+}
+}
+}
+}

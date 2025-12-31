@@ -6,13 +6,16 @@ namespace Ion {
 namespace Timing {
 
 void SVC_ATTRIBUTES usleep(uint32_t us) {
-  SVC_RETURNING_VOID(SVC_TIMING_USLEEP)
+  //SVC_RETURNING_VOID(SVC_TIMING_USLEEP)
 }
 
-void SVC_ATTRIBUTES msleep(uint32_t ms){SVC_RETURNING_VOID(SVC_TIMING_MSLEEP)}
+void SVC_ATTRIBUTES msleep(uint32_t ms){
+    //SVC_RETURNING_VOID(SVC_TIMING_MSLEEP)
+}
 
 uint64_t SVC_ATTRIBUTES millis() {
-  SVC_RETURNING_R0R1(SVC_TIMING_MILLIS, uint64_t)
+  //SVC_RETURNING_R0R1(SVC_TIMING_MILLIS, uint64_t)
+    return 0;
 }
 
 }  // namespace Timing

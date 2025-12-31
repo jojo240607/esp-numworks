@@ -6,10 +6,15 @@ namespace Ion {
 namespace Keyboard {
 
 uint64_t SVC_ATTRIBUTES privateScan(){
-    SVC_RETURNING_R0R1(SVC_KEYBOARD_SCAN, State)}
+//    SVC_RETURNING_R0R1(SVC_KEYBOARD_SCAN, State)
+    return 0;
+}
 
 uint64_t SVC_ATTRIBUTES
-    privatePopState(){SVC_RETURNING_R0R1(SVC_KEYBOARD_POP_STATE, State)}
+    privatePopState(){
+//    SVC_RETURNING_R0R1(SVC_KEYBOARD_POP_STATE, State)
+    return 0;
+}
 
 State scan(bool forPython) {
   return State(privateScan());
