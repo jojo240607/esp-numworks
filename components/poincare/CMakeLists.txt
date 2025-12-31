@@ -247,7 +247,10 @@ idf_component_register(
         #$<$<CXX_COMPILER_ID:GNU>:-Wno-switch-outside-range>
         #$<$<CXX_COMPILER_ID:Clang>:-Wno-tautological-constant-out-of-range-compare>
         #COMPILE_DEFINITIONS ${COMPILE_DEFINITIONS}
-        REQUIRES kandinsky  # 字体依赖
+        REQUIRES
+            kandinsky  # 字体依赖
+            omg
+            ion
 )
 target_sources(${COMPONENT_TARGET} PRIVATE
         "config.epsilon.h"

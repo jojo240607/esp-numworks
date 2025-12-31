@@ -4,7 +4,7 @@ set(COMPONENT_NAME kandinsky)
 set(MODULE_SOURCES
         fonts/codepoint_to_glyph_index.cpp
         fonts/epsilon/LargeFont.cpp
-        #fonts/epsilon/SmallFont.cpp
+        fonts/epsilon/SmallFont.cpp
         src/color.cpp
         src/context_circle.cpp
         src/context_line.cpp
@@ -20,6 +20,9 @@ set(MODULE_SOURCES
 # 注册为IDF组件
 idf_component_register(
         SRCS ${MODULE_SOURCES}
-        INCLUDE_DIRS "include" ${CMAKE_CURRENT_LIST_DIR}/include  ${CMAKE_CURRENT_LIST_DIR}/../omg/include # 绝对路径
-       # REQUIRES driver            # 依赖的组件
+        INCLUDE_DIRS "include"
+            ${CMAKE_CURRENT_LIST_DIR}/include
+            ${CMAKE_CURRENT_LIST_DIR}/../omg/include # 绝对路径
+       REQUIRES
+            omg            # 依赖的组件
 )

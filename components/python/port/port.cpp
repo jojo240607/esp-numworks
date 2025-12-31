@@ -144,9 +144,9 @@ void MicroPython::ExecutionEnvironment::HandleException(
 
 void MicroPython::ExecutionEnvironment::interrupt() { mp_keyboard_interrupt(); }
 
-extern "C" {
-extern const void* _process_stack_end;
-}
+//extern "C" {
+//extern const void* _process_stack_end;
+//}
 
 void MicroPython::init(void* heapStart, void* heapEnd) {
 #if __EMSCRIPTEN__

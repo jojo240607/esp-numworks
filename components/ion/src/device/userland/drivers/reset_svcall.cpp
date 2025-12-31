@@ -5,7 +5,7 @@ namespace Ion {
 namespace Reset {
 
 void SVC_ATTRIBUTES core() {
-//    SVC_RETURNING_VOID(SVC_RESET_CORE)
+    //SVC_RETURNING_VOID(SVC_RESET_CORE)
 }
 
 }  // namespace Reset

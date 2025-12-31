@@ -2,7 +2,7 @@ set(COMPONENT_NAME ion)
 
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES
-        src/device/shared/boot/rt0.cpp
+        #src/device/shared/boot/rt0.cpp
         src/device/shared/drivers/assert.cpp
         src/device/shared/drivers/board_unprivileged.cpp
         src/device/shared/drivers/console_display.cpp
@@ -94,5 +94,7 @@ idf_component_register(
             ${CMAKE_CURRENT_LIST_DIR}/src/device/include/n0120
             ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
             ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
-       # REQUIRES driver            # 依赖的组件
+       REQUIRES
+            omg
+            kandinsky
 )

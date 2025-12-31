@@ -23,8 +23,9 @@ void SVC_ATTRIBUTES didExecuteDFU() {
 }
 
 SlotInfo* slotInfo() {
-  static SlotInfo __attribute__((used)) __attribute__((section(".slot_info")))
-  slotInformation;
+  //static SlotInfo __attribute__((used)) __attribute__((section(".slot_info")))
+  //slotInformation;
+  static SlotInfo slotInformation;
   return &slotInformation;
 }
 

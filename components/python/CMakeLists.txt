@@ -176,5 +176,10 @@ idf_component_register(
             ${CMAKE_CURRENT_LIST_DIR}/../escher/include
             ${CMAKE_CURRENT_LIST_DIR}/../poincare/include
             ${CMAKE_CURRENT_LIST_DIR}/..
-       # REQUIRES driver            # 依赖的组件
+        REQUIRES
+            omg
+            kandinsky
+            escher
+            poincare
+            ion
 )

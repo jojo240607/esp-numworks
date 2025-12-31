@@ -484,7 +484,7 @@ ExpressionOrFloat InteractiveCurveViewRange::computeGridUnitFromUserParameter(
     return ExpressionOrFloat::Builder(
         UserExpression::Create(
             KMult(KA, KPow(KB, -1_e)),
-            {.KA = userGridUnit.expression(), .KB = UserExpression::Builder(k)})
+            {.KA = userGridUnit.expression(), .KB = UserExpression::Builder(int32_t(k))})
             .cloneAndTrySimplify({}),
         PoincareHelpers::ApproximateToRealScalar);
   }
@@ -496,7 +496,7 @@ ExpressionOrFloat InteractiveCurveViewRange::computeGridUnitFromUserParameter(
 
   return ExpressionOrFloat::Builder(
       UserExpression::Create(KMult(KA, KB), {.KA = userGridUnit.expression(),
-                                             .KB = UserExpression::Builder(k)})
+                                             .KB = UserExpression::Builder(int32_t(k))})
           .cloneAndTrySimplify({}),
       PoincareHelpers::ApproximateToRealScalar);
 

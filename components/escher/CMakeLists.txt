@@ -119,5 +119,9 @@ idf_component_register(
             ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
             ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
             ${CMAKE_CURRENT_SOURCE_DIR}/../poincare/include
-       # REQUIRES driver            # 依赖的组件
+       REQUIRES
+            omg
+            ion
+            poincare
+            kandinsky
 )

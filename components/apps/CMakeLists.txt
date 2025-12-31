@@ -447,5 +447,11 @@ idf_component_register(
             ${CMAKE_CURRENT_SOURCE_DIR}/../poincare/include
             ${CMAKE_CURRENT_LIST_DIR}/../python/src  # 绝对路径
             ${CMAKE_CURRENT_LIST_DIR}/../python/port
-       # REQUIRES driver            # 依赖的组件
+        REQUIRES
+            omg
+            kandinsky
+            escher
+            ion
+            poincare
+            python
 )

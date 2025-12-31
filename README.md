@@ -7,7 +7,7 @@ LVGL is an open-source graphics library for creating modern GUIs. It has plenty 
 
 This example can be taken as a skeleton of porting the LVGL library onto the `esp_lcd` driver layer. **Note** that, this example only focuses on the display interface, regardless of the input device driver.
 
-The whole porting code is located in [i80_controller_example_main.c](main/i80_controller_example_main.c), and the UI demo code is located in [lvgl_demo_ui.c](main/lvgl_demo_ui.c).
+The whole porting code is located in [i80_controller_example_main.c](main/i80_controller_example_main.cpp), and the UI demo code is located in [lvgl_demo_ui.c](main/lvgl_demo_ui.c).
 
 The UI will display two images (one Espressif logo and another Espressif text), which have been converted into C arrays by the [online converting tool](https://lvgl.io/tools/imageconverter), and will be compiled directly into application binary.
 
@@ -50,7 +50,7 @@ The connection between ESP Board and the LCD is as follows:
 +-------------+              +----------------+
 ```
 
-Especially, please pay attention to the binary signal level used to turn the LCD backlight on, some LCD modules need a low level to turn it on, while others require a high level. You can change the backlight level macro `EXAMPLE_LCD_BK_LIGHT_ON_LEVEL` in [i80_controller_example_main.c](main/i80_controller_example_main.c).
+Especially, please pay attention to the binary signal level used to turn the LCD backlight on, some LCD modules need a low level to turn it on, while others require a high level. You can change the backlight level macro `EXAMPLE_LCD_BK_LIGHT_ON_LEVEL` in [i80_controller_example_main.c](main/i80_controller_example_main.cpp).
 
 ### Build and Flash
 

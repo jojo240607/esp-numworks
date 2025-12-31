@@ -152,6 +152,7 @@ class Expression : public PoolHandle {
   operator const Internal::Tree*() const { return tree(); }
   // Builders from value.
   static SystemExpression Builder(int32_t n);
+  static SystemExpression Builder(int n);
   template <typename T>
   static SystemExpression Builder(T x);
   template <typename T>

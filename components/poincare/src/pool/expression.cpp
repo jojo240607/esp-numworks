@@ -264,7 +264,9 @@ SystemExpression SystemExpression::CreateIntegralOfAbsOfDifference(
 SystemExpression SystemExpression::Builder(int32_t n) {
   return Builder(Integer::Push(n));
 }
-
+SystemExpression SystemExpression::Builder(int n) {
+  return Builder(Integer::Push(native_int_t(n)));
+}
 template <typename T>
 SystemExpression SystemExpression::Builder(T x) {
   return Builder(SharedTreeStack->pushFloat(x));

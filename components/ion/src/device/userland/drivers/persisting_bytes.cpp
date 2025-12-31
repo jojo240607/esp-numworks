@@ -10,12 +10,12 @@
 #include "svcall.h"
 
 extern "C" {
-extern char _persisting_bytes_buffer_start;
-extern char _persisting_bytes_buffer_end;
-extern char _device_name_sector_start;
-extern char _device_name_sector_end;
-extern char _exam_bytes_sector_start;
-extern char _exam_bytes_sector_end;
+static char _persisting_bytes_buffer_start;
+static char _persisting_bytes_buffer_end;
+static char _device_name_sector_start;
+static char _device_name_sector_end;
+static char _exam_bytes_sector_start;
+static char _exam_bytes_sector_end;
 }
 
 namespace Ion {

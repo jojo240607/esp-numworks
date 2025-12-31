@@ -105,7 +105,7 @@ Poincare::Layout ZDataField::getLayout(AtomicNumber z,
       MathPreferences::SharedPreferences()->displayMode();
   Context* globalContext =
       AppsContainer::sharedAppsContainer()->globalContext();
-  return Expression::Builder(static_cast<int>(z))
+  return Expression::Builder(int32_t(z))
       .createLayout(floatDisplayMode, significantDigits, globalContext);
 }
 
@@ -120,7 +120,7 @@ Layout ADataField::getLayout(AtomicNumber z, int significantDigits) const {
       MathPreferences::SharedPreferences()->displayMode();
   Context* globalContext =
       AppsContainer::sharedAppsContainer()->globalContext();
-  return Expression::Builder(static_cast<int>(a))
+  return Expression::Builder(int32_t(a))
       .createLayout(floatDisplayMode, significantDigits, globalContext);
 }
 
@@ -217,10 +217,10 @@ Layout ConfigurationDataField::getLayout(AtomicNumber z,
       res = Layout::Create(
           KA ^ KB ^ KC ^ KSuperscriptL(KD),
           {.KA = res,
-           .KB = Expression::Builder(n).createLayout(
+           .KB = Expression::Builder(int32_t(n)).createLayout(
                floatDisplayMode, significantDigits, globalContext),
            .KC = Layout::CodePoint(k_lSymbols[l]),
-           .KD = Expression::Builder(conf[index])
+           .KD = Expression::Builder(int32_t(conf[index]))
                      .createLayout(floatDisplayMode, significantDigits,
                                    globalContext)});
     }

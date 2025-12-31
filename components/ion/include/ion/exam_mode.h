@@ -75,10 +75,12 @@ class Configuration {
   Int flags() const;
   Int raw() const { return m_bits; }
   bool isUninitialized() const;
-  bool isActive() const;
-  KDColor color() const;
 
- private:
+    KDColor color() const;
+
+    bool isActive() const;
+
+private:
   static_assert(static_cast<int>(Bits::NumberOfBits) ==
                 OMG::BitHelper::numberOfBitsIn<Int>());
 
