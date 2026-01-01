@@ -1,8 +1,9 @@
 #include <assert.h>
 #include <escher/container.h>
+#include <esp_log.h>
 
 namespace Escher {
-
+    static const char *TAG = "Escher.container";
 Container::Container() : RunLoop() {}
 
 // Initialize private static member

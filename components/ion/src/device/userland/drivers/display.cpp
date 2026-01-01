@@ -3,24 +3,32 @@
 #include <ion/display.h>
 
 #include "svcall.h"
-
+#include <esp_log.h>
 namespace Ion {
 namespace Display {
-
+    static const char *TAG = "Ion.Display";
 void SVC_ATTRIBUTES pushRect(KDRect r, const KDColor* pixels) {
+    //Todo push Rect to frame
   //SVC_RETURNING_VOID(SVC_DISPLAY_PUSH_RECT)
+    ESP_LOGI(TAG, "pushRect(%d, %d, %d,%d)", r.size().width(), r.size().height(), r.origin().x(), r.origin().y());
 }
 
 void SVC_ATTRIBUTES pushRectUniform(KDRect r, KDColor c) {
+    //Todo push Rect color
   //SVC_RETURNING_VOID(SVC_DISPLAY_PUSH_RECT_UNIFORM)
+    ESP_LOGI(TAG, "pushRectUniform(%d, %d, %d,%d) color %d %d %d", r.size().width(), r.size().height(), r.origin().x(), r.origin().y(), c.red(), c.green(), c.blue());
 }
 
 void SVC_ATTRIBUTES pullRect(KDRect r, KDColor* pixels) {
+    //Todo pull Rect to frame
   //SVC_RETURNING_VOID(SVC_DISPLAY_PULL_RECT)
+    ESP_LOGI(TAG, "pullRect");
 }
 
 bool SVC_ATTRIBUTES waitForVBlank() {
+    //Todo wait TE Sync
   //SVC_RETURNING_R0(SVC_DISPLAY_WAIT_FOR_V_BLANK, bool)
+    ESP_LOGI(TAG, "waitForVBlank");
     return false;
 }
 

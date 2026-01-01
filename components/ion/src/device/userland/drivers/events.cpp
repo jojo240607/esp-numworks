@@ -33,7 +33,7 @@ int SVC_ATTRIBUTES longPressCounter(){
 }
 
 Event SVC_ATTRIBUTES getEvent(int* timeout) {
-    Event event = Event();
+    Event event = Ion::Events::None;
     return event;
     //SVC_RETURNING_R0(SVC_EVENTS_GET_EVENT, Event)
 }

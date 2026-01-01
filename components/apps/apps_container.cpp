@@ -7,6 +7,7 @@
 #include <poincare/exception_checkpoint.h>
 #include <poincare/init.h>
 #include <poincare/src/memory/tree_stack_checkpoint.h>
+#include <esp_log.h>
 
 #include "apps_container_storage.h"
 #include "global_preferences.h"
@@ -21,7 +22,7 @@ extern "C" {
 using namespace Shared;
 using namespace Escher;
 using namespace Poincare;
-
+static const char *TAG = "app.container";
 AppsContainer* AppsContainer::sharedAppsContainer() {
   return AppsContainerStorage::sharedAppsContainerStorage;
 }
@@ -234,6 +235,7 @@ bool AppsContainer::processEvent(Ion::Events::Event event) {
 void AppsContainer::switchToBuiltinApp(App::Snapshot* snapshot) {
   if (activeApp() && snapshot != activeApp()->snapshot()) {
     resetShiftAlphaStatus();
+ //     ESP_LOGI(TAG, "resetShiftAlphaStatus ok");
   }
   if (snapshot == hardwareTestAppSnapshot() ||
       snapshot == onBoardingAppSnapshot()) {
@@ -241,10 +243,13 @@ void AppsContainer::switchToBuiltinApp(App::Snapshot* snapshot) {
   } else {
     m_window.hideTitleBarView(false);
   }
+   // ESP_LOGI(TAG, "resetShiftAlphaStatus ok snapshot %d", snapshot);
   if (snapshot) {
     m_window.setTitle(snapshot->descriptor()->upperName());
     globalContext()->prepareForNewApp();
+    //  ESP_LOGI(TAG, "prepareForNewApp ok");
   }
+   // ESP_LOGI(TAG, "Container switchToBuiltinApp before");
   return Container::switchToBuiltinApp(snapshot);
 }
 
@@ -300,18 +305,24 @@ void AppsContainer::handleRunException() {
 
 void AppsContainer::run() {
   window()->setAbsoluteFrame(Ion::Display::Rect);
+  //  ESP_LOGI(TAG, "setAbsoluteFrame ok");
   const MathPreferences* preferences = MathPreferences::SharedPreferences();
   Poincare::ExamMode examMode = preferences->examMode();
+   // ESP_LOGI(TAG, "examMode ok");
   if (examMode.isActive()) {
     setExamMode(examMode,
                 Poincare::ExamMode(Ion::ExamMode::Ruleset::Uninitialized));
+      //ESP_LOGI(TAG, "setExamMode ok");
   } else {
     refreshPreferences();
+    //  ESP_LOGI(TAG, "refreshPreferences ok");
   }
   Ion::Power::selectStandbyMode(false);
+  //  ESP_LOGI(TAG, "selectStandbyMode ok");
   Ion::Events::setSpinner(true);
+  //  ESP_LOGI(TAG, "setSpinner ok");
   Ion::Display::setScreenshotCallback(ShowCursor);
-
+ //   ESP_LOGI(TAG, "setScreenshotCallback ok");
   /* Setup the home checkpoint so that the exception chekpoint will be
    * reactivated on a home interrupt. This way, the main exception checkpoint
    * will keep the home checkpoint as parent. */
@@ -319,13 +330,16 @@ void AppsContainer::run() {
   CircuitBreakerCheckpoint homeCheckpoint(
       Ion::CircuitBreaker::CheckpointType::Home);
   if (CircuitBreakerRun(homeCheckpoint)) {
+     // ESP_LOGI(TAG, "CircuitBreakerRun ok");
     homeInterruptOcurred = false;
   } else {
+     // ESP_LOGI(TAG, "CircuitBreakerRun false ok");
     homeInterruptOcurred = true;
   }
 
   ExceptionCheckpoint exceptionCheckpoint;
   if (ExceptionRun(exceptionCheckpoint)) {
+     // ESP_LOGI(TAG, "ExceptionRun ok homeInterruptOcurred %d", homeInterruptOcurred);
     if (homeInterruptOcurred) {
       /* Reset backlight and suspend timers here, because a keyboard event has
        * loaded the checkpoint and did not call AppsContainer::dispatchEvent. */
@@ -335,17 +349,21 @@ void AppsContainer::run() {
           GlobalPreferences::SharedGlobalPreferences()->brightnessLevel());
       Ion::Events::setSpinner(true);
       Ion::Display::setScreenshotCallback(ShowCursor);
+        //ESP_LOGI(TAG, "setScreenshotCallback ok");
       m_dfuBetweenEvents = false;
       if (activeApp() && activeApp()->snapshot() == homeAppSnapshot()) {
         dispatchEvent(Ion::Events::Back);
+          //ESP_LOGI(TAG, "dispatchEvent ok");
       } else {
         switchToBuiltinApp(homeAppSnapshot());
+          //ESP_LOGI(TAG, "switchToBuiltinApp ok");
       }
     } else {
       /* Normal execution. The exception checkpoint must be created before
        * switching to the first app, because the first app might create objects
        * on the pool. */
       switchToBuiltinApp(initialAppSnapshot());
+        //ESP_LOGI(TAG, "switchToBuiltinApp ok");
     }
   } else {
     /* We lock the Poincare pool until the application is destroyed (the pool
@@ -355,10 +373,15 @@ void AppsContainer::run() {
     Pool::Lock();
     handleRunException();
     Pool::Unlock();
+     // ESP_LOGI(TAG, "handleRunException ok");
     activeApp()->displayWarning(I18n::Message::PoolMemoryFull, true);
+    //  ESP_LOGI(TAG, "displayWarning ok");
   }
+   // ESP_LOGI(TAG, "Container::run");
   Container::run();
+  //  ESP_LOGI(TAG, "Container run ok");
   switchToBuiltinApp(nullptr);
+   // ESP_LOGI(TAG, "AppsContainer run switchToBuiltinApp ok");
 }
 
 bool AppsContainer::updateBatteryState() {

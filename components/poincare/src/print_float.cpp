@@ -16,9 +16,10 @@ extern "C" {
 }
 #include <algorithm>
 #include <cmath>
+#include <esp_log.h>
 
 namespace Poincare {
-
+    static const char *TAG = "Poincare.printfloat";
 constexpr const char* k_undefName =
     Internal::BuiltinsAliases::k_undefinedAlias.mainAlias();
 constexpr size_t k_undefNameLength = OMG::StringLength(k_undefName);

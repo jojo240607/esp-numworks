@@ -1,17 +1,23 @@
 #include <escher/window.h>
 #include <ion.h>
+#include <esp_log.h>
+
 extern "C" {
 #include <assert.h>
 }
 
 namespace Escher {
-
+    static const char *TAG = "Escher.Window";
 void Window::redraw(bool force) {
+//    ESP_LOGI(TAG, "redraw force %d", force);
   if (force) {
     markWholeFrameAsDirty();
+//      ESP_LOGI(TAG, "markWholeFrameAsDirty ok");
   }
   Ion::Display::waitForVBlank();
+//    ESP_LOGI(TAG, "waitForVBlank ok");
   View::redraw(bounds());
+//    ESP_LOGI(TAG, "redraw ok");
 }
 
 void Window::setContentView(View* contentView) {

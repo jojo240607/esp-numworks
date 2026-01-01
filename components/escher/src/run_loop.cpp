@@ -1,13 +1,16 @@
 #include <assert.h>
 #include <escher/run_loop.h>
 #include <kandinsky/font.h>
+#include <esp_log.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 #if ION_LOG_EVENTS_NAME
 #include <ion/console.h>
 #include <ion/keyboard/layout_events.h>
 #endif
 
 namespace Escher {
-
+    static const char *TAG = "Escher.RunLoop";
 RunLoop::RunLoop() : m_time(0), m_breakAllLoops(false) {}
 
 int RunLoop::numberOfTimers() { return 0; }
@@ -21,9 +24,9 @@ void RunLoop::run() { runWhile(nullptr, nullptr); }
 
 void RunLoop::runWhile(bool (*callback)(void* ctx), void* ctx) {
   bool continueCurrentRunLoop = true;
-
   while (!m_breakAllLoops && (callback == nullptr || callback(ctx)) &&
          (continueCurrentRunLoop = step())) {
+      vTaskDelay(pdMS_TO_TICKS(10));  // 延迟10毫秒
   }
 
   // Events::Termination was fired. Break all parent loops.
@@ -31,9 +34,10 @@ void RunLoop::runWhile(bool (*callback)(void* ctx), void* ctx) {
 }
 
 bool RunLoop::step() {
+    //ESP_LOGI(TAG, "RunLoop step");
   // The device might want to listen to the USB before receiving an event.
   listenToExternalEvents();
-
+    //ESP_LOGI(TAG, "listenToExternalEvents ok");
   // Fetch the event, if any
   int eventDuration = Timer::TickDuration;
   int timeout = eventDuration;
@@ -88,9 +92,10 @@ bool RunLoop::step() {
       return true;
     }
 #endif
+      //ESP_LOGI(TAG, "RunLoop dispatchEvent");
     dispatchEvent(event);
   }
-
+   // ESP_LOGI(TAG, "event = %d", event);
   return event != Ion::Events::Termination;
 }
 

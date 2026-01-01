@@ -38,8 +38,8 @@ set(MODULE_SOURCES
         src/device/shared/usb/stack/request_recipient.cpp
         src/device/shared/usb/stack/setup_packet.cpp
         src/device/shared/usb/stack/streamable.cpp
-        src/device/userland/boot/isr.cpp
-        src/device/userland/boot/rt0.cpp
+#        src/device/userland/boot/isr.cpp
+#        src/device/userland/boot/rt0.cpp
         src/device/userland/drivers/authentication.cpp
         src/device/userland/drivers/backlight.cpp
         src/device/userland/drivers/battery.cpp

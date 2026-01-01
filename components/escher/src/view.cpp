@@ -1,12 +1,13 @@
 #include <escher/view.h>
 #include <ion/display.h>
+#include <esp_log.h>
 
 extern "C" {
 #include <assert.h>
 }
 
 namespace Escher {
-
+    static const char *TAG = "Escher.View";
 void View::markRectAsDirty(KDRect rect) {
   assert(!SumOverflowsKDCoordinate(rect.origin().x(), m_frame.origin().x()));
   assert(!SumOverflowsKDCoordinate(rect.origin().y(), m_frame.origin().y()));
@@ -47,31 +48,36 @@ KDRect View::redraw(KDRect rect, KDRect forceRedrawRect) {
     KDPoint absOrigin = absoluteOrigin();
     KDContext* ctx = Ion::Display::Context::SharedContext;
     ctx->setOrigin(absOrigin);
+  //    ESP_LOGI(TAG, "setOrigin ok absOrigin %d", absOrigin);
     ctx->setClippingRect(rectNeedingRedraw);
+   //   ESP_LOGI(TAG, "setClippingRect ok");
     drawRect(ctx, rectNeedingRedraw.relativeTo(m_frame.origin()));
+     // ESP_LOGI(TAG, "drawRect ok");
   }
   // This initializes the area that has been redrawn.
   KDRect redrawnArea = rectNeedingRedraw;
 
   // Then, let's recursively draw our children over ourself
   uint8_t subviewsNumber = numberOfSubviews();
+  //  ESP_LOGI(TAG, "subviewsNumber %d", subviewsNumber);
   for (uint8_t i = 0; i < subviewsNumber; i++) {
     assert(subviewsNumber == numberOfSubviews());
     View* subview = subviewAtIndex(i);
     if (subview == nullptr) {
       continue;
     }
-
+   //   ESP_LOGI(TAG, "------- before subview->redraw");
     /* We redraw the current subview by passing the rectangle previously redrawn
      * (by the parent view or previous sister views) as forced to be redraw. */
     KDRect subviewRedrawnArea = subview->redraw(visibleRect, redrawnArea);
-
+    //  ESP_LOGI(TAG, "------- subview->redraw ok");
     // We expand the redrawn area to include the area just drawn.
     redrawnArea = redrawnArea.unionedWith(subviewRedrawnArea);
+     // ESP_LOGI(TAG, "unionedWith ok");
   }
   // Eventually, mark that we don't need to be redrawn
   m_dirtyRect = KDRectZero;
-
+    //ESP_LOGI(TAG, "return redrawnArea");
   // The function returns the total area that has been redrawn.
   return redrawnArea;
 }
