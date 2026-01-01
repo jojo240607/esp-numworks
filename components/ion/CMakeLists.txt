@@ -3,6 +3,8 @@ set(COMPONENT_NAME ion)
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES
         #src/device/shared/boot/rt0.cpp
+        src/device/userland/drivers/esp32/lcd_device.c
+        src/device/userland/drivers/esp32/sst7789_device.c
         src/device/shared/drivers/assert.cpp
         src/device/shared/drivers/board_unprivileged.cpp
         src/device/shared/drivers/console_display.cpp
@@ -97,4 +99,6 @@ idf_component_register(
        REQUIRES
             omg
             kandinsky
+            esp_lcd
+            esp_timer
 )

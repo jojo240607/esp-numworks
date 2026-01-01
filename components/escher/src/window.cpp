@@ -17,6 +17,7 @@ void Window::redraw(bool force) {
   Ion::Display::waitForVBlank();
 //    ESP_LOGI(TAG, "waitForVBlank ok");
   View::redraw(bounds());
+  Ion::Display::syncDisplay();
 //    ESP_LOGI(TAG, "redraw ok");
 }
 

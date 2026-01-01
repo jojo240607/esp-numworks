@@ -48,7 +48,9 @@ class KDColor {
   static KDColor ConvertHSVToRGB(HSVColor color);
   static KDColor HSVBlend(KDColor color1, KDColor color2);
 
- private:
+    constexpr KDColor(uint16_t value) : m_struct{value} {}
+
+private:
   /* When converting from RGB565 to RGB888 we need to artificially expand the
    * bit precision of each color channel. For example, we need to convert a 5
    * bit red color into an 8 bit one.
@@ -69,9 +71,8 @@ class KDColor {
            | (s >>
               (nBits - (8 - nBits)));  // Trick: let's try and fill the padding
   }
-  constexpr KDColor(uint16_t value) : m_struct{value} {}
 
-  KDColorStruct m_struct;
+    KDColorStruct m_struct;
 };
 
 constexpr KDColor KDColorBlack = KDColor::RGB24(0x000000);
