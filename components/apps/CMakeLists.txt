@@ -118,6 +118,10 @@ set(MODULE_SOURCES
         elements/single_element_view.cpp
         elements/suggestion_text_field.cpp
         elements/table_layout.cpp
+        external/sample_c/src/sample_c_main.c
+        external/sample_c/src/sample_c_icon.cpp
+        external/simulator.cpp
+        build_in_external_apps.cpp
         empty_battery_window.cpp
         exam_icon.cpp
         exam_pop_up_controller.cpp
@@ -435,8 +439,7 @@ set(MODULE_SOURCES
 # 注册为IDF组件
 idf_component_register(
         SRCS ${MODULE_SOURCES}
-        INCLUDE_DIRS "include"
-            ${CMAKE_CURRENT_LIST_DIR}/include  # 绝对路径
+        INCLUDE_DIRS "."
             ${CMAKE_CURRENT_LIST_DIR}
             ${CMAKE_CURRENT_LIST_DIR}/..
             ${CMAKE_CURRENT_SOURCE_DIR}/../escher/include

@@ -164,7 +164,7 @@ set(MODULE_SOURCES
 # 注册为IDF组件
 idf_component_register(
         SRCS ${MODULE_SOURCES}
-        INCLUDE_DIRS "include"
+        INCLUDE_DIRS "."
             ${CMAKE_CURRENT_LIST_DIR}/src  # 绝对路径
             ${CMAKE_CURRENT_LIST_DIR}/port
             ${CMAKE_CURRENT_LIST_DIR}/port/mod/include

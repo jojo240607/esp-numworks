@@ -77,7 +77,7 @@ set(MODULE_SOURCES
         src/shared/collect_registers.cpp
         src/shared/console_line.cpp
         src/shared/display_context.cpp
-        src/shared/dummy/external_apps.cpp
+        #src/shared/dummy/external_apps.cpp
         src/shared/exam_mode.cpp
         src/shared/stack_position.cpp
         src/shared/storage/file_system.cpp
