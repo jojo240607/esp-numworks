@@ -120,6 +120,12 @@ set(MODULE_SOURCES
         elements/table_layout.cpp
         external/sample_c/src/sample_c_main.c
         external/sample_c/src/sample_c_icon.cpp
+        external/sample_cpp/src/alien.cpp
+        external/sample_cpp/src/life.cpp
+        external/sample_cpp/src/sample_cpp_main.cpp
+        external/sample_cpp/src/rocket.cpp
+        external/sample_cpp/src/spaceship.cpp
+        external/sample_cpp/src/score.cpp
         external/simulator.cpp
         build_in_external_apps.cpp
         empty_battery_window.cpp

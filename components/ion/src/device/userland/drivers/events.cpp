@@ -39,7 +39,7 @@ Event getEvent(int* timeout) {
     //SVC_RETURNING_R0(SVC_EVENTS_GET_EVENT, Event)
 }*/
 const int loopLength = 12;
-const Event sequence[] = {Down, Down, Down, Down, OK, Down, Down, Down,
+const Event sequence[] = {Down, Down, Down, Down, Right, OK, Down, Down,
                           Down,  Down,  Up,    Up, Up,   Up,   Up,   Up};
 
 Event getEvent(int* timeout) {
@@ -52,7 +52,7 @@ Event getEvent(int* timeout) {
         while (1) {
         }
     }
-    vTaskDelay(pdMS_TO_TICKS(1000));  // 延迟10毫秒
+    vTaskDelay(pdMS_TO_TICKS(10));  // 延迟10毫秒
     return sequence[i++];
 }
 

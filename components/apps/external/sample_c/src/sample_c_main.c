@@ -70,11 +70,14 @@ void move_pointer() {
 void sample_c_main() {
   char *eadk_external_data1 = "eadk_external_data";
   printf("External data : '%s'\n", eadk_external_data1);
-  eadk_timing_msleep(3000);
+  //eadk_timing_msleep(3000);
   draw_random_colorful_rectangles();
+    eadk_timing_msleep(3000);
   draw_random_buffer();
+    eadk_timing_msleep(3000);
   eadk_display_draw_string(eadk_external_data1, (eadk_point_t){0, 0}, true,
                            eadk_color_black, eadk_color_white);
     eadk_display_sync();
+    eadk_timing_msleep(3000);
   move_pointer();
 }

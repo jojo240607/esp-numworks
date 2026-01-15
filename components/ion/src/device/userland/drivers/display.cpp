@@ -20,7 +20,7 @@ void SVC_ATTRIBUTES pushRect(KDRect r, const KDColor* pixels) {
 
     for (uint16_t pushh = 0; pushh < r.size().height(); pushh++) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
-            *(((uint16_t *)lcd_device->framebuf.currentbuf) + (320 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = *(pixels++);
+            *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = *(pixels++);
         }
     }
     //ESP_LOGI(TAG, "pushRect(%d, %d, %d,%d)", r.size().width(), r.size().height(), r.origin().x(), r.origin().y());
@@ -36,7 +36,7 @@ void SVC_ATTRIBUTES pushRectUniform(KDRect r, KDColor c) {
     //ESP_LOGI(TAG, "pushRectUniform(%d, %d, %d,%d) color %d %d %d", r.size().width(), r.size().height(), r.origin().x(), r.origin().y(), c.red(), c.green(), c.blue());
     for (uint16_t pushh = 0; pushh < r.size().height(); pushh++) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
-            *(((uint16_t *)lcd_device->framebuf.currentbuf) + (320 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = c;
+            *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = c;
         }
     }
 }
@@ -46,7 +46,7 @@ void SVC_ATTRIBUTES pullRect(KDRect r, KDColor* pixels) {
   //SVC_RETURNING_VOID(SVC_DISPLAY_PULL_RECT)
     for (uint16_t pushh = 0; pushh < r.size().height(); pushh++) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
-            *(pixels++) = *(((uint16_t *)lcd_device->framebuf.currentbuf) + (320 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh));
+            *(pixels++) = *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh));
         }
     }
     ESP_LOGI(TAG, "pullRect");

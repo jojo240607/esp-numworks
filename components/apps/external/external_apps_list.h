@@ -9,6 +9,7 @@
 #include <array>
 #include "sample_c/src/sample_c_icon.h"
 #include "sample_c/src/sample_c_main.h"
+#include "sample_cpp/src/sample_cpp_main.h"
 
 namespace Ion {
     namespace ExternalApps {
@@ -23,9 +24,11 @@ namespace Ion {
         };
         class ExternalAppsList {
         public:
+            static inline int externalAppNum = 2;
             // 使用已定义的类型
-            static inline ExternalAppInfo app_list[1] = {
-                    {"sample c", sample_c_main, ImageStore::SampleCIcon, 1}
+            static inline ExternalAppInfo app_list[2] = {
+                    {"sample c", sample_c_main, ImageStore::SampleCIcon, 1},
+                    {"sample cpp", sample_cpp_main, ImageStore::SampleCIcon, 1}
             };
 
         };

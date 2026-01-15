@@ -60,8 +60,22 @@ void App::eraseMagicCode() {
 
 
 AppIterator& AppIterator::operator++() {
-  m_currentAddress = nullptr;
-  return *this;
+    if (m_currentAddress != nullptr) {
+        // 转换为ExternalAppInfo指针进行计算
+        ExternalAppInfo* current = reinterpret_cast<ExternalAppInfo*>(m_currentAddress);
+        ExternalAppInfo* start = ExternalAppsList::app_list;
+        // 指针减法：得到当前元素在数组中的索引
+        size_t current_index = current - start;
+        // 移动到下一个元素
+        current++;
+        // 检查是否超过数组边界
+        if (current_index + 1 < ExternalAppsList::externalAppNum) {
+            m_currentAddress = reinterpret_cast<uint8_t*>(current);
+        } else {
+            m_currentAddress = nullptr;  // 到达末尾
+        }
+    }
+    return *this;
 }
 
 bool hideExternalApps(bool isExamModeActive) { return isExamModeActive; }
