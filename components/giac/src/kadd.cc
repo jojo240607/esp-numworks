@@ -967,6 +967,7 @@ bool sheet_display(tableur &t,GIAC_CONTEXT){
   bg=65039;// bg=52832;
   drawRectangle(0,205,LCD_WIDTH_PX,17,bg);
   os_draw_string_small(0,205,_BLACK,bg,menu.c_str());
+    sync_screen();
   return true;
 }
 

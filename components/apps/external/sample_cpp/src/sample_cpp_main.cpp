@@ -4,17 +4,6 @@
 #include "palette.h"
 #include "spaceship.h"
 
-const char eadk_app_name[]
-#if PLATFORM_DEVICE
-    __attribute__((section(".rodata.eadk_app_name")))
-#endif
-    = "Voord";
-
-const uint32_t eadk_api_level
-#if PLATFORM_DEVICE
-    __attribute__((section(".rodata.eadk_api_level")))
-#endif
-    = 0;
 
 void checkForSpaceshipAlienCollisions(Alien aliens[], int numberOfAliens,
                                       Spaceship* spaceship) {
@@ -28,12 +17,11 @@ void checkForSpaceshipAlienCollisions(Alien aliens[], int numberOfAliens,
       }
     }
   }
-  EADK::Display::display_sync();
 }
 
 void sample_cpp_main() {
   EADK::Display::pushRectUniform(EADK::Screen::Rect, Black);
-  EADK::Display::display_sync();
+
   constexpr int k_maxNumberOfAliens = 10;
   Alien aliens[k_maxNumberOfAliens];
 

@@ -65,9 +65,29 @@ idf_component_register(
         ${CMAKE_CURRENT_LIST_DIR}/../gmp/include
         ${CMAKE_CURRENT_LIST_DIR}/../mpfr/include
         ${CMAKE_CURRENT_LIST_DIR}/../mpfi/include
-        REQUIRES gmp mpfr mpfi          # 依赖的组件
+        REQUIRES mpfi          # 依赖的组件gmp mpfr
 )
-target_compile_options(${COMPONENT_LIB} PRIVATE -DHAVE_CONFIG_H "-frtti"
+target_compile_options(${COMPONENT_LIB} PRIVATE
+        -Os
+        --specs=nosys.specs
+        -frtti
+        -DHAVE_CONFIG_H
+        -DDEVICE
+        -DNUMWORKS
+        -DHAVE_CONFIG_H
+        #-DNO_RTTI
+        -DIN_GIAC
+        -DTIMEOUT
+        -DNO_STDEXCEPT
+        -DGIAC_BINARY_ARCHIVE
+        -DNO_UNARY_FUNCTION_COMPOSE
+        -DNO_TEMPLATE_MULTGCD
+        -DGIAC_NO_OPTIMIZATIONS
+        -DSTATIC_BUILTIN_LEXER_FUNCTIONS
+        "-w"
+        "-Wno-psabi"
+        "-Wno-deprecated-declarations"
+        "-Wno-c++20-extensions]"
         "-Wno-error=unused-value" "-Wno-error=char-subscripts" "-Wno-error=array-parameter="
         "-Wno-error=reorder" "-Wno-unused-label" "-Wno-psabi" "-Wno-deprecated-declarations"
         "-Wno-c++20-extensions" "-Wno-address" "-Wno-error=maybe-uninitialized")

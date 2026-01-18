@@ -2,10 +2,7 @@
 #define EADKPP_H
 
 extern "C" {
-
 #include "eadk.h"
-extern const char eadk_app_name[];
-extern const uint32_t eadk_api_level;
 }
 
 namespace EADK {
@@ -75,11 +72,6 @@ static inline void pushRect(Rect rect, const Color* pixels) {
 static inline void pushRectUniform(Rect rect, Color color) {
   eadk_display_push_rect_uniform(rect, color);
 }
-
-static inline void display_sync() {
-    eadk_display_sync();
-}
-
 static inline void drawString(const char* text, Point point, bool largeFont,
                               Color textColor, Color backgroundColor) {
   eadk_display_draw_string(text, point, largeFont, textColor, backgroundColor);

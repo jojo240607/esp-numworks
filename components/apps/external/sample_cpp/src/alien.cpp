@@ -13,7 +13,6 @@ void Alien::hide() const {
   EADK::Display::pushRectUniform(
       EADK::Rect(m_x - k_width / 2, m_y - k_height / 2, k_width, k_height),
       Black);
-    //EADK::Display::display_sync();
 }
 
 void Alien::draw(const EADK::Color c) const {
@@ -28,7 +27,6 @@ void Alien::draw(const EADK::Color c) const {
   EADK::Display::pushRectUniform(EADK::Rect(xMin + 2, yMin + 3, 3, 7), Black);
   EADK::Display::pushRectUniform(EADK::Rect(xMax - 2 - 3, yMin + 3, 3, 7),
                                  Black);
-    EADK::Display::display_sync();
 }
 
 void Alien::step() {

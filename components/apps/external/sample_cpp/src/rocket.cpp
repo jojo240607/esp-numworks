@@ -18,7 +18,6 @@ void Rocket::draw(const EADK::Color c) const {
   EADK::Display::pushRectUniform(
       EADK::Rect(m_x, m_y - k_length / 2 + 8 + 1, 1, 2), c);
   EADK::Display::pushRectUniform(EADK::Rect(m_x, m_y + k_length / 2, 1, 1), c);
-    EADK::Display::display_sync();
 }
 
 void Rocket::forward() {

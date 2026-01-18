@@ -19,7 +19,6 @@ void Score::draw() const {
                       Display::CommonHorizontalMargin,
                   2 * Display::CommonVerticalMargin + Life::k_height),
       true, White, Black);
-    EADK::Display::display_sync();
 }
 
 void Score::increment() {
@@ -31,7 +30,6 @@ void Score::increment() {
                               EADK::Point((EADK::Screen::Width - 9 * 10) / 2,
                                           (EADK::Screen::Height - 18) / 2),
                               true, Black, Yellow);
-      EADK::Display::display_sync();
     while (1) {
     }
   }

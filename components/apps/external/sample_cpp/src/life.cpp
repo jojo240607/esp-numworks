@@ -51,7 +51,6 @@ void Life::draw() const {
         EADK::Rect(m_x - k_width / 2, m_y - k_height / 2, k_width, k_height),
         k_heart);
   }
-    EADK::Display::display_sync();
 }
 
 void Life::breaks() {

@@ -42,7 +42,7 @@ struct _Lcd_deviceFun {
 };
 struct _Framebuffer {
     void *frontbuf;
-    void *backbuf;
+   // void *backbuf;
     void *currentbuf;
     bool isready;
     size_t draw_buffer_sz;

@@ -31,7 +31,6 @@ void Spaceship::draw(const EADK::Color color) const {
   EADK::Display::pushRectUniform(EADK::Rect(xMin + 15, yMin + 6, 5, 4), color);
   EADK::Display::pushRectUniform(EADK::Rect(xMin + 16, yMin + 4, 3, 2), color);
   EADK::Display::pushRectUniform(EADK::Rect(xMin + 17, yMin, 1, 4), color);
-    EADK::Display::display_sync();
 }
 
 void Spaceship::move(int deltaX, int deltaY) {

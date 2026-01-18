@@ -1,7 +1,6 @@
 /* -*- compile-command: "g++-3.4 -I.. -g -c global.cc  -DHAVE_CONFIG_H -DIN_GIAC" -*- */
 
 #include "giacPCH.h"
-
 /*  
  *  Copyright (C) 2000,14 B. Parisse, Institut Fourier, 38402 St Martin d'Heres
  *
@@ -395,7 +394,7 @@ size_t tar_first_modified_offset=0; // set to non 0 if tar data comes from Numwo
 // if false is returned, it means that [address..end of sector] contains 0xff
 // i.e. the remaining part of this sector is ready to write without erasing
 void erase_sector(const char * buf){ 
-#if defined NUMWORKS && defined DEVICE
+#if 0//defined NUMWORKS && defined DEVICE
   extapp_erasesector((void *)buf);
 #else
   char * nxt=(char *) ((((size_t) buf)/buflen +1)*buflen);
@@ -405,7 +404,7 @@ void erase_sector(const char * buf){
 #endif
 }
 
-#if defined NUMWORKS && defined DEVICE
+#if 0//defined NUMWORKS && defined DEVICE
 void WriteMemory(char * target,const char * src,size_t length){
   extapp_writememory((unsigned char *)target,(unsigned char*)src,length);
 }
@@ -1911,9 +1910,9 @@ namespace giac {
 #else
 	back_key_pressed()
 #endif
-	){ 
-      kbd_interrupted=true;
-      ctrl_c=interrupted=true; 
+	){
+      kbd_interrupted= false;
+      ctrl_c=interrupted=false;
     }
 #else
     if (caseval_unitialized!=-123454321){

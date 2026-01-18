@@ -301,7 +301,7 @@ init_override(sst7789_device_init_impl) {
     draw_buf_alloc_caps |= MALLOC_CAP_SPIRAM;
 #endif
     self->framebuf.frontbuf = esp_lcd_i80_alloc_draw_buffer(self->io_handle, self->framebuf.draw_buffer_sz, draw_buf_alloc_caps);
-    self->framebuf.backbuf = esp_lcd_i80_alloc_draw_buffer(self->io_handle, self->framebuf.draw_buffer_sz, draw_buf_alloc_caps);
+    //self->framebuf.backbuf = esp_lcd_i80_alloc_draw_buffer(self->io_handle, self->framebuf.draw_buffer_sz, draw_buf_alloc_caps);
     assert(self->framebuf.frontbuf);
     //assert(self->framebuf.backbuf);
     self->framebuf.currentbuf = self->framebuf.frontbuf;
@@ -314,14 +314,14 @@ init_override(sst7789_device_init_impl) {
     //init_softvsync(sst7789_device);
     init_vsync_interrupt(sst7789_device);
     memset(self->framebuf.currentbuf, 0xff, self->framebuf.draw_buffer_sz);
-    memset(self->framebuf.backbuf, 0xff, self->framebuf.draw_buffer_sz);
-    esp_lcd_panel_draw_bitmap(self->panel_handle, 0, 0, 240, 320, self->framebuf.backbuf);
+    //memset(self->framebuf.backbuf, 0xff, self->framebuf.draw_buffer_sz);
+    esp_lcd_panel_draw_bitmap(self->panel_handle, 0, 0, 240, 320, self->framebuf.currentbuf);
 }
 // ondraw method
 ondraw_override(sst7789_device_ondraw_impl) {
     Sst7789_device *sst7789_device = (Sst7789_device *)self;
     //params 
-    if (xSemaphoreTake(sst7789_device->vsync_semaphore, 1) == pdTRUE) {
+    if (xSemaphoreTake(sst7789_device->vsync_semaphore, 20) == pdTRUE) {
         esp_lcd_panel_draw_bitmap(self->panel_handle, 0, 0, 240, 320, self->framebuf.currentbuf);
     }
 }

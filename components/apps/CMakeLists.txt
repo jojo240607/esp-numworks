@@ -118,19 +118,28 @@ set(MODULE_SOURCES
         elements/single_element_view.cpp
         elements/suggestion_text_field.cpp
         elements/table_layout.cpp
-        external/sample_c/src/sample_c_main.c
-        external/sample_c/src/sample_c_icon.cpp
-        external/sample_cpp/src/alien.cpp
-        external/sample_cpp/src/life.cpp
-        external/sample_cpp/src/sample_cpp_main.cpp
-        external/sample_cpp/src/rocket.cpp
-        external/sample_cpp/src/spaceship.cpp
-        external/sample_cpp/src/score.cpp
-        external/simulator.cpp
-        build_in_external_apps.cpp
         empty_battery_window.cpp
         exam_icon.cpp
         exam_pop_up_controller.cpp
+        external/simulator.cpp
+        #external/sample_c/src/sample_c_main.c
+        #external/sample_c/src/sample_c_icon.cpp
+        #external/sample_cpp/src/alien.cpp
+        #external/sample_cpp/src/life.cpp
+        #external/sample_cpp/src/sample_cpp_main.cpp
+        #external/sample_cpp/src/rocket.cpp
+        #external/sample_cpp/src/spaceship.cpp
+        #external/sample_cpp/src/score.cpp
+        #external/sample_cpp/src/sample_cpp_icon.cpp
+        #external/rpn_cpp/src/converter.cpp
+        #external/rpn_cpp/src/input_field.cpp
+        #external/rpn_cpp/src/rpn_main.cpp
+        external/rpn_cpp/src/rpn_icon.cpp
+        #external/rpn_cpp/src/store.cpp
+        #external/rpn_cpp/src/view.cpp
+        external/khicas/khicas_main.cpp
+        external/khicas/khicas_icon.cpp
+        build_in_external_apps.cpp
         finance/app.cpp
         finance/data.cpp
         finance/finance_icon.cpp
@@ -463,4 +472,10 @@ idf_component_register(
             ion
             poincare
             python
+            giac
+            #gmp
+            #mpfr
+            #mpfi
 )
+
+target_compile_options(${COMPONENT_LIB} PRIVATE -Os)

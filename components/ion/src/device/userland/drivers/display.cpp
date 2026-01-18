@@ -55,7 +55,7 @@ void SVC_ATTRIBUTES pullRect(KDRect r, KDColor* pixels) {
 bool SVC_ATTRIBUTES waitForVBlank() {
     //Todo wait TE Sync
   //SVC_RETURNING_R0(SVC_DISPLAY_WAIT_FOR_V_BLANK, bool)
-    ESP_LOGI(TAG, "waitForVBlank");
+    //ESP_LOGI(TAG, "waitForVBlank");
     return false;
 }
 

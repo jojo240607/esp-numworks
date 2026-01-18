@@ -255,4 +255,7 @@ idf_component_register(
             ${CMAKE_CURRENT_LIST_DIR}/../gmp/include
         REQUIRES gmp            # 依赖的组件
 )
-target_compile_options(${COMPONENT_LIB} PRIVATE "-Wno-error=unused-value" "-Wno-error=char-subscripts" "-Wno-error=array-parameter=")
+target_compile_options(${COMPONENT_LIB} PRIVATE
+        -Os
+        --specs=nosys.specs
+        "-Wno-error=unused-value" "-Wno-error=char-subscripts" "-Wno-error=array-parameter=")

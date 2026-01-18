@@ -12,6 +12,10 @@ idf_component_register(SRCS "i80_controller_example_main.cpp" ${embedded_images}
                             escher
                             python
                             poincare
+                            #giac
+                            #gmp
+                            #mpfr
+                            #mpfi
                        INCLUDE_DIRS "."
                             ${CMAKE_CURRENT_LIST_DIR}/../components
                             ${CMAKE_CURRENT_LIST_DIR}/../components/ion/include

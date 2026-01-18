@@ -17,9 +17,13 @@ void _eadk_keyboard_scan_do_scan() {
   /* Calling Ion::Events::getPlatformEvent gives us a change to handle simulator
    * events, like "take a screenshot", or "use the mouse to press a button on
    * the virtual calculator". */
-  int timeout = 100;
-  Ion::Events::Event e = Ion::Events::getEvent(&timeout);
-  preemptive_termination(e);
+  int timeout = 10;
+#ifdef PLATFORM_DEVICE
+  Ion::Events::Event e = Ion::Events::getEvent(&timeout);//Ion::Events::getPlatformEvent();
+#else
+    Ion::Events::Event e = Ion::Events::getPlatformEvent();
+#endif
+  //preemptive_termination(e);
   s_state = Ion::Keyboard::popState();
   if (s_state == Ion::Keyboard::State(-1)) {
     s_state = Ion::Keyboard::scan();
@@ -31,7 +35,7 @@ uint32_t _eadk_keyboard_scan_high() { return s_state / UINT32_MAX; }
 
 eadk_event_t eadk_event_get(int32_t* timeout) {
   Ion::Events::Event e = Ion::Events::getEvent((int *)timeout);
-  preemptive_termination(e);
+  //preemptive_termination(e);
   return (uint8_t)e;
 }
 
@@ -67,16 +71,23 @@ static inline KDRect r(eadk_rect_t rect) {
 }
 
 void eadk_display_push_rect(eadk_rect_t rect, const eadk_color_t* pixels) {
+    //printf("eadk_display_push_rect\n");
   Ion::Display::pushRect(r(rect), reinterpret_cast<const KDColor*>(pixels));
 }
 void eadk_display_push_rect_uniform(eadk_rect_t rect, eadk_color_t color) {
+    //printf("eadk_display_push_rect_uniform\n");
   Ion::Display::pushRectUniform(r(rect), c(color));
 }
 
 void eadk_display_pull_rect(eadk_rect_t rect, eadk_color_t* pixels) {
+    //printf("eadk_display_pull_rect\n");
   Ion::Display::pullRect(r(rect), reinterpret_cast<KDColor*>(pixels));
 }
 
+void eadk_display_sync() {
+    printf("eadk_display_sync\n");
+    Ion::Display::syncDisplay();
+}
 bool eadk_display_wait_for_vblank() { return Ion::Display::waitForVBlank(); }
 
 void eadk_display_draw_string(const char* text, eadk_point_t point,
@@ -86,6 +97,7 @@ void eadk_display_draw_string(const char* text, eadk_point_t point,
   KDContext* ctx = Ion::Display::Context::SharedContext;
   ctx->setOrigin(KDPointZero);
   ctx->setClippingRect(Ion::Display::Rect);
+    printf("eadk_display_draw_string\n");
   ctx->drawString(
       text, p(point),
       {.glyphColor = c(text_color),
@@ -93,9 +105,7 @@ void eadk_display_draw_string(const char* text, eadk_point_t point,
        .font = large_font ? KDFont::Size::Large : KDFont::Size::Small},
       255);
 }
-void eadk_display_sync() {
-    Ion::Display::syncDisplay();
-}
+
 void eadk_timing_usleep(uint32_t us) {
   // Ion::Timing::usleep(us); // TODO
 }
