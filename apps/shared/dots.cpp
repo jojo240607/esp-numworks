@@ -1,0 +1,45 @@
+#include "dots.h"
+
+#include <kandinsky/dot.h>
+
+namespace Shared {
+
+namespace Dots {
+
+// Dots
+
+constexpr static const KDMask<TinyDotDiameter> tinyDot =
+    KDMakeDot<TinyDotDiameter>(TinyDotRadius);
+constexpr const uint8_t* TinyDotMask = &tinyDot.m_mask[0][0];
+
+constexpr static const KDMask<SmallDotDiameter> smallDot =
+    KDMakeDot<SmallDotDiameter>(SmallDotRadius);
+constexpr const uint8_t* SmallDotMask = &smallDot.m_mask[0][0];
+
+constexpr static const KDMask<MediumDotDiameter> mediumDot =
+    KDMakeDot<MediumDotDiameter>(MediumDotRadius);
+constexpr const uint8_t* MediumDotMask = &mediumDot.m_mask[0][0];
+
+constexpr static const KDMask<LargeDotDiameter> largeDot =
+    KDMakeDot<LargeDotDiameter>(LargeDotRadius);
+constexpr const uint8_t* LargeDotMask = &largeDot.m_mask[0][0];
+
+// Rings
+
+constexpr static const KDMask<TinyRingDiameter> tinyRing =
+    KDMakeRing<TinyRingDiameter>(TinyRingInternalRadius,
+                                 TinyRingExternalRadius);
+constexpr const uint8_t* TinyRingMask = &tinyRing.m_mask[0][0];
+
+constexpr static const KDMask<MediumRingDiameter> mediumRing =
+    KDMakeRing<MediumRingDiameter>(MediumRingInternalRadius,
+                                   MediumRingExternalRadius);
+constexpr const uint8_t* MediumRingMask = &mediumRing.m_mask[0][0];
+
+constexpr static const KDMask<LargeRingDiameter> largeRing =
+    KDMakeRing<LargeRingDiameter>(LargeRingInternalRadius,
+                                  LargeRingExternalRadius);
+constexpr const uint8_t* LargeRingMask = &largeRing.m_mask[0][0];
+
+}  // namespace Dots
+}  // namespace Shared

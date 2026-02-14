@@ -1,0 +1,26 @@
+#include <apps/i18n.h>
+
+#include "calculation_graph_controller.h"
+
+namespace Graph {
+
+class PreimageGraphController : public CalculationGraphController {
+ public:
+  PreimageGraphController(Escher::Responder* parentResponder,
+                          GraphView* graphView, BannerView* bannerView,
+                          Shared::InteractiveCurveViewRange* curveViewRange,
+                          Shared::CurveViewCursor* cursor);
+  const char* title() const override {
+    return I18n::translate(I18n::Message::Preimage);
+  }
+  double image() { return m_image; }
+  void setImage(double value) { m_image = value; }
+
+ private:
+  Poincare::Coordinate2D<double> computeNewPointOfInterest(
+      double start, double max, Poincare::Context* context,
+      bool stretch) override;
+  double m_image;
+};
+
+}  // namespace Graph

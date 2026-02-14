@@ -1,0 +1,37 @@
+#ifndef PROBABILITE_BINOMIAL_DISTRIBUTION_H
+#define PROBABILITE_BINOMIAL_DISTRIBUTION_H
+
+#include <omg/unreachable.h>
+#include <poincare/statistics/distribution.h>
+
+#include "two_parameters_distribution.h"
+
+namespace Distributions {
+
+class BinomialDistribution final : public TwoParametersDistribution {
+ public:
+  BinomialDistribution()
+      : TwoParametersDistribution(Poincare::Distribution::Type::Binomial) {
+    computeCurveViewRange();
+  }
+  I18n::Message title() const override {
+    return I18n::Message::BinomialDistribution;
+  }
+  double rightIntegralInverseForProbability(double p) const override;
+
+ protected:
+  I18n::Message messageForParameterAtIndex(int index) const override {
+    switch (index) {
+      case Poincare::Distribution::Params::Binomial::N:
+        return I18n::Message::RepetitionNumber;
+      case Poincare::Distribution::Params::Binomial::P:
+        return I18n::Message::SuccessProbability;
+      default:
+        OMG::unreachable();
+    }
+  }
+};
+
+}  // namespace Distributions
+
+#endif

@@ -1,0 +1,31 @@
+#include <config/board.h>
+#include <ion.h>
+#include <ion/exam_mode.h>
+#include <ion/src/shared/init.h>
+#include <shared/boot/rt0.h>
+#include <shared/drivers/usb.h>
+
+#include "isr.h"
+
+extern "C" {
+void abort();
+}
+
+void abort() {
+#if DEBUG
+  while (1) {
+  }
+#else
+  Ion::Reset::core();
+#endif
+}
+
+void __attribute__((noinline)) start() {
+  Ion::Device::Init::configureRAM();
+  Ion::Init();
+  // Initialize slotInfo to be accessible to Kernel
+  Ion::Device::USB::slotInfo();
+  Ion::ExternalApps::deleteApps(Ion::ExamMode::get().isActive());
+  ion_main(0, nullptr);
+  abort();
+}

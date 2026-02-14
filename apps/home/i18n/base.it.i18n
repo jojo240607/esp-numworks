@@ -1,0 +1,3 @@
+Apps = "Applicazioni"
+AppsCapital = "APPLICAZIONI"
+ForbiddenAppInExamMode = "Questa applicazione è\nproibita nella modalità d'esame."

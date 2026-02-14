@@ -1,0 +1,129 @@
+extern "C" {
+#include "eadk.h"
+}
+#include <ion.h>
+#include <ion/src/shared/events.h>
+
+#include <cstdlib>
+
+static inline void preemptive_termination(Ion::Events::Event e) {
+  if (e == Ion::Events::Home || e == Ion::Events::Termination) {
+    exit(0);
+  }
+}
+
+Ion::Keyboard::State s_state;
+void _eadk_keyboard_scan_do_scan() {
+  /* Calling Ion::Events::getPlatformEvent gives us a change to handle simulator
+   * events, like "take a screenshot", or "use the mouse to press a button on
+   * the virtual calculator". */
+  int timeout = 10;
+#ifdef PLATFORM_DEVICE
+  Ion::Events::Event e = Ion::Events::getEvent(&timeout);//Ion::Events::getPlatformEvent();
+#else
+    Ion::Events::Event e = Ion::Events::getPlatformEvent();
+#endif
+  //preemptive_termination(e);
+  s_state = Ion::Keyboard::popState();
+  if (s_state == Ion::Keyboard::State(-1)) {
+    s_state = Ion::Keyboard::scan();
+  }
+}
+
+uint32_t _eadk_keyboard_scan_low() { return s_state & UINT32_MAX; }
+uint32_t _eadk_keyboard_scan_high() { return s_state / UINT32_MAX; }
+
+eadk_event_t eadk_event_get(int32_t* timeout) {
+  Ion::Events::Event e = Ion::Events::getEvent((int *)timeout);
+  //preemptive_termination(e);
+  return (uint8_t)e;
+}
+
+void eadk_backlight_set_brightness(uint8_t brightness) {
+  Ion::Backlight::setBrightness(brightness);
+}
+
+uint8_t eadk_backlight_brightness() { return Ion::Backlight::brightness(); }
+
+bool eadk_battery_is_charging() { return Ion::Battery::isCharging(); }
+
+uint8_t eadk_battery_level() { return (uint8_t)Ion::Battery::level(); }
+
+float eadk_battery_voltage() { return Ion::Battery::voltage(); }
+
+static_assert(sizeof(KDColor) == sizeof(eadk_color_t), "Size mismatch");
+static inline KDColor c(eadk_color_t color) {
+  return *reinterpret_cast<KDColor*>(&color);
+}
+
+static_assert(sizeof(KDPoint) == sizeof(eadk_point_t), "Size mismatch");
+static inline KDPoint p(eadk_point_t point) {
+  /* FIXME: gcc warning in release mode (dereferencing type-punned pointer
+   * will break strict-aliasing rules [-Wstrict-aliasing]) */
+  return *reinterpret_cast<KDPoint*>(&point);
+}
+
+static_assert(sizeof(KDRect) == sizeof(eadk_rect_t), "Size mismatch");
+static inline KDRect r(eadk_rect_t rect) {
+  /* FIXME: gcc warning in release mode (dereferencing type-punned pointer
+   * will break strict-aliasing rules [-Wstrict-aliasing]) */
+  return *reinterpret_cast<KDRect*>(&rect);
+}
+
+void eadk_display_push_rect(eadk_rect_t rect, const eadk_color_t* pixels) {
+    //printf("eadk_display_push_rect\n");
+  Ion::Display::pushRect(r(rect), reinterpret_cast<const KDColor*>(pixels));
+}
+void eadk_display_push_rect_uniform(eadk_rect_t rect, eadk_color_t color) {
+    //printf("eadk_display_push_rect_uniform\n");
+  Ion::Display::pushRectUniform(r(rect), c(color));
+}
+
+void eadk_display_pull_rect(eadk_rect_t rect, eadk_color_t* pixels) {
+    //printf("eadk_display_pull_rect\n");
+  Ion::Display::pullRect(r(rect), reinterpret_cast<KDColor*>(pixels));
+}
+
+void eadk_display_sync() {
+    printf("eadk_display_sync\n");
+    Ion::Display::syncDisplay();
+}
+bool eadk_display_wait_for_vblank() { return Ion::Display::waitForVBlank(); }
+
+void eadk_display_draw_string(const char* text, eadk_point_t point,
+                              bool large_font, eadk_color_t text_color,
+                              eadk_color_t background_color) {
+  // TODO: Duplicated from ion/src/device/userland/drivers/display.cpp
+  KDContext* ctx = Ion::Display::Context::SharedContext;
+  ctx->setOrigin(KDPointZero);
+  ctx->setClippingRect(Ion::Display::Rect);
+    printf("eadk_display_draw_string\n");
+  ctx->drawString(
+      text, p(point),
+      {.glyphColor = c(text_color),
+       .backgroundColor = c(background_color),
+       .font = large_font ? KDFont::Size::Large : KDFont::Size::Small},
+      255);
+}
+
+void eadk_timing_usleep(uint32_t us) {
+  // Ion::Timing::usleep(us); // TODO
+}
+
+void eadk_timing_msleep(uint32_t ms) { Ion::Timing::msleep(ms); }
+
+uint32_t _eadk_timing_millis_low() {
+  return Ion::Timing::millis() % UINT32_MAX;
+}
+/* Technically the high value could change between the two calls leading to a
+ * bad return value but it is extremely unlikely. */
+uint32_t _eadk_timing_millis_high() {
+  return Ion::Timing::millis() / UINT32_MAX;
+}
+
+const char* eadk_external_data = nullptr;
+size_t eadk_external_data_size = 0;
+
+bool eadk_usb_is_plugged() { return Ion::USB::isPlugged(); }
+
+uint32_t eadk_random() { return Ion::random(); }

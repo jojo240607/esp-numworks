@@ -1,0 +1,222 @@
+#include "helper.h"
+
+#include <apps/shared/global_context.h>
+#include <poincare/expression.h>
+#include <poincare/helpers/store.h>
+#include <poincare/print.h>
+#include <poincare/src/expression/k_tree.h>
+#include <poincare/src/expression/metric.h>
+#include <poincare/src/layout/layout_serializer.h>
+#include <poincare/src/layout/layouter.h>
+#include <poincare/src/layout/parsing/rack_parser.h>
+#include <poincare/src/layout/rack_from_text.h>
+#include <poincare/src/memory/tree_stack_checkpoint.h>
+#include <quiz.h>
+
+using namespace Poincare::Internal;
+
+const char* AlmostMaxIntegerString() {
+  static const char* s =
+      "179769313486231590772930519078902473361797697894230657273430081157732675"
+      "805500963132708477322407536021120113879871393357658789768814416622492847"
+      "430639474124377767893424865485276302219601246094119453082952085005768838"
+      "150682342462881473913110540827237163350510684586298239947245938479716304"
+      "835356329624224137214";  // (2^8)^k_maxNumberOfDigits-2
+  return s;
+}
+
+#if 0
+const char * MaxIntegerString() {
+  static const char * s = "179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137215"; // (2^8)^k_maxNumberOfDigits-1
+  return s;
+}
+
+const char * OverflowedIntegerString() {
+  static const char * s = "179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216"; // (2^8)^k_maxNumberOfDigits
+  return s;
+}
+
+const char * BigOverflowedIntegerString() {
+  static const char * s = "279769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216"; // OverflowedIntegerString() with a 2 on first digit
+  return s;
+}
+
+const char * MaxParsedIntegerString() {
+  static const char * s = "999999999999999999999999999999"; // 10^k_maxNumberOfParsedDigitsBase10 - 1
+  return s;
+}
+
+const char * ApproximatedParsedIntegerString() {
+  static const char * s = "1000000000000000000000000000000"; // 10^k_maxNumberOfParsedDigitsBase10
+  return s;
+}
+#endif
+
+/* TODO_PCJ: Use quiz_tolerate_print_if_failure instead of quiz_assert in tests
+ * commented as TODO_PCJ */
+void quiz_tolerate_print_if_failure(bool test, const char* input,
+                                    const char* expected,
+                                    const char* observed) {
+  constexpr int bufferSize = 500;
+  char buffer[bufferSize];
+  int i = Poincare::Print::UnsafeCustomPrintf(
+      buffer, bufferSize, "%s\t%s\t%s", test ? "OK" : "BAD", input, expected);
+  if (!test) {
+    Poincare::Print::UnsafeCustomPrintf(buffer + i, bufferSize - i, "\t%s",
+                                        observed);
+  }
+  if (sPrintToleratedTests) {
+    quiz_print(buffer);
+  }
+}
+
+void quiz_assert_print_if_failure(bool test, const char* information,
+                                  const char* expected, const char* observed) {
+  if (!test) {
+    quiz_print("TEST FAILURE WHILE TESTING:");
+    quiz_print(information);
+    if (expected && observed) {
+      constexpr int bufferSize = 500;
+      char buffer[bufferSize];
+      Poincare::Print::UnsafeCustomPrintf(
+          buffer, bufferSize, "Expected: %s\nObserved: %s", expected, observed);
+      quiz_print(buffer);
+    }
+  }
+  quiz_assert(test);
+}
+
+void remove_system_codepoints(char* buffer) {
+  // TODO serialization should not add system codepoints instead
+  const char* source = buffer;
+  char* dest = buffer;
+  while (*source) {
+    if (*source == '\x11') {
+      source++;
+      continue;
+    }
+    *dest++ = *source++;
+  }
+  *dest = 0;
+}
+
+void simplify(Tree* e, const ProjectionContext& ctx, bool beautify) {
+  if (!Simplification::Simplify(e, ctx, beautify)) {
+    // Return undef to spot tests overflowing the TreeStack
+    e->cloneNodeOverTree(KFailedSimplification);
+  }
+}
+
+void process_tree_and_compare(const char* input, const char* output,
+                              ProcessTree process,
+                              ProjectionContext projectionContext) {
+  Tree* expected = parse(output, projectionContext.m_context);
+  Tree* expression = parse(input, projectionContext.m_context);
+  if (!expression || !expected) {
+    // Parsing failed
+    quiz_assert(false);
+    if (expression) {
+      expression->removeTree();
+    } else if (expected) {
+      expected->removeTree();
+    }
+    return;
+  }
+  process(expression, projectionContext);
+  if (!expression) {
+    // process failed
+    quiz_assert(false);
+    expected->removeTree();
+    return;
+  }
+  bool ok = expression->treeIsIdenticalTo(expected);
+  if (!ok) {
+#ifndef PLATFORM_DEVICE
+    float expectedMetric =
+        Metric::GetMetric(expected, projectionContext.m_reductionTarget);
+    float expressionMetric =
+        Metric::GetMetric(expression, projectionContext.m_reductionTarget);
+#endif
+    constexpr size_t bufferSize = 1024;
+    char buffer[bufferSize];
+    serialize_expression(expression, buffer);
+    bool visuallyOk = strcmp(output, buffer) == 0;
+    if (visuallyOk) {
+      ok = true;
+    }
+#ifndef PLATFORM_DEVICE
+    else {
+      const char* metricText =
+          expectedMetric > expressionMetric
+              ? " (better "
+              : (expectedMetric == expressionMetric ? " (same " : " (worse ");
+      std::cout << input << " processed to " << buffer << " instead of "
+                << output << metricText << expressionMetric << " vs "
+                << expectedMetric << ")" << std::endl;
+    }
+#endif
+    quiz_assert(ok);
+  }
+  expression->removeTree();
+  expected->removeTree();
+  assert(SharedTreeStack->numberOfTrees() == 0);
+}
+
+Tree* private_parse(const char* input, Poincare::Context* context,
+                    bool parseForAssignment = false,
+                    bool assertNotParsable = false) {
+  Tree* layout = RackFromText(input);
+  RackParser parser(layout, context, true,
+                    parseForAssignment
+                        ? ParsingContext::ParsingMethod::Assignment
+                        : ParsingContext::ParsingMethod::Classic);
+  Tree* expression = parser.parse();
+  if (assertNotParsable || !expression) {
+    quiz_assert(assertNotParsable == !expression);
+    layout->removeTree();
+    return nullptr;
+  }
+  layout->moveTreeOverTree(expression);
+  return layout;
+}
+
+Tree* parse(const char* input, Poincare::Context* context,
+            bool parseForAssignment) {
+  return private_parse(input, context, parseForAssignment);
+}
+
+Tree* parse_and_reduce(const char* input, bool beautify) {
+  Tree* e = parse(input);
+  assert(e);
+  ProjectionContext ctx = {};
+  simplify(e, ctx, beautify);
+  return e;
+}
+
+void assert_text_not_parsable(const char* input, Poincare::Context* context) {
+  bool parsed = private_parse(input, context, false, true);
+  quiz_assert(!parsed);
+}
+
+void assert_parse_to_integer_overflow(const char* input,
+                                      Poincare::Context* context) {
+  ExceptionTry {
+    private_parse(input, context);
+    quiz_assert(false);
+  }
+  ExceptionCatch(type) { quiz_assert(type == ExceptionType::IntegerOverflow); }
+  SharedTreeStack->flush();
+}
+
+void store(const char* storeExpression, Poincare::Context* ctx) {
+  Poincare::Expression s = Poincare::Expression::Parse(storeExpression, ctx);
+  Poincare::StoreHelper::PerformStore(ctx, s);
+}
+
+void serialize_expression(const Tree* expression, std::span<char> buffer) {
+  Tree* layout = Layouter::LayoutExpression(expression->cloneTree(), true);
+  quiz_assert(layout);
+  LayoutSerializer::Serialize(layout, buffer);
+  remove_system_codepoints(buffer.data());
+  layout->removeTree();
+}

@@ -1,0 +1,98 @@
+body {
+  background: #C2C2C2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.col-fullscreen {
+  display: none;
+  width: 60%;
+  float: left;
+  height: 100vh;
+}
+
+.col-fullscreen canvas, .calculator-container {
+  margin-top: 2vh;
+}
+
+.col-fullscreen canvas {
+  max-height: 96vh;
+  max-width: 64vw;
+#ifdef LAYOUT_epsilon
+  height: 48vw; /* 64 * 240 / 320 */
+#endif
+#ifdef LAYOUT_scandium
+  height: 27.84vw; /* 64 * 87 / 200 */
+#endif
+  width: auto;
+}
+
+body.fullscreen .col-fullscreen {
+  display: flex;
+}
+
+body.fullscreen .col-calculator {
+  width: 35%;
+  float: left;
+}
+
+.calculator-container {
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.calculator-container img {
+  /* Rely on the img content to set the dimensions */
+  max-height: 92.0vh;
+  max-width: 100%;
+  display: block;
+}
+
+.calculator {
+  position: absolute;
+  /* These resizes are done because layout.json dimensions and coordinates
+   * were calculated on background.jpg.
+   * TODO: This could be replaced with 0;0;100%;100%; if all dimensions in
+   * layout.json were recomputed for the usual .webp background.*/
+#ifdef LAYOUT_epsilon
+  top: 0.6%;
+  left: 7.9%;
+  width: 84.1%;
+  height: 89.1%;
+#endif
+#ifdef LAYOUT_scandium
+  top: 10.64%;
+  left: 19.46%;
+  width: 60.85%;
+  height: 82.29%;
+#endif
+}
+
+.actions {
+  position: relative;
+  margin-left: 20px; /* Center the buttons - compensate the 10px margin below */
+}
+
+a.action {
+  display: inline-block;
+  margin-right: 10px;
+  height: 2vh;
+  aspect-ratio: 1.2;
+  padding: 1vh 2vh;
+  border: 1px solid black;
+  border-radius: 100px;
+  cursor: pointer;
+  opacity: 0.65;
+}
+
+a.action:hover {
+  opacity: 1.0;
+  background-color: rgba(0,0,0,0.125);
+}
+
+a.action svg {
+  display: block;
+}

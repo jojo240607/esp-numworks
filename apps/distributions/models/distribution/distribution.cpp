@@ -1,0 +1,265 @@
+#include "distribution.h"
+
+#include <omg/troolean.h>
+#include <poincare/statistics/distribution.h>
+
+#include <cmath>
+
+#include "binomial_distribution.h"
+#include "chi_squared_distribution.h"
+#include "exponential_distribution.h"
+#include "fisher_distribution.h"
+#include "geometric_distribution.h"
+#include "hypergeometric_distribution.h"
+#include "normal_distribution.h"
+#include "poisson_distribution.h"
+#include "student_distribution.h"
+#include "uniform_distribution.h"
+
+namespace Distributions {
+
+bool Distribution::Initialize(Distribution* distribution,
+                              Poincare::Distribution::Type type) {
+  if (distribution->type() == type) {
+    return false;
+  }
+  distribution->~Distribution();
+  switch (type) {
+    case Poincare::Distribution::Type::Binomial:
+      new (distribution) BinomialDistribution();
+      break;
+    case Poincare::Distribution::Type::Uniform:
+      new (distribution) UniformDistribution();
+      break;
+    case Poincare::Distribution::Type::Exponential:
+      new (distribution) ExponentialDistribution();
+      break;
+    case Poincare::Distribution::Type::Normal:
+      new (distribution) NormalDistribution();
+      break;
+    case Poincare::Distribution::Type::Chi2:
+      new (distribution) ChiSquaredDistribution();
+      break;
+    case Poincare::Distribution::Type::Student:
+      new (distribution) StudentDistribution();
+      break;
+    case Poincare::Distribution::Type::Geometric:
+      new (distribution) GeometricDistribution();
+      break;
+    case Poincare::Distribution::Type::Hypergeometric:
+      new (distribution) HypergeometricDistribution();
+      break;
+    case Poincare::Distribution::Type::Poisson:
+      new (distribution) PoissonDistribution();
+      break;
+    case Poincare::Distribution::Type::Fisher:
+      new (distribution) FisherDistribution();
+      break;
+    default:
+      assert(false);
+  }
+  return true;
+}
+
+bool Distribution::isContinuous() const {
+  return Poincare::Distribution::IsContinuous(m_distribution);
+}
+bool Distribution::isSymmetrical() const {
+  return Poincare::Distribution::IsSymmetrical(m_distribution);
+}
+double Distribution::meanAbscissa() const {
+  return Poincare::Distribution::MeanAbscissa(m_distribution,
+                                              constParametersArray());
+}
+int Distribution::numberOfParameters() const {
+  return Poincare::Distribution::NumberOfParameters(m_distribution);
+}
+const char* Distribution::parameterNameAtIndex(int index) const {
+  return Poincare::Distribution::ParameterNameAtIndex(m_distribution, index);
+}
+double Distribution::defaultParameterAtIndex(int index) const {
+  return Poincare::Distribution::DefaultParameterAtIndex(m_distribution, index);
+}
+
+float Distribution::evaluateAtAbscissa(float x) const {
+  /* We need to call the double method because constParametersArray() is a
+   * double *.
+   * The other solution would be to create a constFloatParametersArray(), but
+   * this would lose precision since the calculation have been done in double
+   * for a long time.
+   * Should this method just return double ? */
+  return static_cast<float>(Poincare::Distribution::EvaluateAtAbscissa(
+      m_distribution, static_cast<double>(x), constParametersArray()));
+}
+
+bool Distribution::authorizedParameterAtIndex(double x, int index) const {
+  if (canHaveUninitializedParameter() &&
+      (m_indexOfUninitializedParameter == index ||
+       m_indexOfUninitializedParameter == k_allParametersAreInitialized) &&
+      std::isnan(x)) {
+    // Accept only one uninitialized parameter
+    return true;
+  }
+  return StatisticalDistribution::authorizedParameterAtIndex(x, index) &&
+         Poincare::Distribution::IsParameterValidBool(m_distribution, x, index,
+                                                      constParametersArray());
+}
+
+void Distribution::setParameterAtIndex(double f, int index) {
+  setParameterAtIndexWithoutComputingCurveViewRange(f, index);
+  computeCurveViewRange();
+}
+
+void Distribution::setParameterAtIndexWithoutComputingCurveViewRange(
+    double x, int index) {
+  if (canHaveUninitializedParameter() && std::isnan(x)) {
+    assert(m_indexOfUninitializedParameter == index ||
+           m_indexOfUninitializedParameter == k_allParametersAreInitialized);
+    x = defaultParameterAtIndex(index);
+    m_indexOfUninitializedParameter = index;
+  } else if (m_indexOfUninitializedParameter == index) {
+    m_indexOfUninitializedParameter = k_allParametersAreInitialized;
+  }
+  assert(canHaveUninitializedParameter() ||
+         m_indexOfUninitializedParameter == k_allParametersAreInitialized);
+  StatisticalDistribution::setParameterAtIndex(x, index);
+}
+
+double Distribution::cumulativeDistributiveFunctionAtAbscissa(double x) const {
+  return Poincare::Distribution::CumulativeDistributiveFunctionAtAbscissa(
+      m_distribution, x, constParametersArray());
+}
+
+double Distribution::rightIntegralFromAbscissa(double x) const {
+  if (isContinuous()) {
+    return 1.0 - cumulativeDistributiveFunctionAtAbscissa(x);
+  }
+  return 1.0 - cumulativeDistributiveFunctionAtAbscissa(x - 1.0);
+}
+
+double Distribution::finiteIntegralBetweenAbscissas(double a, double b) const {
+  if (b < a) {
+    return 0.0;
+  }
+  if (a == b) {
+    return evaluateAtDiscreteAbscissa(a);
+  }
+  if (isContinuous()) {
+    return cumulativeDistributiveFunctionAtAbscissa(b) -
+           cumulativeDistributiveFunctionAtAbscissa(a);
+  }
+  int start = std::round(a);
+  int end = std::round(b);
+  double result = 0.0;
+  for (int k = start; k <= end; k++) {
+    result += evaluateAtDiscreteAbscissa(k);
+    /* Avoid too long loop */
+    if (k - start > k_maxNumberOfOperations) {
+      break;
+    }
+    if (result >= k_maxProbability) {
+      result = 1.0;
+      break;
+    }
+  }
+  return result;
+}
+
+double Distribution::cumulativeDistributiveInverseForProbability(
+    double p) const {
+  return Poincare::Distribution::CumulativeDistributiveInverseForProbability(
+      m_distribution, p, constParametersArray());
+}
+
+double Distribution::rightIntegralInverseForProbability(
+    double probability) const {
+  if (isContinuous()) {
+    double f = 1.0 - probability;
+    return cumulativeDistributiveInverseForProbability(f);
+  }
+  if (probability >= 1.0) {
+    return 0.0;
+  }
+  if (probability <= 0.0) {
+    return INFINITY;
+  }
+  double p = 0.0;
+  int k = 0;
+  double delta = 0.0;
+  do {
+    delta = std::fabs(1.0 - probability - p);
+    p += evaluateAtDiscreteAbscissa(k++);
+    if (p >= k_maxProbability && std::fabs(1.0 - probability - p) <= delta) {
+      return k;
+    }
+  } while (std::fabs(1.0 - probability - p) <= delta &&
+           k < k_maxNumberOfOperations);
+  if (k == k_maxNumberOfOperations) {
+    return INFINITY;
+  }
+  if (std::isnan(1.0 - (p - evaluateAtDiscreteAbscissa(k - 1)))) {
+    return NAN;
+  }
+  return k - 1.0;
+}
+
+double Distribution::evaluateAtDiscreteAbscissa(int k) const {
+  if (isContinuous()) {
+    return 0.0;
+  }
+  return Poincare::Distribution::EvaluateAtAbscissa(
+      m_distribution, static_cast<double>(k), constParametersArray());
+}
+
+void Distribution::computeUnknownParameterForProbabilityAndBound(
+    double probability, double bound, bool isUpperBound) {
+  assert(m_indexOfUninitializedParameter != k_allParametersAreInitialized &&
+         canHaveUninitializedParameter());
+  double paramValue =
+      Poincare::Distribution::EvaluateParameterForProbabilityAndBound(
+          m_distribution, m_indexOfUninitializedParameter,
+          constParametersArray(), probability, bound, isUpperBound);
+  StatisticalDistribution::setParameterAtIndex(paramValue,
+                                               m_indexOfUninitializedParameter);
+  if (std::isfinite(paramValue)) {
+    computeCurveViewRange();
+  }
+}
+
+float Distribution::computeXExtremum(bool min) const {
+  /* The uninitialized parameter can be nan. If it's the case, use its default
+   * value to compute the extrema of the range. */
+  double saveUninitializedParameter = NAN;
+  if (m_indexOfUninitializedParameter != k_allParametersAreInitialized &&
+      std::isnan(parameterAtIndex(m_indexOfUninitializedParameter))) {
+    saveUninitializedParameter =
+        parameterAtIndex(m_indexOfUninitializedParameter);
+    const_cast<Distribution*>(this)
+        ->setParameterAtIndexWithoutComputingCurveViewRange(
+            defaultParameterAtIndex(m_indexOfUninitializedParameter),
+            m_indexOfUninitializedParameter);
+  }
+
+  float result = min ? privateComputeXMin() : privateComputeXMax();
+
+  if (!std::isnan(saveUninitializedParameter)) {
+    assert(m_indexOfUninitializedParameter != k_allParametersAreInitialized);
+    const_cast<Distribution*>(this)
+        ->setParameterAtIndexWithoutComputingCurveViewRange(
+            NAN, m_indexOfUninitializedParameter);
+  }
+
+  return result;
+}
+
+float Distribution::privateComputeXExtremum(bool min) const {
+  float xMax = Poincare::Distribution::ComputeXMax(m_distribution,
+                                                   constParametersArray());
+  float xMin = Poincare::Distribution::ComputeXMin(m_distribution,
+                                                   constParametersArray());
+  float range = xMax - xMin;
+  return min ? xMin - k_displayLeftMarginRatio * range
+             : xMax + k_displayRightMarginRatio * range;
+}
+
+}  // namespace Distributions

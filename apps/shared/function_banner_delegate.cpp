@@ -1,0 +1,64 @@
+#include "function_banner_delegate.h"
+
+#include <omg/utf8_helper.h>
+
+#include "poincare_helpers.h"
+
+using namespace Poincare;
+
+namespace Shared {
+
+void FunctionBannerDelegate::reloadBannerViewForCursorOnFunction(
+    double cursorT, double cursorX, double cursorY, Ion::Storage::Record record,
+    FunctionStore* functionStore, Poincare::Context* context,
+    bool cappedNumberOfSignificantDigits) {
+  ExpiringPointer<Function> function = functionStore->modelForRecord(record);
+  char buffer[k_textBufferSize];
+  size_t numberOfChar = 0;
+  numberOfChar += UTF8Helper::WriteCodePoint(
+      buffer + numberOfChar, k_textBufferSize - numberOfChar - 1,
+      function->symbol());
+  assert(numberOfChar <= k_textBufferSize);
+  UTF8Helper::WriteCodePoint(buffer + numberOfChar,
+                             k_textBufferSize - numberOfChar, '=');
+  bannerView()->abscissaSymbol()->setText(buffer);
+
+  numberOfChar = function->printAbscissaValue(
+      cursorT, cursorX, buffer, k_textBufferSize,
+      numberOfSignificantDigits(cappedNumberOfSignificantDigits));
+
+  assert(numberOfChar < k_textBufferSize - 1);
+  buffer[numberOfChar++] = 0;
+  bannerView()->abscissaValue()->setEditing(false);
+  bannerView()->abscissaValue()->setText(buffer);
+
+  numberOfChar = function->nameWithArgument(buffer, k_textBufferSize);
+  assert(numberOfChar <= k_textBufferSize);
+  numberOfChar += UTF8Helper::WriteCodePoint(
+      buffer + numberOfChar, k_textBufferSize - numberOfChar, '=');
+  numberOfChar += function->printFunctionValue(
+      cursorT, cursorX, cursorY, buffer + numberOfChar,
+      k_textBufferSize - numberOfChar,
+      numberOfSignificantDigits(cappedNumberOfSignificantDigits), context);
+  assert(numberOfChar < k_textBufferSize - 1);
+  buffer[numberOfChar++] = 0;
+  bannerView()->ordinateView()->setText(buffer);
+
+  bannerView()->reload();
+}
+
+double FunctionBannerDelegate::GetValueDisplayedOnBanner(
+    double t, Poincare::Context* context, int significantDigits,
+    double deltaThreshold, bool roundToZero) {
+  if (roundToZero && std::fabs(t) < deltaThreshold) {
+    // Round to 0 to avoid rounding to unnecessary low non-zero value.
+    return 0.0;
+  }
+  // Round to displayed value
+  double displayedValue = PoincareHelpers::ValueOfFloatAsDisplayed<double>(
+      t, significantDigits, context);
+  // Return displayed value if difference from t is under deltaThreshold
+  return std::fabs(displayedValue - t) < deltaThreshold ? displayedValue : t;
+}
+
+}  // namespace Shared

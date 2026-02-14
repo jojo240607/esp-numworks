@@ -1,0 +1,6 @@
+MinimumSymbol = "Min"
+MaximumSymbol = "Max"
+MuMeanSymbol = "μ"
+FirstQuartileSymbol = "Q1"
+ThirdQuartileSymbol = "Q3"
+SampleVarianceSymbol = "s2"
