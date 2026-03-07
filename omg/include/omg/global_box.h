@@ -45,11 +45,11 @@ class alignas(T) GlobalBox {
     return reinterpret_cast<T*>(m_buffer);
   }
   T* operator->() {
-      std::printf("operator\n");
+      //std::printf("operator\n");
       return get();
   }
   operator T*() {
-      std::printf("operator T*\n");
+      //std::printf("operator T*\n");
       return get();
   }
   // Box initialization is not required to use its raw address
