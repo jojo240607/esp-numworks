@@ -37,6 +37,8 @@ add_executable(numworks2 main.cpp
         hardware/sdl/screen/screen.c
         hardware/self_strcpy.c)
 
+target_link_options(numworks2 PRIVATE -T ${CMAKE_CURRENT_SOURCE_DIR}/ion/mingw64.ld)
+
 target_include_directories(numworks2
         PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}/include

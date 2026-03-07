@@ -59,7 +59,7 @@ void pullRect(KDRect r, KDColor* pixels) {
     //ESP_LOGI(TAG, "pullRect");
     for (int col = r.y(); col < r.y() + r.height(); col++) {
         for (int raw = r.x(); raw < r.x() + r.width(); raw++) {
-            pixels->RGB16(device_get_pixel(raw, col));
+            *pixels = KDColor::RGB16(device_get_pixel(raw, col));
             pixels++;
         }
     }
