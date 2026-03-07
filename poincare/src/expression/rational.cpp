@@ -35,7 +35,7 @@ IntegerHandler Rational::Numerator(const Tree* e) {
     case Type::IntegerPosShort:
     case Type::IntegerNegShort: {
       uint8_t value = e->nodeValue(0);
-      return IntegerHandler(native_uint_t(type == Type::IntegerPosShort ? value : -value));
+      return IntegerHandler(native_int_t(type == Type::IntegerPosShort ? value : -value));
     }
     case Type::IntegerPosBig:
     case Type::IntegerNegBig: {
@@ -51,7 +51,7 @@ IntegerHandler Rational::Numerator(const Tree* e) {
     case Type::RationalPosShort:
     case Type::RationalNegShort: {
       uint8_t value = e->nodeValue(0);
-      return IntegerHandler(native_uint_t(type == Type::RationalPosShort ? value : -value));
+      return IntegerHandler(native_int_t(type == Type::RationalPosShort ? value : -value));
     }
     case Type::RationalPosBig:
     case Type::RationalNegBig: {
@@ -85,7 +85,7 @@ IntegerHandler Rational::Denominator(const Tree* e) {
       return IntegerHandler(native_int_t(2));
     case Type::RationalPosShort:
     case Type::RationalNegShort: {
-      return IntegerHandler(native_uint_t(e->nodeValue(1)));
+      return IntegerHandler(native_int_t(e->nodeValue(1)));
     }
     case Type::RationalPosBig:
     case Type::RationalNegBig: {

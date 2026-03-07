@@ -122,7 +122,7 @@ class IntegerHandler final {
         m_numberOfDigits(numberOfDigits) {}
   IntegerHandler(native_int_t value)
       : IntegerHandler(
-            static_cast<native_uint_t>(abs(value)),
+            static_cast<native_int_t>(abs(value)),
             value >= 0 ? NonStrictSign::Positive : NonStrictSign::Negative) {}
   IntegerHandler(native_uint_t value,
                  NonStrictSign sign = NonStrictSign::Positive)

@@ -488,7 +488,7 @@ Arithmetic::FactorizedInteger Arithmetic::PrimeFactorization(IntegerHandler m) {
   WorkingBuffer workingBuffer;
   uint8_t* const localStart = workingBuffer.localStart();
   FactorizedInteger result;
-  if (IntegerHandler::Ucmp(m, IntegerHandler(static_cast<native_uint_t>(1))) <= 0) {
+  if (IntegerHandler::Ucmp(m, IntegerHandler(static_cast<native_int_t>(1))) <= 0) {
     return result;
   }
 

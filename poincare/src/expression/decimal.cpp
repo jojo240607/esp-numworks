@@ -68,16 +68,16 @@ int Decimal::Serialize(const Tree* decimal, char* buffer, int bufferSize,
     int exp = numberOfDigitsInMantissa - numberOfSignificantDigits;
     IntegerHandler value = IntegerHandler(native_int_t(1));
     for (int i = 0; i < exp; i++) {
-      value = IntegerHandler::Mult(IntegerHandler(native_uint_t(10)), value, &workingBuffer);
+      value = IntegerHandler::Mult(IntegerHandler(native_int_t(10)), value, &workingBuffer);
       workingBuffer.garbageCollect({&m, &value}, localStart);
     }
     DivisionResult<IntegerHandler> d =
         IntegerHandler::Udiv(m, value, &workingBuffer);
     m = d.quotient;
     IntegerHandler boundary =
-        IntegerHandler::Udiv(value, IntegerHandler(native_uint_t(2)), &workingBuffer).quotient;
+        IntegerHandler::Udiv(value, IntegerHandler(native_int_t(2)), &workingBuffer).quotient;
     if (IntegerHandler::Compare(d.remainder, boundary) >= 0) {
-      m = IntegerHandler::Sum(m, IntegerHandler(native_uint_t(1)), false, &workingBuffer);
+      m = IntegerHandler::Sum(m, IntegerHandler(native_int_t(1)), false, &workingBuffer);
       // if 9999 was rounded to 10000, we need to update exponent and mantissa
       if (m.numberOfBase10DigitsWithoutSign(&workingBuffer).numberOfDigits >
           numberOfSignificantDigits) {
