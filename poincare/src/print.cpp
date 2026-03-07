@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <string.h>
-
+#include "hardware/self_strcpy.h"
 #include <cmath>
 
 namespace Poincare {

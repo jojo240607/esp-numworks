@@ -27,4 +27,22 @@ add_library(${COMPONENT_NAME} STATIC
 # 设置包含目录
 target_include_directories(${COMPONENT_NAME}
         PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}/in
+        ${CMAKE_CURRENT_LIST_DIR}/include
+        ${CMAKE_CURRENT_LIST_DIR}/src
+        ${CMAKE_CURRENT_LIST_DIR}/../omg/include
+)
+
+# 直接链接B库（因为B库在同一项目中已定义）
+target_link_libraries(${COMPONENT_NAME}
+        PUBLIC  # 或 PRIVATE，根据是否要传递依赖
+        omg
+)
+# 注册为IDF组件
+#idf_component_register(
+#        SRCS ${MODULE_SOURCES}
+#        INCLUDE_DIRS "include"
+#            ${CMAKE_CURRENT_LIST_DIR}/include
+#            ${CMAKE_CURRENT_LIST_DIR}/../omg/include # 绝对路径
+#       REQUIRES
+#            omg            # 依赖的组件
+#)

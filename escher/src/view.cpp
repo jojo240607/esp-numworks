@@ -1,6 +1,6 @@
 #include <escher/view.h>
 #include <ion/display.h>
-#include <esp_log.h>
+//#include <esp_log.h>
 
 extern "C" {
 #include <assert.h>

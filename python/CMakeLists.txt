@@ -1,4 +1,7 @@
-set(python)
+cmake_minimum_required(VERSION 3.10)
+project(python C CXX)  # 指定为 C 项目
+
+set(COMPONENT_NAME python)
 
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES
@@ -160,26 +163,56 @@ set(MODULE_SOURCES
         src/py/vstr.c
         src/py/warning.c
         )
+# 创建静态库
+add_library(${COMPONENT_NAME} STATIC
+        ${MODULE_SOURCES}
+)
+
+# 设置包含目录
+target_include_directories(${COMPONENT_NAME}
+        PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}/src  # 绝对路径
+        ${CMAKE_CURRENT_LIST_DIR}/port
+        ${CMAKE_CURRENT_LIST_DIR}/port/mod/include
+        ${CMAKE_CURRENT_LIST_DIR}/port/mod/include/numpy
+        ${CMAKE_CURRENT_LIST_DIR}/../ion/include
+        ${CMAKE_CURRENT_LIST_DIR}/../ion/include/ion/keyboard/epsilon
+        ${CMAKE_CURRENT_LIST_DIR}/../omg/include
+        ${CMAKE_CURRENT_LIST_DIR}/../kandinsky/include
+        ${CMAKE_CURRENT_LIST_DIR}/../escher/include
+        ${CMAKE_CURRENT_LIST_DIR}/../poincare/include
+        ${CMAKE_CURRENT_LIST_DIR}/..
+)
+
+# 直接链接B库（因为B库在同一项目中已定义）
+target_link_libraries(${COMPONENT_NAME}
+        PUBLIC  # 或 PRIVATE，根据是否要传递依赖
+        omg
+        kandinsky
+        escher
+        poincare
+        ion
+)
 
 # 注册为IDF组件
-idf_component_register(
-        SRCS ${MODULE_SOURCES}
-        INCLUDE_DIRS "."
-            ${CMAKE_CURRENT_LIST_DIR}/src  # 绝对路径
-            ${CMAKE_CURRENT_LIST_DIR}/port
-            ${CMAKE_CURRENT_LIST_DIR}/port/mod/include
-            ${CMAKE_CURRENT_LIST_DIR}/port/mod/include/numpy
-            ${CMAKE_CURRENT_LIST_DIR}/../ion/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
-            ${CMAKE_CURRENT_LIST_DIR}/../omg/include
-            ${CMAKE_CURRENT_LIST_DIR}/../kandinsky/include
-            ${CMAKE_CURRENT_LIST_DIR}/../escher/include
-            ${CMAKE_CURRENT_LIST_DIR}/../poincare/include
-            ${CMAKE_CURRENT_LIST_DIR}/..
-        REQUIRES
-            omg
-            kandinsky
-            escher
-            poincare
-            ion
-)
+#idf_component_register(
+#        SRCS ${MODULE_SOURCES}
+#        INCLUDE_DIRS "."
+#            ${CMAKE_CURRENT_LIST_DIR}/src  # 绝对路径
+#            ${CMAKE_CURRENT_LIST_DIR}/port
+#            ${CMAKE_CURRENT_LIST_DIR}/port/mod/include
+#            ${CMAKE_CURRENT_LIST_DIR}/port/mod/include/numpy
+#            ${CMAKE_CURRENT_LIST_DIR}/../ion/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
+#            ${CMAKE_CURRENT_LIST_DIR}/../omg/include
+#            ${CMAKE_CURRENT_LIST_DIR}/../kandinsky/include
+#            ${CMAKE_CURRENT_LIST_DIR}/../escher/include
+#            ${CMAKE_CURRENT_LIST_DIR}/../poincare/include
+#            ${CMAKE_CURRENT_LIST_DIR}/..
+#        REQUIRES
+#            omg
+#            kandinsky
+#            escher
+#            poincare
+#            ion
+#)

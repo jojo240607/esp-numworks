@@ -31,13 +31,17 @@ uint32_t userlandStart() {
 }
 
 uint32_t userlandStart(Slot slot) {
-  return reinterpret_cast<uint32_t>(userlandHeader(slot)) +
-         sizeof(UserlandHeader);
+  //return reinterpret_cast<uint32_t>(userlandHeader(slot)) +
+  //       sizeof(UserlandHeader);
+    return reinterpret_cast<uintptr_t>(userlandHeader(slot)) +
+           sizeof(UserlandHeader);
 }
 
 uint32_t userlandEnd(Slot slot) {
-  return reinterpret_cast<uint32_t>(userlandHeader(slot)) +
-         Config::UserlandLength;
+  //return reinterpret_cast<uint32_t>(userlandHeader(slot)) +
+  //       Config::UserlandLength;
+    return reinterpret_cast<uintptr_t>(userlandHeader(slot)) +
+           Config::UserlandLength;
 }
 
 uint32_t securityLevel() {

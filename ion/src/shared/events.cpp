@@ -7,11 +7,13 @@
 #include <string.h>
 
 #include <algorithm>
+#include <cstdio>
 
 #include "events_modifier.h"
 
 extern "C" {
 #include <assert.h>
+#include "hardware/device_def.h"
 }
 
 namespace Ion {
@@ -20,7 +22,16 @@ namespace Events {
 OMG::GlobalBox<State> SharedState;
 
 // Implementation of public Ion::Events functions
-
+static size_t strlcpy(char * dst, const char * src, size_t dstSize) {
+    const size_t srcLen = strlen(src);
+    if (srcLen+1 < dstSize) {
+        memcpy(dst, src, srcLen+1);
+    } else if (dstSize != 0) {
+        memcpy(dst, src, dstSize-1);
+        dst[dstSize-1] = 0;
+    }
+    return srcLen;
+}
 const char* EventData::text() const {
   if (m_data == nullptr || m_data[0] == 0) {
     return nullptr;
@@ -77,6 +88,7 @@ const char* Event::defaultText() const {
 Event State::privateSharedGetEvent(int* timeout) {
   constexpr int delayBeforeRepeat = 200;
   constexpr int delayBetweenRepeat = 50;
+  //  std::printf("in privateSharedGetEvent\n");
   assert(*timeout > delayBeforeRepeat);
   assert(*timeout > delayBetweenRepeat);
 
@@ -85,8 +97,33 @@ Event State::privateSharedGetEvent(int* timeout) {
     if (handlePreemption(false)) {
       return None;
     }
-
-    Event platformEvent = getPlatformEvent();
+    int key;
+    device_getkey(&key);
+    //std::printf("numworks_getkey %d\n", key);
+    Event platformEvent = None;
+    if (key != -1) {
+        platformEvent = Event(key);
+        std::printf("platformEvent get %d\n", platformEvent.operator uint8_t());
+        Keyboard::State state = (1 << key);
+        if (SharedModifierState->wasShiftReleased(state)) {
+            return Event::PlainKey(Keyboard::Key::Shift);
+        }
+        if (SharedModifierState->wasAlphaReleased(state)) {
+            return Event::PlainKey(Keyboard::Key::Alpha);
+        }
+        bool lock = SharedModifierState->shiftAlphaStatus()->alphaIsLocked();
+        didPressNewKey();
+        m_lastEventShift =
+                SharedModifierState->shiftAlphaStatus()->shiftIsActive();
+        m_lastEventAlpha =
+                SharedModifierState->shiftAlphaStatus()->alphaIsActive();
+        Event newevent((Keyboard::Key)key, m_lastEventShift, m_lastEventAlpha, lock);
+        SharedModifierState->updateModifiersFromEvent(newevent, state);
+        return newevent;
+    } else {
+        return None;
+    }
+    //Event platformEvent ;//= getPlatformEvent();
     if (platformEvent != None) {
       /* WARNING: events that can repeat should not be handled here since
        * m_lastKeypress is not updated and is used to know if the event
@@ -104,7 +141,7 @@ Event State::privateSharedGetEvent(int* timeout) {
       m_lastEvent = platformEvent;
       return platformEvent;
     }
-
+    //std::printf("check shift\n");
     bool lock = SharedModifierState->shiftAlphaStatus()->alphaIsLocked();
     uint64_t keysSeenTransitioningFromUpToDown;
     Keyboard::State state;
@@ -178,6 +215,7 @@ Event State::privateSharedGetEvent(int* timeout) {
 }
 
 Event State::sharedGetEvent(int* timeout) {
+  //  std::printf("in sharedGetEvent\n");
   Event event = privateSharedGetEvent(timeout);
   if (event == None) {
     if (!m_idleWasSent) {
@@ -187,6 +225,7 @@ Event State::sharedGetEvent(int* timeout) {
   } else {
     m_idleWasSent = false;
   }
+  //std::printf("event %s\n", event.name());
   return event;
 }
 
@@ -196,6 +235,7 @@ void State::resetKeyboardState() {
 }
 
 Event sharedGetEvent(int* timeout) {
+    //std::printf("sharedGetEvent\n");
   return SharedState->sharedGetEvent(timeout);
 }
 

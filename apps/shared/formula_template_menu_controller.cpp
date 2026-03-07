@@ -5,6 +5,7 @@
 #include <poincare/print.h>
 
 #include "column_helper.h"
+#include "hardware/self_strcpy.h"
 
 using namespace Escher;
 using namespace Poincare;

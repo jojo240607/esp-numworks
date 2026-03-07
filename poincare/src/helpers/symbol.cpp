@@ -3,7 +3,7 @@
 #include <poincare/src/expression/builtin.h>
 #include <poincare/src/expression/symbol.h>
 #include <poincare/src/memory/tree_stack.h>
-
+#include "hardware/self_strcpy.h"
 namespace Poincare {
 
 using namespace Internal;

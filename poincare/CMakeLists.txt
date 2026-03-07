@@ -1,3 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(poincare CXX)  # 指定为 C 项目
+
+
 set(COMPONENT_NAME poincare)
 
 # ========== 文件分组 ==========
@@ -225,50 +229,85 @@ set(ALL_SOURCES
         ${_sources_group4}
         ${_sources_group5}
         )
+# 创建静态库
+add_library(${COMPONENT_NAME} STATIC
+        ${ALL_SOURCES}
+)
+
+# 设置包含目录
+target_include_directories(${COMPONENT_NAME}
+        PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}/..
+        ${CMAKE_CURRENT_LIST_DIR}/include
+        ${CMAKE_CURRENT_LIST_DIR}/src
+        ${CMAKE_CURRENT_LIST_DIR}/../omg/include
+        ${CMAKE_CURRENT_LIST_DIR}/../kandinsky/include
+        ${CMAKE_CURRENT_LIST_DIR}/../ion/include
+        ${CMAKE_CURRENT_LIST_DIR}/../ion/include/ion/keyboard/epsilon
+)
+
+# 直接链接B库（因为B库在同一项目中已定义）
+target_link_libraries(${COMPONENT_NAME}
+        PUBLIC  # 或 PRIVATE，根据是否要传递依赖
+        omg
+        kandinsky
+        ion
+)
+
+target_compile_options(${COMPONENT_NAME} PRIVATE
+        #"-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"
+        "-Wno-error"
+        "-Wno-expansion-to-defined"
+        "-Wno-error=unused-value"
+        "-Wno-error=char-subscripts"
+        "-Wno-error=array-parameter="
+        "-Wno-switch-outside-range")
+
+
 # 降低警告级别
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error")
 
 # 或关闭特定警告
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-expansion-to-defined")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-expansion-to-defined")
 # 注册为IDF组件
-idf_component_register(
-        SRCS ${ALL_SOURCES}
-        INCLUDE_DIRS
-            "include" ${CMAKE_CURRENT_SOURCE_DIR}
-            ${CMAKE_CURRENT_SOURCE_DIR}/..
-            ${CMAKE_CURRENT_SOURCE_DIR}/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
-
-        # COMPILE_OPTIONS
-        #     "-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"  # 注意：整个选项用引号包裹
-        #$<$<CXX_COMPILER_ID:GNU>:-Wno-switch-outside-range>
-        #$<$<CXX_COMPILER_ID:Clang>:-Wno-tautological-constant-out-of-range-compare>
-        #COMPILE_DEFINITIONS ${COMPILE_DEFINITIONS}
-        REQUIRES
-            kandinsky  # 字体依赖
-            omg
-            ion
-)
-target_sources(${COMPONENT_TARGET} PRIVATE
-        "config.epsilon.h"
-        )
+#idf_component_register(
+#        SRCS ${ALL_SOURCES}
+#        INCLUDE_DIRS
+#            "include" ${CMAKE_CURRENT_SOURCE_DIR}
+#            ${CMAKE_CURRENT_SOURCE_DIR}/..
+#            ${CMAKE_CURRENT_SOURCE_DIR}/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
+#
+#        # COMPILE_OPTIONS
+#        #     "-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"  # 注意：整个选项用引号包裹
+#        #$<$<CXX_COMPILER_ID:GNU>:-Wno-switch-outside-range>
+#        #$<$<CXX_COMPILER_ID:Clang>:-Wno-tautological-constant-out-of-range-compare>
+#        #COMPILE_DEFINITIONS ${COMPILE_DEFINITIONS}
+#        REQUIRES
+#            kandinsky  # 字体依赖
+#            omg
+#            ion
+#)
+#target_sources(${COMPONENT_TARGET} PRIVATE
+#        "config.epsilon.h"
+#        )
 # 然后设置编译选项（如果 ${COMPONENT_NAME} 已定义）
-if(TARGET ${COMPONENT_NAME})
-    target_compile_options(${COMPONENT_NAME} PRIVATE
-            "-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"
-            )
-
-    # 根据编译器设置警告选项
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-        target_compile_options(${COMPONENT_NAME} PRIVATE
-                -Wno-switch-outside-range
-                )
-    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-        target_compile_options(${COMPONENT_NAME} PRIVATE
-                -Wno-tautological-constant-out-of-range-compare
-                )
-    endif()
-endif()
+#if(TARGET ${COMPONENT_NAME})
+#    target_compile_options(${COMPONENT_NAME} PRIVATE
+#            "-include ${CMAKE_CURRENT_LIST_DIR}/config.epsilon.h"
+#            )
+#
+#    # 根据编译器设置警告选项
+#    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+#        target_compile_options(${COMPONENT_NAME} PRIVATE
+#                -Wno-switch-outside-range
+#                )
+#    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+#        target_compile_options(${COMPONENT_NAME} PRIVATE
+#                -Wno-tautological-constant-out-of-range-compare
+#                )
+#    endif()
+#endif()

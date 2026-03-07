@@ -16,6 +16,7 @@
 
 extern "C" {
 #include <stdlib.h>
+#include "hardware/self_strcpy.h"
 }
 
 using namespace Escher;

@@ -9,7 +9,7 @@
 #include <cmath>
 
 #include "../app.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Shared;
 using namespace Poincare;
 using namespace Escher;

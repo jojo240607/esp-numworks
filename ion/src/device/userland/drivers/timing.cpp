@@ -1,12 +1,13 @@
 #include <ion/timing.h>
-#include <esp_timer.h>
-#include <rom/ets_sys.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+//#include <esp_timer.h>
+//#include <rom/ets_sys.h>
+//#include "freertos/FreeRTOS.h"
+//#include "freertos/task.h"
 //#include "svcall.h"
 
 namespace Ion {
 namespace Timing {
+    /*
 void compensated_delay_us(uint32_t target_us) {
     uint64_t start = esp_timer_get_time();
     uint64_t target = start + target_us;
@@ -27,20 +28,21 @@ void compensated_delay_us(uint32_t target_us) {
             // __asm__ volatile("nop");
         }
     }
-}
+}*/
 void usleep(uint32_t us) {
   //SVC_RETURNING_VOID(SVC_TIMING_USLEEP)
-    compensated_delay_us(us);
+  //  compensated_delay_us(us);
 }
 
 void msleep(uint32_t ms){
     //SVC_RETURNING_VOID(SVC_TIMING_MSLEEP)
-    vTaskDelay(pdMS_TO_TICKS(ms));  // 延迟10毫秒
+   // vTaskDelay(pdMS_TO_TICKS(ms));  // 延迟10毫秒
 }
 
 uint64_t millis() {
   //SVC_RETURNING_R0R1(SVC_TIMING_MILLIS, uint64_t)
-    return esp_timer_get_time() / 1000;
+   // return esp_timer_get_time() / 1000;
+    return 0;
 }
 
 }  // namespace Timing

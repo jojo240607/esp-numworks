@@ -5,7 +5,7 @@
 #include <string.h>
 
 #include <algorithm>
-
+#include "hardware/self_strcpy.h"
 namespace Poincare::Internal {
 
 char* Symbol::CopyName(const Tree* e, char* buffer, size_t bufferSize) {

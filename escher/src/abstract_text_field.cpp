@@ -10,6 +10,7 @@
 #include <poincare/xnt.h>
 
 #include <algorithm>
+#include "hardware/self_strcpy.h"
 
 using namespace Poincare;
 

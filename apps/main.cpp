@@ -1,6 +1,6 @@
 #include <escher/init.h>
 #include <poincare/init.h>
-#include <esp_log.h>
+//#include <esp_log.h>
 
 #include "apps_container.h"
 #include "global_preferences.h"
@@ -47,11 +47,11 @@ void ion_main(int argc, const char* const argv[]) {
   // Initialize TreePool::sharedPool and TreeStack::SharedTreeStack
 
   Poincare::Init();
-    ESP_LOGI(TAG, "Poincare Init ok");
+    //ESP_LOGI(TAG, "Poincare Init ok");
   Escher::Init();
-    ESP_LOGI(TAG, "Escher Init ok");
+    //ESP_LOGI(TAG, "Escher Init ok");
   Apps::Init();
-    ESP_LOGI(TAG, "Apps Init ok");
+    //ESP_LOGI(TAG, "Apps Init ok");
 
 #if EPSILON_GETOPT
   for (int i = 1; i < argc; i++) {
@@ -119,11 +119,11 @@ void ion_main(int argc, const char* const argv[]) {
    * memory pointers could be overlooked during mark procedure. */
   volatile int stackTop;
   Ion::setStackStart((void*)(&stackTop));
-    ESP_LOGI(TAG, "setStackStart ok");
+    //ESP_LOGI(TAG, "setStackStart ok");
   AppsContainer::sharedAppsContainer()->run();
-    ESP_LOGI(TAG, "run ok");
+    //ESP_LOGI(TAG, "run ok");
   Poincare::Shutdown();
-    ESP_LOGI(TAG, "Shutdown ok");
+    //ESP_LOGI(TAG, "Shutdown ok");
 }
 
 #endif

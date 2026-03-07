@@ -3,7 +3,7 @@
 #include <escher/i18n.h>
 #include <poincare/print.h>
 #include <string.h>
-
+#include "hardware/self_strcpy.h"
 namespace Escher {
 
 void AbstractBufferTextView::setText(const char* text) {

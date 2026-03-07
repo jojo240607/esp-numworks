@@ -20,6 +20,7 @@
 
 #include <algorithm>
 #include <array>
+#include "hardware/self_strcpy.h"
 
 using namespace Poincare;
 

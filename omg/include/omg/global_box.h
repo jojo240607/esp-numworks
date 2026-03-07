@@ -5,6 +5,7 @@
 #include <stdint.h>
 
 #include <new>
+#include <cstdio>
 
 /* This template wraps another type and manually control when its constructor
  * is called. It is useful to declare global variables and yet avoid the static
@@ -30,6 +31,7 @@ class alignas(T) GlobalBox {
 #if ASSERTIONS
     assert(m_isInitialized);
 #endif
+      std::printf("deinit\n");
     get()->~T();
 #if ASSERTIONS
     m_isInitialized = false;
@@ -42,8 +44,14 @@ class alignas(T) GlobalBox {
 #endif
     return reinterpret_cast<T*>(m_buffer);
   }
-  T* operator->() { return get(); }
-  operator T*() { return get(); }
+  T* operator->() {
+      std::printf("operator\n");
+      return get();
+  }
+  operator T*() {
+      std::printf("operator T*\n");
+      return get();
+  }
   // Box initialization is not required to use its raw address
   operator void*() { return m_buffer; }
 

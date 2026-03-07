@@ -3,6 +3,7 @@
 #include <assert.h>
 
 #include "app.h"
+#include "hardware/self_strcpy.h"
 
 using namespace Escher;
 

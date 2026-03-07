@@ -3,7 +3,7 @@
 #include <shared/column_parameter_controller.h>
 
 #include "input_goodness_controller.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Escher;
 
 namespace Inference {

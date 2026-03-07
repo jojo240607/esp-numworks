@@ -4,6 +4,7 @@
 #include <omg/utf8_helper.h>
 #include <poincare/code_points.h>
 #include <poincare/helpers/symbol.h>
+#include "hardware/self_strcpy.h"
 
 using namespace Poincare;
 

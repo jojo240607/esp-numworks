@@ -1,20 +1,20 @@
 #include "display.h"
 
 #include <ion/display.h>
-
-#include "svcall.h"
-#include <esp_log.h>
-#include "esp32/sst7789_device.h"
+#include "hardware/device_def.h"
+//#include "svcall.h"
+//#include <esp_log.h>
+//#include "esp32/sst7789_device.h"
 
 namespace Ion {
 namespace Display {
     static const char *TAG = "Ion.Display";
-    static Lcd_device *lcd_device = (Lcd_device *)sst7789_device_create();
-void SVC_ATTRIBUTES pushRect(KDRect r, const KDColor* pixels) {
+    //static Lcd_device *lcd_device = (Lcd_device *)sst7789_device_create();
+void pushRect(KDRect r, const KDColor* pixels) {
     //Todo push Rect to frame
   //SVC_RETURNING_VOID(SVC_DISPLAY_PUSH_RECT)
-    if (lcd_device->framebuf.currentbuf == NULL) {
-        ESP_LOGI(TAG, "lcd_device virtual_init");
+    /*if (lcd_device->framebuf.currentbuf == NULL) {
+        //ESP_LOGI(TAG, "lcd_device virtual_init");
         virtual_init(lcd_device);
     }
 
@@ -22,15 +22,21 @@ void SVC_ATTRIBUTES pushRect(KDRect r, const KDColor* pixels) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
             *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = *(pixels++);
         }
-    }
+    }*/
+        for (int col = r.y(); col < r.y() + r.height(); col++) {
+            for (int raw = r.x(); raw < r.x() + r.width(); raw++) {
+                device_set_pixel(raw, col, pixels->operator uint16_t());
+                pixels++;
+            }
+        }
     //ESP_LOGI(TAG, "pushRect(%d, %d, %d,%d)", r.size().width(), r.size().height(), r.origin().x(), r.origin().y());
 }
 
-void SVC_ATTRIBUTES pushRectUniform(KDRect r, KDColor c) {
+void pushRectUniform(KDRect r, KDColor c) {
     //Todo push Rect color
   //SVC_RETURNING_VOID(SVC_DISPLAY_PUSH_RECT_UNIFORM)
-  if (lcd_device->framebuf.currentbuf == NULL) {
-      ESP_LOGI(TAG, "lcd_device virtual_init");
+  /*if (lcd_device->framebuf.currentbuf == NULL) {
+      //ESP_LOGI(TAG, "lcd_device virtual_init");
       virtual_init(lcd_device);
   }
     //ESP_LOGI(TAG, "pushRectUniform(%d, %d, %d,%d) color %d %d %d", r.size().width(), r.size().height(), r.origin().x(), r.origin().y(), c.red(), c.green(), c.blue());
@@ -38,33 +44,41 @@ void SVC_ATTRIBUTES pushRectUniform(KDRect r, KDColor c) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
             *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh)) = c;
         }
-    }
+    }*/
+    device_fill_rect(r.x(), r.y(), r.width(), r.height(), c.operator uint16_t());
 }
 
-void SVC_ATTRIBUTES pullRect(KDRect r, KDColor* pixels) {
+void pullRect(KDRect r, KDColor* pixels) {
     //Todo pull Rect to frame
   //SVC_RETURNING_VOID(SVC_DISPLAY_PULL_RECT)
-    for (uint16_t pushh = 0; pushh < r.size().height(); pushh++) {
+    /*for (uint16_t pushh = 0; pushh < r.size().height(); pushh++) {
         for (uint16_t pushw = 0;pushw < r.size().width(); pushw++) {
             *(pixels++) = *(((uint16_t *)lcd_device->framebuf.currentbuf) + (319 - r.origin().x() - pushw) * 240 + (r.origin().y() + pushh));
         }
+    }*/
+    //ESP_LOGI(TAG, "pullRect");
+    for (int col = r.y(); col < r.y() + r.height(); col++) {
+        for (int raw = r.x(); raw < r.x() + r.width(); raw++) {
+            pixels->RGB16(device_get_pixel(raw, col));
+            pixels++;
+        }
     }
-    ESP_LOGI(TAG, "pullRect");
 }
 
-bool SVC_ATTRIBUTES waitForVBlank() {
+bool waitForVBlank() {
     //Todo wait TE Sync
   //SVC_RETURNING_R0(SVC_DISPLAY_WAIT_FOR_V_BLANK, bool)
     //ESP_LOGI(TAG, "waitForVBlank");
-    return false;
+    device_waitforvblank();
+    return true;
 }
 
-void SVC_ATTRIBUTES POSTPushMulticolor(int rootNumberTiles, int tileSize) {
+void POSTPushMulticolor(int rootNumberTiles, int tileSize) {
   //SVC_RETURNING_VOID(SVC_DISPLAY_POST_PUSH_MULTICOLOR)
 }
 
-void SVC_ATTRIBUTES syncDisplay() {
-    virtual_ondraw(lcd_device);
+void syncDisplay() {
+    //virtual_ondraw(lcd_device);
 }
 // This assert ensures that the signature of drawString stays the same
 template <class T1, class T2>

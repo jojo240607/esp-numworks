@@ -7,7 +7,7 @@
 #include <poincare/exception_checkpoint.h>
 #include <poincare/init.h>
 #include <poincare/src/memory/tree_stack_checkpoint.h>
-#include <esp_log.h>
+//#include <esp_log.h>
 
 #include "apps_container_storage.h"
 #include "global_preferences.h"

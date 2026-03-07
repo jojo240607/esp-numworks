@@ -12,7 +12,7 @@
 #include <cmath>
 
 #include "app.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Poincare;
 using namespace Shared;
 

@@ -9,7 +9,7 @@
 #include <omg/utf8_helper.h>
 
 #include "app.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Escher;
 
 namespace Code {

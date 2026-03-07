@@ -8,7 +8,7 @@
 #include <poincare/src/memory/tree.h>
 
 #include <algorithm>
-
+#include "hardware/self_strcpy.h"
 namespace Escher {
 
 Clipboard* Clipboard::SharedClipboard() {

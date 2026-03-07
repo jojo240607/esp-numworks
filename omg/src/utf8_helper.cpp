@@ -2,7 +2,7 @@
 #include "omg/utf8_decoder.h"
 #include "omg/utf8_helper.h"
 #include <string.h>
-
+#include "../../hardware/self_strcpy.h"
 #include <algorithm>
 
 namespace UTF8Helper {

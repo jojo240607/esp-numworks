@@ -11,10 +11,13 @@ void Init() {
       ->initSystemRecord<GlobalPreferences>();
 
   ::Shared::GlobalContext::s_sequenceStore.init();
-  ::Shared::GlobalContext::s_sequenceCache.init(
-      Shared::GlobalContext::s_sequenceStore.get());
+  std::printf("s_sequenceStore.init()\n");
+  ::Shared::GlobalContext::s_sequenceCache.init(Shared::GlobalContext::s_sequenceStore.get());
+    std::printf("s_sequenceCache.init()\n");
   ::Shared::GlobalContext::s_continuousFunctionStore.init();
+    std::printf("s_continuousFunctionStore.init()\n");
   ::AppsContainerStorage::sharedAppsContainerStorage.init();
+    std::printf("sharedAppsContainerStorage.init()\n");
 }
 
 }  // namespace Apps

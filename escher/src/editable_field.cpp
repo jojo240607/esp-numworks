@@ -6,7 +6,7 @@
 #include <omg/utf8_helper.h>
 #include <poincare/helpers/symbol.h>
 #include <poincare/xnt.h>
-
+#include "hardware/self_strcpy.h"
 using namespace Poincare;
 
 namespace Escher {

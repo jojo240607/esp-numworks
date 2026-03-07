@@ -4,8 +4,9 @@ extern "C" {
 }
 #include <cstdint>
 #include <cstring>
-#include <esp_system.h>
-#include <esp_heap_caps.h>
+#include <cstdio>
+//#include <esp_system.h>
+//#include <esp_heap_caps.h>
 
 extern "C" {
 unsigned _heap_size = 0;
@@ -22,7 +23,7 @@ void sync_screen() {
 int ext_main();
 void khicas_main() {
     // 获取内部内存（DRAM）的空闲大小
-    size_t free_internal = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    /*size_t free_internal = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
     printf("Free internal RAM: %u bytes\n", free_internal);
     // 获取SPIRAM（即PSRAM）的空闲大小
     size_t free_spiram = heap_caps_get_free_size(MALLOC_CAP_SPIRAM);
@@ -39,8 +40,8 @@ void khicas_main() {
         _heap_size = 30 * 1024;
         _heap_ptr = buffer;
         _heap_base = buffer;
-    }
-  ext_main();
+    }*/
+//  ext_main();
 }
 
 uint64_t millis() {

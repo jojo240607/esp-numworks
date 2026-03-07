@@ -1,23 +1,50 @@
 #include <ion.h>
 
-#include "svcall.h"
-#include "esp_crc.h"
+//#include "svcall.h"
+//#include "esp_crc.h"
 
 
 namespace Ion {
-
-uint32_t SVC_ATTRIBUTES crc32DoubleWord(const uint32_t* data, size_t length){
+/*
+uint32_t crc32DoubleWord(const uint32_t* data, size_t length){
     //    SVC_RETURNING_R0(SVC_CRC32_WORD, uint32_t)
     // ESP-IDF 提供的 CRC 函数
-    uint32_t crc = esp_crc32_le(0xFFFFFFFF, (uint8_t const *)data, length * sizeof(uint32_t));
+    uint32_t crc = 0;//esp_crc32_le(0xFFFFFFFF, (uint8_t const *)data, length * sizeof(uint32_t));
     return crc;
     //return 0;
 }
 
-uint32_t SVC_ATTRIBUTES crc32Byte(const uint8_t* data, size_t length) {
+uint32_t crc32Byte(const uint8_t* data, size_t length) {
   //SVC_RETURNING_R0(SVC_CRC32_BYTE, uint32_t)
-    uint32_t crc = esp_crc32_le(0xFFFFFFFF, (uint8_t const *)data, length);
+    uint32_t crc = 0;//esp_crc32_le(0xFFFFFFFF, (uint8_t const *)data, length);
     return crc;
 }
+*/
+    constexpr size_t k_uint32ByteLength = sizeof(uint32_t) / sizeof(uint8_t);
+    uint32_t crc32DoubleWord(const uint32_t* data, size_t length){
+        return crc32Byte(reinterpret_cast<const uint8_t*>(data),
+                         length * k_uint32ByteLength);
+    }
 
+    uint32_t crc32Byte(const uint8_t* data, size_t length) {
+        if (length == 0) {
+            return 0;
+        }
+        assert(data != nullptr);
+        uint32_t crc = 0xFFFFFFFF;
+        size_t lengthInDoubleWords = length / k_uint32ByteLength;
+
+        for (size_t i = 0; i < lengthInDoubleWords; i++) {
+            // FIXME: Assumes little-endian byte order!
+            for (int j = k_uint32ByteLength - 1; j >= 0; j--) {
+                // scan byte by byte to avoid alignment issue when building for emscripten
+                // platform
+                crc = OMG::Memory::crc32EatByte(crc, data[i * k_uint32ByteLength + j]);
+            }
+        }
+        for (size_t i = lengthInDoubleWords * k_uint32ByteLength; i < length; i++) {
+            crc = OMG::Memory::crc32EatByte(crc, data[i]);
+        }
+        return crc;
+    }
 }  // namespace Ion

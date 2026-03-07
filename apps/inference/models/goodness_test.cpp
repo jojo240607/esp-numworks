@@ -5,7 +5,7 @@
 #include <string.h>
 
 #include "inference/models/chi2_test.h"
-
+#include "hardware/self_strcpy.h"
 namespace Inference {
 
 GoodnessTest::Column GoodnessTest::ColumnIndexForDataType(DataType type) {

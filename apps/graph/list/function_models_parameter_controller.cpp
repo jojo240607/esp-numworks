@@ -11,7 +11,7 @@
 
 #include "../app.h"
 #include "list_controller.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Poincare;
 using namespace Escher;
 

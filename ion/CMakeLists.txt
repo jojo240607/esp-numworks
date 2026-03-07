@@ -1,10 +1,13 @@
+cmake_minimum_required(VERSION 3.10)
+project(ion CXX)  # 指定为 C 项目
+
 set(COMPONENT_NAME ion)
 
 # 源文件列表（支持通配符或明确列表）
 set(MODULE_SOURCES
         #src/device/shared/boot/rt0.cpp
-        src/device/userland/drivers/esp32/lcd_device.c
-        src/device/userland/drivers/esp32/sst7789_device.c
+        ##src/device/userland/drivers/esp32/lcd_device.c
+        ##src/device/userland/drivers/esp32/sst7789_device.c
         src/device/shared/drivers/assert.cpp
         src/device/shared/drivers/board_unprivileged.cpp
         src/device/shared/drivers/console_display.cpp
@@ -55,6 +58,10 @@ set(MODULE_SOURCES
         src/device/userland/drivers/device_name.cpp
         src/device/userland/drivers/display.cpp
         src/device/userland/drivers/events.cpp
+        src/shared/events.cpp
+        src/shared/layout_events/epsilon/layout_events.cpp
+        src/shared/events_modifier.cpp
+        src/shared/keyboard_queue.cpp
         src/device/userland/drivers/exam_bytes.cpp
         src/device/userland/drivers/fcc_id.cpp
         src/device/userland/drivers/flash_write_with_interruptions.cpp
@@ -84,21 +91,43 @@ set(MODULE_SOURCES
         src/shared/storage/record.cpp
         src/shared/storage/record_name_verifier.cpp
         )
-
-# 注册为IDF组件
-idf_component_register(
-        SRCS ${MODULE_SOURCES}
-        INCLUDE_DIRS "include"
-            ${CMAKE_CURRENT_LIST_DIR}/include  # 绝对路径
-            ${CMAKE_CURRENT_LIST_DIR}/..
-            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
-            ${CMAKE_CURRENT_LIST_DIR}/src/device
-            ${CMAKE_CURRENT_LIST_DIR}/src/device/include/n0120
-            ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
-       REQUIRES
-            omg
-            kandinsky
-            esp_lcd
-            esp_timer
+# 创建静态库
+add_library(${COMPONENT_NAME} STATIC
+        ${MODULE_SOURCES}
 )
+
+# 设置包含目录
+target_include_directories(${COMPONENT_NAME}
+        PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}/include  # 绝对路径
+        ${CMAKE_CURRENT_LIST_DIR}/..
+        ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
+        ${CMAKE_CURRENT_LIST_DIR}/src/device
+        ${CMAKE_CURRENT_LIST_DIR}/src/device/include/n0120
+        ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
+)
+
+# 直接链接B库（因为B库在同一项目中已定义）
+target_link_libraries(${COMPONENT_NAME}
+        PUBLIC  # 或 PRIVATE，根据是否要传递依赖
+        omg
+        kandinsky
+)
+## 注册为IDF组件
+#idf_component_register(
+#        SRCS ${MODULE_SOURCES}
+#        INCLUDE_DIRS "include"
+#            ${CMAKE_CURRENT_LIST_DIR}/include  # 绝对路径
+#            ${CMAKE_CURRENT_LIST_DIR}/..
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../ion/include/ion/keyboard/epsilon
+#            ${CMAKE_CURRENT_LIST_DIR}/src/device
+#            ${CMAKE_CURRENT_LIST_DIR}/src/device/include/n0120
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../omg/include
+#            ${CMAKE_CURRENT_SOURCE_DIR}/../kandinsky/include
+#       REQUIRES
+#            omg
+#            kandinsky
+#            esp_lcd
+#            esp_timer
+#)

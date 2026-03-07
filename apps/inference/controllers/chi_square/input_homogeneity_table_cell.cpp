@@ -4,7 +4,7 @@
 #include <shared/column_parameter_controller.h>
 
 #include "input_homogeneity_controller.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Escher;
 
 namespace Inference {

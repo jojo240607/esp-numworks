@@ -14,6 +14,7 @@
 #include "global_context.h"
 #include "sequence_context.h"
 #include "sequence_store.h"
+#include "hardware/self_strcpy.h"
 
 using namespace Poincare;
 

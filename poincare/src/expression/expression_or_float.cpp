@@ -5,7 +5,7 @@
 #include "omg/utf8_helper.h"
 #include "poincare/helpers/expression_equal_sign.h"
 #include "poincare/print_float.h"
-
+#include "hardware/self_strcpy.h"
 namespace Poincare {
 
 PrintFloat::TextLengths SerializeFloatValue(

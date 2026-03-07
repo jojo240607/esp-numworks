@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include <algorithm>
-
+#include "hardware/self_strcpy.h"
 namespace Code {
 
 void ConsoleStore::startNewSession() {

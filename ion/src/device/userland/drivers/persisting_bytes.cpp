@@ -125,10 +125,10 @@ void write(uint8_t* data, uint16_t size, Entry entry) {
      * all at once. Consequently, we must preserve the current values of other
      * entries to rewrite them back into the sector after the erasure. */
     int persistingBytesSectorIndex = Device::Flash::SectorAtAddress(
-        reinterpret_cast<uint32_t>(BufferStart()));
+        reinterpret_cast<uintptr_t>(BufferStart()));
     assert(persistingBytesSectorIndex ==
            Device::Flash::SectorAtAddress(
-               reinterpret_cast<uint32_t>(BufferEnd() - 1)));
+               reinterpret_cast<uintptr_t>(BufferEnd() - 1)));
 
     /* Store values of other entries */
     uint8_t savedValues[sumOfEntrySizes()];

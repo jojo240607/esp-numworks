@@ -17,7 +17,7 @@ uint32_t addressOfFunction(int index) {
 // Work around https://gcc.gnu.org/bugzilla/show_bug.cgi?id=51205
 void* memset(void*, int, size_t) __attribute__((externally_visible));
 void* memcpy(void*, const void*, size_t) __attribute__((externally_visible));
-
+/*
 TRAMPOLINE_INTERFACE(TRAMPOLINE_MEMCMP, memcmp, (a, b, c), int, const void* a,
                      const void* b, size_t c)
 TRAMPOLINE_INTERFACE(TRAMPOLINE_MEMCPY, memcpy, (a, b, c), void*, void* a,
@@ -37,3 +37,4 @@ TRAMPOLINE_INTERFACE(TRAMPOLINE_STRLCPY, strlcpy, (a, b, c), size_t, char* a,
 TRAMPOLINE_INTERFACE(TRAMPOLINE_STRLEN, strlen, (a), size_t, const char* a)
 TRAMPOLINE_INTERFACE(TRAMPOLINE_STRNCMP, strncmp, (a, b, c), int, const char* a,
                      const char* b, size_t c)
+*/

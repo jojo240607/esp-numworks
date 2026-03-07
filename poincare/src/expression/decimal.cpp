@@ -10,7 +10,7 @@
 #include <algorithm>
 
 #include "integer.h"
-
+#include "hardware/self_strcpy.h"
 namespace Poincare::Internal {
 
 void Decimal::Project(Tree* e) {

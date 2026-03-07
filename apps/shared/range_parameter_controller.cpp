@@ -3,6 +3,7 @@
 #include <omg/utf8_helper.h>
 
 #include "poincare_helpers.h"
+#include "hardware/self_strcpy.h"
 
 using namespace Escher;
 using namespace Poincare;

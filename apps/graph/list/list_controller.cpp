@@ -10,7 +10,7 @@
 #include <poincare/layout.h>
 
 #include "../app.h"
-
+#include "hardware/self_strcpy.h"
 using namespace Shared;
 using namespace Escher;
 using namespace Poincare;

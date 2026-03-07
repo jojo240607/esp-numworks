@@ -1,7 +1,7 @@
 #include "script.h"
 
 #include "script_store.h"
-
+#include "hardware/self_strcpy.h"
 namespace Code {
 
 bool Script::DefaultName(char buffer[], size_t bufferSize) {

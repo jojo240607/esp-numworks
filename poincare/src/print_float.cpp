@@ -16,7 +16,8 @@ extern "C" {
 }
 #include <algorithm>
 #include <cmath>
-#include <esp_log.h>
+#include "hardware/self_strcpy.h"
+//#include <esp_log.h>
 
 namespace Poincare {
     static const char *TAG = "Poincare.printfloat";

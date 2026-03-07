@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "kernel_header.h"
+#include "hardware/self_strcpy.h"
 
 namespace Ion {
 namespace Device {

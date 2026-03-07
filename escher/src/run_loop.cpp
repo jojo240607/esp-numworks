@@ -1,9 +1,9 @@
 #include <assert.h>
 #include <escher/run_loop.h>
 #include <kandinsky/font.h>
-#include <esp_log.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+//#include <esp_log.h>
+//#include "freertos/FreeRTOS.h"
+//#include "freertos/task.h"
 #if ION_LOG_EVENTS_NAME
 #include <ion/console.h>
 #include <ion/keyboard/layout_events.h>
@@ -26,7 +26,7 @@ void RunLoop::runWhile(bool (*callback)(void* ctx), void* ctx) {
   bool continueCurrentRunLoop = true;
   while (!m_breakAllLoops && (callback == nullptr || callback(ctx)) &&
          (continueCurrentRunLoop = step())) {
-      vTaskDelay(pdMS_TO_TICKS(10));  // 延迟10毫秒
+      //vTaskDelay(pdMS_TO_TICKS(10));  // 延迟10毫秒
   }
 
   // Events::Termination was fired. Break all parent loops.
