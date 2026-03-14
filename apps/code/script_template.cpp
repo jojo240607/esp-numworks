@@ -19,7 +19,8 @@ def squares(angle=0.5):
     forward(L)
     left(90+angle)
     L=L-L*sin(angle*pi/180)
-  hideturtle())");
+  hideturtle()
+squares())");
 
 constexpr ScriptTemplate mandelbrotScriptTemplate(
     "mandelbrot.py", R"(# This script draws a Mandelbrot fractal set
@@ -40,7 +41,8 @@ def mandelbrot(N_iteration):
       rgb = int(255*i/N_iteration)
       col = kandinsky.color(int(rgb),int(rgb*0.75),int(rgb*0.25))
 # Draw a pixel colored in 'col' at position (x,y)
-      kandinsky.set_pixel(x,y,col))");
+      kandinsky.set_pixel(x,y,col)
+mandelbrot(10))");
 
 constexpr ScriptTemplate polynomialScriptTemplate("polynomial.py",
                                                   R"(from math import *
@@ -86,7 +88,8 @@ def simulation(v_0=15,alpha=pi/4,h_0=2):
   for i in range(T_MAX):
     arrow(X[i],Y[i],VX[i]/accuracy,VY[i]/accuracy)
   grid()
-  show())");
+  show()
+simulation())");
 
 const ScriptTemplate* ScriptTemplate::Empty() { return &emptyScriptTemplate; }
 

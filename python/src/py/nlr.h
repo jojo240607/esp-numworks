@@ -58,6 +58,7 @@
     #define MICROPY_NLR_NUM_REGS (MICROPY_NLR_NUM_REGS_X86)
 #elif defined(__x86_64__)
     #define MICROPY_NLR_X64 (1)
+    #define MICROPY_NLR_SETJMP (1)
     #if MICROPY_NLR_OS_WINDOWS
         #define MICROPY_NLR_NUM_REGS (MICROPY_NLR_NUM_REGS_X64_WIN)
     #else
