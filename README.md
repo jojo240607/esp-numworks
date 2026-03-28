@@ -21,7 +21,30 @@ Numworks 是一款基于 ARM Cortex-M4 的开源计算器，其硬件设计、�
 
 下图为移植后的系统软件架构，展示了从硬件抽象层到应用层的模块关系。
 
-![](.\doc\main.png)
+```mermaid
+graph TD
+    A[用户应用层] --> B[系统服务层]
+    B --> C[内核与驱动层]
+    C --> D[硬件抽象层 HPL]
+    D --> E[硬件层<br>STM32F412 / LCD / 键盘 / USB]
+    
+    subgraph 移植适配层
+        C
+        D
+    end
+    
+    subgraph 原生 Epsilon 模块
+        F[图形库]
+        G[文件系统]
+        H[Python 引擎]
+    end
+    
+    B -.-> F
+    B -.-> G
+    B -.-> H
+```
+
+
 
 ## 🔄 移植流程
 
