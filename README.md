@@ -52,7 +52,21 @@ graph TD
 
 图表
 
-![](.\doc\step.png)
+```mermaid
+flowchart TD
+    Start([开始]) --> Step1[硬件分析<br>芯片手册/原理图]
+    Step1 --> Step2[搭建交叉编译环境<br>arm-none-eabi-gcc]
+    Step2 --> Step3[适配引导程序<br>修改链接脚本/中断向量表]
+    Step3 --> Step4[移植底层驱动<br>LCD/键盘/USB]
+    Step4 --> Step5{核心功能测试}
+    Step5 -- 失败 --> Step4
+    Step5 -- 成功 --> Step6[集成应用程序<br>图形库/Python引擎]
+    Step6 --> Step7[烧录与调试<br>DFU/JLink]
+    Step7 --> Step8[性能优化与稳定性测试]
+    Step8 --> End([发布版本])
+```
+
+
 
 ## 🚀 快速开始
 
