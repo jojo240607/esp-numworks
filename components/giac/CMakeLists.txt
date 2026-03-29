@@ -59,7 +59,7 @@ set(MODULE_SOURCES
 idf_component_register(
         SRCS ${MODULE_SOURCES}
         INCLUDE_DIRS
-        ${CMAKE_CURRENT_LIST_DIR}/include
+        #${CMAKE_CURRENT_LIST_DIR}/include
         ${CMAKE_CURRENT_LIST_DIR}
         # ${CMAKE_CURRENT_LIST_DIR}/src
         ${CMAKE_CURRENT_LIST_DIR}/../gmp/include
