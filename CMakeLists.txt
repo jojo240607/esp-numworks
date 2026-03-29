@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25)
-project(numworks2 C CXX)
+project(simulator-numworks C CXX)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 20)
 
@@ -23,7 +23,7 @@ add_subdirectory(escher)
 add_subdirectory(python)
 add_subdirectory(apps)
 
-add_executable(numworks2 main.cpp
+add_executable(simulator-numworks main.cpp
         hardware/device_def.c
         hardware/keyinput/gpio.c
         hardware/keyinput/serialconv.c
@@ -37,15 +37,15 @@ add_executable(numworks2 main.cpp
         hardware/sdl/screen/screen.c
         hardware/self_strcpy.c)
 
-target_link_options(numworks2 PRIVATE -T ${CMAKE_CURRENT_SOURCE_DIR}/ion/mingw64.ld)
+target_link_options(simulator-numworks PRIVATE -T ${CMAKE_CURRENT_SOURCE_DIR}/ion/mingw64.ld)
 
-target_include_directories(numworks2
+target_include_directories(simulator-numworks
         PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${CMAKE_CURRENT_LIST_DIR}/../ion/include
 )
 
-target_link_libraries(numworks2
+target_link_libraries(simulator-numworks
         omg
         kandinsky
         ion
