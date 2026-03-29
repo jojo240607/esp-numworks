@@ -82,7 +82,13 @@ graph TD
 
 - **紫色模块**：调试过程中使用的关键工具及解决典型问题的方法。
 
-  
+  ![](doc/run.jpg)
+
+​	
+
+
+
+<video src="doc/runsuccess.mp4" controls width="600"></video>
 
 - ## 🔄 移植流程
 
