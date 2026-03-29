@@ -30,8 +30,9 @@
 #include "apps/elements/app.h"
 #include "apps/finance/app.h"
 #include "apps/settings/app.h"
+#include "apps/rpn/app.h"
 
-#define APPS_CONTAINER_SNAPSHOT_COUNT 12
+#define APPS_CONTAINER_SNAPSHOT_COUNT 13
 
 #define APPS_CONTAINER_SNAPSHOT_LIST &m_snapshotCalculationAppSnapshot, \
                             &m_snapshotGraphAppSnapshot, \
@@ -44,7 +45,8 @@
                             &m_snapshotRegressionAppSnapshot, \
                             &m_snapshotElementsAppSnapshot, \
                             &m_snapshotFinanceAppSnapshot, \
-                            &m_snapshotSettingsAppSnapshot
+                            &m_snapshotSettingsAppSnapshot,             \
+                            &m_snapshotRpnAppSnapshot
 
 #define APPS_CONTAINER_SNAPSHOT_CONSTRUCTORS m_snapshotCalculationAppSnapshot(), \
                             m_snapshotGraphAppSnapshot(), \
@@ -57,7 +59,8 @@
                             m_snapshotRegressionAppSnapshot(), \
                             m_snapshotElementsAppSnapshot(), \
                             m_snapshotFinanceAppSnapshot(), \
-                            m_snapshotSettingsAppSnapshot()
+                            m_snapshotSettingsAppSnapshot(),                     \
+                            m_snapshotRpnAppSnapshot()
 
 #define APPS_CONTAINER_SNAPSHOT_DECLARATIONS \
                             Calculation::App::Snapshot m_snapshotCalculationAppSnapshot; \
@@ -71,7 +74,8 @@
                             Regression::App::Snapshot m_snapshotRegressionAppSnapshot; \
                             Elements::App::Snapshot m_snapshotElementsAppSnapshot; \
                             Finance::App::Snapshot m_snapshotFinanceAppSnapshot; \
-                            Settings::App::Snapshot m_snapshotSettingsAppSnapshot;
+                            Settings::App::Snapshot m_snapshotSettingsAppSnapshot;       \
+                            Rpn::App::Snapshot m_snapshotRpnAppSnapshot;
 
 #define APPS_CONTAINER_APPS_DECLARATION \
                             Calculation::App m_CalculationApp; \
@@ -85,7 +89,8 @@
                             Regression::App m_RegressionApp; \
                             Elements::App m_ElementsApp; \
                             Finance::App m_FinanceApp; \
-                            Settings::App m_SettingsApp;
+                            Settings::App m_SettingsApp;       \
+                            Rpn::App nRpnApp;
 
 class AppsContainer : public Escher::Container, Ion::Storage::StorageDelegate {
  public:

@@ -13023,8 +13023,22 @@ constexpr static char ptZrName[] = "Zircónio";
 constexpr static char itZrName[] = "Zirconio";
 constexpr static char deZrName[] = "Zirconium";
 constexpr static char esZrName[] = "Zirconio";
+constexpr static char enRpnApp[] = "Rpn";
+constexpr static char frRpnApp[] = "Rpn";
+constexpr static char nlRpnApp[] = "Rpn";
+constexpr static char ptRpnApp[] = "Rpn";
+constexpr static char itRpnApp[] = "Rpn";
+constexpr static char deRpnApp[] = "Rpn";
+constexpr static char esRpnApp[] = "Rpn";
+constexpr static char enRpnAppCapital[] = "RPN";
+constexpr static char frRpnAppCapital[] = "RPN";
+constexpr static char nlRpnAppCapital[] = "RPN";
+constexpr static char ptRpnAppCapital[] = "RPN";
+constexpr static char itRpnAppCapital[] = "RPN";
+constexpr static char deRpnAppCapital[] = "RPN";
+constexpr static char esRpnAppCapital[] = "RPN";
 
-constexpr static const char * messages[1673][7] = {
+constexpr static const char * messages[1675][7] = {
   {enAbout, frAbout, nlAbout, ptAbout, itAbout, deAbout, esAbout, },
   {enAbsoluteValue, frAbsoluteValue, nlAbsoluteValue, ptAbsoluteValue, itAbsoluteValue, deAbsoluteValue, esAbsoluteValue, },
   {enAcName, frAcName, nlAcName, ptAcName, itAcName, deAcName, esAcName, },
@@ -14698,6 +14712,8 @@ constexpr static const char * messages[1673][7] = {
   {enZeros, frZeros, nlZeros, ptZeros, itZeros, deZeros, esZeros, },
   {enZnName, frZnName, nlZnName, ptZnName, itZnName, deZnName, esZnName, },
   {enZrName, frZrName, nlZrName, ptZrName, itZrName, deZrName, esZrName, },
+  {enRpnApp, frRpnApp, nlRpnApp, ptRpnApp, itRpnApp, deRpnApp, esRpnApp, },
+  {enRpnAppCapital, frRpnAppCapital, nlRpnAppCapital, ptRpnAppCapital, itRpnAppCapital, deRpnAppCapital, esRpnAppCapital, },
 };
 
 

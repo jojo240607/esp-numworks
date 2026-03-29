@@ -24,6 +24,7 @@ constexpr static int DefaultAppsPermutation[] = {
   6,
   11,
   12,
+  13,
 };
 static_assert(DefaultAppsPermutation[0] == 0, "The Home apps must always be at index 0");
 
@@ -41,6 +42,7 @@ constexpr static int Variant1AppsPermutation[] = {
   10,
   11,
   12,
+  13,
 };
 static_assert(Variant1AppsPermutation[0] == 0, "The Home apps must always be at index 0");
 
@@ -58,6 +60,7 @@ constexpr static int Variant2AppsPermutation[] = {
   6,
   11,
   12,
+  13,
 };
 static_assert(Variant2AppsPermutation[0] == 0, "The Home apps must always be at index 0");
 
@@ -75,6 +78,7 @@ constexpr static int Variant3AppsPermutation[] = {
   10,
   3,
   12,
+  13,
 };
 static_assert(Variant3AppsPermutation[0] == 0, "The Home apps must always be at index 0");
 
@@ -92,6 +96,7 @@ constexpr static int Variant4AppsPermutation[] = {
   10,
   3,
   12,
+  13,
 };
 static_assert(Variant4AppsPermutation[0] == 0, "The Home apps must always be at index 0");
 

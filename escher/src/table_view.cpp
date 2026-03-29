@@ -145,6 +145,7 @@ KDCoordinate TableView::ContentView::width() const {
 
 void TableView::ContentView::reloadCellAtLocation(int col, int row,
                                                   bool forceSetFrame) {
+    printf("reloadCellAtLocation\n");
   HighlightCell* cell = cellAtLocation(col, row);
   if (cell) {
     m_dataSource->fillCellForLocation(cell, col, row);
@@ -176,12 +177,15 @@ int TableView::ContentView::typeIndexFromSubviewIndex(int index,
 }
 
 HighlightCell* TableView::ContentView::cellAtLocation(int col, int row) {
+    printf("cellAtLocation %d %d\n", col, row);
   int relativeColumn = col - columnsScrollingOffset();
   int relativeRow = row - rowsScrollingOffset();
   if (relativeRow < 0 || relativeRow >= numberOfDisplayableRows() ||
       relativeColumn < 0 || relativeColumn >= numberOfDisplayableColumns()) {
+      printf("cellAtLocation  null relativeRow %d relativeColumn %d\n", relativeRow, relativeColumn);
     return nullptr;
   }
+    printf("cellAtLocation ok\n");
   int type = m_dataSource->typeAtLocation(col, row);
   int index = relativeRow * numberOfDisplayableColumns() + relativeColumn;
   int typeIndex = typeIndexFromSubviewIndex(index, type);
@@ -231,6 +235,7 @@ HighlightCell* TableView::ContentView::reusableCellAtIndex(int index) {
 }
 
 void TableView::ContentView::layoutSubviews(bool force) {
+    printf("TableView layoutSubviews\n");
   /* The number of cells might change during the layouting so it needs to be
    * recomputed at each step of the for loop. */
   for (int index = 0; index < numberOfDisplayableCells(); index++) {
@@ -246,6 +251,7 @@ void TableView::ContentView::layoutSubviews(bool force) {
 }
 
 int TableView::ContentView::numberOfDisplayableRows() const {
+    printf("numberOfDisplayableRows\n");
   if (m_tableView->bounds().isEmpty()) {
     return 0;
   }
@@ -254,6 +260,7 @@ int TableView::ContentView::numberOfDisplayableRows() const {
       m_tableView->bounds().height() + invisibleHeight() - 1;
   int cumulatedRowOfLastVisiblePixel =
       m_dataSource->rowAfterCumulatedHeight(cumulatedHeightOfLastVisiblePixel);
+    printf("numberOfDisplayableRows numberOfRows %d cumulatedRowOfLastVisiblePixel %d\n", m_dataSource->numberOfRows(), cumulatedRowOfLastVisiblePixel + 1);
   return std::min(m_dataSource->numberOfRows(),
                   cumulatedRowOfLastVisiblePixel + 1) -
          rowOffset;

@@ -45,6 +45,7 @@ class TableView : public ScrollView {
   }
   void scrollToBottom();
   HighlightCell* cellAtLocation(int col, int row) {
+      printf("TableView::cellAtLocation\n");
     return m_contentView.cellAtLocation(col, row);
   }
   void reloadCellAtLocation(int col, int row, bool forceSetFrame = false) {
@@ -139,6 +140,7 @@ class TableView : public ScrollView {
     int numberOfSubviews() const override { return numberOfDisplayableCells(); }
     View* subviewAtIndex(int index) override;
     HighlightCell* cellAtRelativeLocation(int relativeColumn, int relativeRow) {
+        printf("cellAtRelativeLocation\n");
       return cellAtLocation(relativeColumn + columnsScrollingOffset(),
                             relativeRow + rowsScrollingOffset());
     }

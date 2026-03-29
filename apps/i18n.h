@@ -2341,6 +2341,8 @@ enum class Message : uint16_t {
   Zeros,
   ZnName,
   ZrName,
+  RpnApp,
+  RpnAppCapital,
 };
 
 enum class Language : uint8_t {

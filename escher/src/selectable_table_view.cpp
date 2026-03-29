@@ -21,6 +21,7 @@ SelectableTableView::SelectableTableView(
 }
 
 HighlightCell* SelectableTableView::selectedCell() {
+    printf("SelectableTableView selectedCell %d\n", selectedRow());
   return cellAtLocation(selectedColumn(), selectedRow());
 }
 
@@ -261,6 +262,7 @@ void SelectableTableView::reloadData(bool setFirstResponder,
   }
   int col = selectedColumn();
   int row = selectedRow();
+    printf("reloadData col %d row %d\n", col, row);
   KDPoint offset = offsetToRestoreAfterReload();
   deselectTable(true);
   layoutSubviews();

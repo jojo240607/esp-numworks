@@ -14,6 +14,13 @@ set(MODULE_SOURCES
         backlight_dimming_timer.cpp
         battery_timer.cpp
         battery_view.cpp
+        rpn/app.cpp
+        rpn/rpn_icon.cpp
+        rpn/rpn_content_view.cpp
+        rpn/rpn_stack.cpp
+        rpn/rpn_stack_controller.cpp
+        rpn/rpn_input_controller.cpp
+        rpn/rpn_toolbox.cpp
         calculation/additional_results/additional_results_controller.cpp
         calculation/additional_results/additional_results_type.cpp
         calculation/additional_results/chained_expressions_list_controller.cpp

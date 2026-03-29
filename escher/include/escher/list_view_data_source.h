@@ -36,6 +36,7 @@ class ListViewDataSource : public TableViewDataSource {
   int numberOfColumns() const override final { return 1; }
   void fillCellForLocation(HighlightCell* cell, int column,
                            int row) override final {
+      printf("ListViewDataSource fillCellForLocation\n");
     assert(column == 0);
     if (cell->isVisible()) {  // Frame is already set to zero if hidden
       fillCellForRow(cell, row);

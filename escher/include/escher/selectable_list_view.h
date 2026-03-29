@@ -25,7 +25,9 @@ class SelectableListView : public SelectableTableView {
   void reloadSelectedCell(bool forceSetFrame = false) {
     reloadCellAtLocation(0, selectedRow(), forceSetFrame);
   }
-  HighlightCell* cell(int row) { return cellAtLocation(0, row); }
+  HighlightCell* cell(int row) {
+      printf("selectable list view cell\n");
+      return cellAtLocation(0, row); }
   void setDelegate(SelectableListViewDelegate* delegate) {
     m_delegate = delegate;
   }
